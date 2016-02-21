@@ -1,0 +1,60 @@
+# Terminal
+#export TERM="screen-256color"
+export TERM=xterm-256color
+
+# shell
+export SHELL=/usr/local/bin/zsh
+
+# brew CASK
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# paths
+export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/.tmuxifier/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
+
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/tabeadavid/.docker/machine/machines/klb"
+export DOCKER_MACHINE_NAME="klb"
+
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+fpath=($HOME/dotfiles/zsh/zsh-completions/src $fpath)
+
+export MANPATH=/usr/local/share/man:$MANPATH
+
+# disable stupid ._ and dsstore files
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
+export COPYFILE_DISABLE=true
+
+# editor
+export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+export VISUAL="/Applications/MacVim.app/Contents/MacOS/Vim"
+export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+
+# node.js
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+
+# disable auto titling fixes tmux window
+export DISABLE_AUTO_TITLE=true
+
+# tmuxifier
+export TMUXIFIER_LAYOUT_PATH="$HOME/dotfiles/tmux"
+
+# grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;32'
+
+## pager
+export PAGER="less"
+export LESS="-R"
+
+export LANG=en_US.UTF-8
+export LC_CTYPE=$LANG
+export LC_ALL=en_US.UTF-8
+
+export RBENV_VERSION="2.2.2"
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_80`

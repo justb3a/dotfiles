@@ -1,0 +1,112 @@
+# always use macvim but for 'vim'
+alias vim=$EDITOR
+alias vi=$EDITOR
+alias v=$EDITOR
+alias vd='vimdiff'
+alias diff='vimdiff'
+alias vf='vifm'
+
+# Easier navigation: .., ..., ~ and -
+alias ~="cd ~"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# often used folder shortcuts
+alias drop='cd ~/Dropbox && ls -al'
+alias dot='cd ~/Dotfiles && ls -al'
+alias web='cd ~/Projects && ls -al'
+alias wire='cd ~/.composer/vendor/wireshell/wireshell'
+
+# system && random usefull stuff
+alias e='exit'
+alias md='mkdir -p'
+alias rd='rmdir'
+alias d='dirs -v | head -10'
+alias cl='clear'
+alias kdf='killall -kill Finder | killall -kill Dock'
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias dnsflush='sudo dscacheutil -flushcache'
+alias sudo='sudo '
+alias ws='wireshell'
+
+# ruby
+alias r='bundle exec ruby'
+
+# gnu coreutils
+alias ls="gls -al --color=auto"
+alias l='gls -al --color=auto'
+
+# Gitty gitgit
+alias g="git"
+alias gf="git-flow"
+alias gst="git status"
+alias gpl='git pull origin $(current_branch)'
+alias gps='git push origin $(current_branch)'
+alias grm='git rm $(git ls-files --deleted)'
+alias gsmu='git submodule init && git submodule update'
+alias gsvn='git checkout master && git svn fetch && git merge dev && git svn rebase && git svn dcommit'
+alias gmo='$EDITOR $(git ls-files -m)'
+alias gba='git branch -u origin/$(current_branch)'
+
+# brew
+alias b='brew'
+
+# aliases for apache, nginx, php and mysql
+alias apachestart='sudo apachectl start'
+alias apachestop='sudo apachectl stop'
+alias nginxstart='sudo nginx'
+alias nginxstop='sudo nginx -s stop'
+alias mysqlstart='mysql.server start'
+alias mysqlstop='mysql.server stop'
+alias deva='apachestart && mysqlstart'
+alias devsa='apachestop && mysqlstop'
+alias devra='devsa && deva'
+
+# tmux
+alias t='tmux -u -2'
+alias ta='tmux attach'
+
+# all in one homebrew, gem update commands
+alias brewup='brew update && brew upgrade && brew cleanup && brew linkapps'
+alias gemup='gem update --system && gem update && gem cleanup'
+alias npmup='npm -g cache clean && npm -g update && npm-check-updates -u && npm install'
+alias sysup='sudo softwareupdate -i -a'
+alias upall='sysup && brewup && gemup && npmup'
+
+# easy hosts / apache / php editing
+alias hosts='sudo vim /etc/hosts'
+alias vhosts='sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf'
+alias nginxconf='cd /usr/local/etc/nginx/sites-available'
+alias httpdf='vim /usr/local/etc/apache2/2.4/httpd.conf'
+alias errorlog='tail -f /var/log/apache2/error.log'
+alias mycnf='sudo vim /usr/local/Cellar/mysql/5.6.17/my.cnf'
+alias salias='source ~/dotfiles/aliases'
+
+# vagrant stuff
+alias vu='vagrant up'
+alias vr='vagrant reload'
+alias vp='vagrant provision'
+alias vh='vagrant halt'
+alias vs='vagrant status'
+alias vd='vagrant destroy'
+
+# imagemagick downsampling shortcuts (c&p retina folder, run, done!)
+# http://www.imagemagick.org/Usage/filter/nicolas/#downsample
+alias png25='find . -name "*.png" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 25% -colorspace sRGB'
+alias jpg25='find . -name "*.jpg" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 25% -colorspace sRGB'
+alias png50='find . -name "*.png" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 50% -colorspace sRGB'
+alias jpg50='find . -name "*.jpg" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 50% -colorspace sRGB'
+
+# capistrano
+alias cap='bundle exec cap'
+alias cdd='bundle exec cap develop deploy'
+alias csd='bundle exec cap staging deploy'
+alias cpd='bundle exec cap production deploy'
+alias cpdp='bundle exec cap production deploy:pending'
+alias csdbi='bundle exec cap staging db:import'
+alias csdbe='bundle exec cap staging db:export'
+alias csdbd='bundle exec cap staging db:fetch_dump'
+
+alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20"

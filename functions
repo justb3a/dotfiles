@@ -1,0 +1,191 @@
+# a small function for finding stuff
+function fname() {
+  find . -iname "*$@*";
+}
+
+function take() {
+  mkdir -p $1
+  cd $1
+}
+
+# find process by name and kill them
+function grepkill() {
+  ps -axf | grep -v grep | grep "$@" | awk '{print $2}' | xargs kill
+}
+
+# open changed files in git index
+function gch () {
+  vim `git status | grep modified | awk '{print $3}'`
+}
+
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+# creates an archive from given directory
+mktar() { tar cvf  "${1%%/}.tar" "${1%%/}"; }
+mktgz() { tar cvzf "${1%%/}.tgz" "${1%%/}"; }
+mktbz() { tar cvjf "${1%%/}.tbz" "${1%%/}"; }
+mkzip() { zip -r   "${1%%/}"     "${1%%/}"; }
+
+# easy extract
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       rar x $1       ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tbz)       tar xvjf $1    ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+# stop php, detect running version
+function phpstop() {
+  if [ -z "$1" ]; then
+    for i in {53,54,55,56,70}; do
+      php=$(brew services list | grep php$i)
+      if [ "${php/started}" != "$php" ] ; then
+        brew services stop php$i
+      fi
+    done
+  else
+    brew services stop $1
+  fi
+}
+
+# link another php version
+function bphp() {
+  # if no parameters given
+  if [ -z "$1" ]; then
+    version=php70
+  else
+    version=$1
+  fi
+
+  for i in {53,54,55,56,70}; do
+    brew unlink php$i
+  done
+
+  brew link $version
+}
+
+# start all processes
+function dev() {
+  # if no parameters given
+  if [ -z "$1" ]; then
+    version=php70
+  else
+    version=$1
+  fi
+
+  brew services start $version
+  nginxstart
+  mysqlstart
+}
+
+# stop all processes
+function devs() {
+  phpstop $1
+  nginxstop
+  mysqlstop
+}
+
+# restart all processes
+function devr() {
+  version=$(brew services list | grep started | awk {'print $1'})
+  devs $version
+
+  # if no parameters given
+  if [ -z "$1" ]; then
+    dev $version
+  else
+    dev $1
+  fi
+}
+
+# change php version, restart processes
+function phpv() {
+  if [ -z "$1" ]; then
+    version=php70
+  else
+    version=php$1
+  fi
+
+  bphp $version
+
+  # no param - restart nginx
+  if [ -z "$2" ]; then
+    devr php$1
+  else
+    # include correct php module, restart apache
+    vim /usr/local/etc/apache2/2.4/httpd.conf
+    devra
+  fi
+}
+
+# edit current php ini
+function phpini() {
+  php -i | grep php.ini
+  phpinipath=$(php -i | grep \/php.ini | awk '{print $5}')
+  vim $phpinipath
+}
+
+# function devu() {
+#    ulimit -n 4096
+# }
+
+# docker
+function dockerstart() {
+  if [ -z "$1" ]; then
+    # if no parameters given
+    docker-machine start klb
+    eval "$(docker-machine env klb)"
+  else
+    docker-machine start $1
+    eval "$(docker-machine env $1)"
+  fi
+
+  docker-compose up -d
+  bin/console server:start
+}
+
+function dockerstop() {
+  bin/console server:stop
+  docker-compose stop
+
+  if [ -z "$1" ]; then
+    # if no parameters given
+    docker-machine stop klb
+  else
+    docker-machine stop $1
+  fi
+}
+
+function dre() {
+  if [ -z "$1" ]; then
+    # if no parameters given
+    dockerstop
+    dockerstart
+  else
+    dockerstop $1
+    dockerstart $1
+  fi
+}
+
+function dmfixedip() {
+  echo "ifconfig eth1 $2 netmask 255.255.255.0 broadcast 192.168.99.255 up" | docker-machine ssh $1 sudo tee /var/lib/boot2docker/bootsync.sh > /dev/null
+}

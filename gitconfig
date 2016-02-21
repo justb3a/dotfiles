@@ -1,0 +1,91 @@
+[include]
+  path = ~/.gitconfig.user
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  autocrlf = input
+  eol = lf
+  pager = less -FXRS -x2
+  fileMode = false
+
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[alias]
+	st = status
+	a = add -A
+	cm = commit -m
+	co = checkout
+	br = branch -a
+	ps = push
+	pl = pull
+	mg = merge --no-ff
+	mgt = mergetool
+	c = commit
+	r = rebase
+	fac = push origin refac
+	rs = reset
+	rss = reset --soft HEAD~1
+	rsh = reset HEAD --hard
+	unst = reset HEAD
+	s = stash
+	sp = stash pop
+	mgr = merge -s recursive -X theirs
+	su = submodule update
+	df = diff --color
+	dfs = diff --staged
+	dh = diff --color HEAD@{1}
+
+	fi = flow init
+	ffs = flow feature start
+	fff = flow feature finish
+
+	url = config --get remote.origin.url
+  seturl = remote set-url origin
+
+  unst = reset HEAD
+  hist = log --pretty=format:\"%h | %ad | %an | %s%d \" --graph --date=local
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lo = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+  type = cat-file -t
+  dump = cat-file -p
+
+[diff]
+  tool = vimdiff
+  guitool = vimdiff
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[http]
+	postBuffer = 157286400
+[user]
+	name = Tabea David
+	email = info@justonestep.de
+[github]
+	user = tabea.david
