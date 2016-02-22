@@ -28,7 +28,9 @@ alias cl='clear'
 alias kdf='killall -kill Finder | killall -kill Dock'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias dnsflush='sudo dscacheutil -flushcache'
+alias psa="ps aux"
 alias sudo='sudo '
+alias dr='drush'
 alias ws='wireshell'
 
 # ruby
@@ -60,6 +62,7 @@ alias nginxstart='sudo nginx'
 alias nginxstop='sudo nginx -s stop'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
+
 alias deva='apachestart && mysqlstart'
 alias devsa='apachestop && mysqlstop'
 alias devra='devsa && deva'

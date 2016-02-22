@@ -38,19 +38,13 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-" Bundle 'Rykka/riv.vim'
 Bundle 'vim-scripts/Unicode-RST-Tables'
-" Bundle 'justonestep/vim-rename'
-" Bundle 'justonestep/vim-remove'
 Bundle 'christoomey/vim-tmux-navigator'
 
 " Completions
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-" Bundle 'vim-scripts/AutoComplPop'
-" Bundle 'ervandew/supertab'
-" Bundle 'SirVer/ultisnips'
+Bundle 'justonestep/vim-snippets'
 
 " Additional syntaxes
 Bundle 'beyondwords/vim-twig'
@@ -65,10 +59,11 @@ Bundle 'tpope/vim-markdown'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'joshtronic/php.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
-" Bundle 'spf13/PIV'
-"
+
+
 " Color themes -- one to rule them all!
-Bundle 'justonestep/jellybeans.vim'
+" Bundle 'justonestep/vim-jellybeans'
+Bundle 'altercation/vim-colors-solarized'
 
 " and reset auto-filetype after loading all bundles
 filetype plugin indent on
@@ -134,10 +129,11 @@ if &term =~ '^screen'
   " map <Esc>[B <Down>
 endif
 
-
+colorscheme solarized
+let g:solarized_termtrans = 1
 set t_Co=256
 set background=dark
-color jellybeans
+" color jellybeans
 
 " minor optical fix vor vim-gitgutter / syntastic / vim-signature
 highlight SignColumn ctermbg=8
@@ -442,10 +438,10 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
 
-" airline config
-let g:airline_theme = 'solarized'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+" " airline config
+" let g:airline_theme = 'solarized'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
 
 
 " Mac Dash.app integration
@@ -509,62 +505,45 @@ au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 au FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
-" NEOCOMPLETE
+" Neocomplete
+"======================================================================
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#auto_completion_start_length = 3
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" <CR>: close popup and save indent.
+let g:neocomplete#force_overwrite_completefunc = 1
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 inoremap <silent> <CR> <C-r>=<SID>neocomplete_cr_function()<CR>
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 function! s:neocomplete_cr_function()
-  " For no inserting <CR> key.
   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
   let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-  " let g:neocomplete#sources#omni#input_patterns.javascript = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
 endif
 
-" NEOSNIPPET
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" Neosnippet config
+"======================================================================
+let g:neosnippet#disable_runtime_snippets = { "_": 1 }
+let g:neosnippet#scope_aliases = {}
+let g:neosnippet#scope_aliases['scss'] = 'scss,css'
+let g:neosnippet#scope_aliases['php'] = 'php,html'
+let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" Neosnippet - SuperTab like snippets behavior.
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"       \ "\<Plug>(neosnippet_expand_or_jump)"
+"       \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" " riv ignore tab in insert mode
-" let g:riv_ignored_nmaps = '<Tab>,<S-Tab>'
-" " let g:riv_ignored_nmaps = '<S-up>,<S-down>'
-" " let g:riv_ignored_vmaps = '<S-up>,<S-down>'
-" " let g:riv_fold_auto_update = 0
-" " let g:riv_fold_level = 1
-" let g:riv_disable_folding = 1
-" " let g:riv_auto_fold_force = 0
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
