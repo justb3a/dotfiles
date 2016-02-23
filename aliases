@@ -113,3 +113,4 @@ alias csdbe='bundle exec cap staging db:export'
 alias csdbd='bundle exec cap staging db:fetch_dump'
 
 alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20"
+alias weather="curl wttr.in"
