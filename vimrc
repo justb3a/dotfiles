@@ -62,8 +62,8 @@ Bundle 'evanmiller/nginx-vim-syntax'
 
 
 " Color themes -- one to rule them all!
-" Bundle 'justonestep/vim-jellybeans'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'justonestep/vim-jellybeans'
+" Bundle 'altercation/vim-colors-solarized'
 
 " and reset auto-filetype after loading all bundles
 filetype plugin indent on
@@ -76,6 +76,7 @@ set showcmd        " show me what im doing. helps alot
 set showmode       " show active mode
 set hidden         " allows for switching buffers without writing
 set relativenumber " relative line numbers are mothereffin awesome -- see how far your commands will go
+set number
 
 set nowrap         " dont wrap lines around
 set sidescroll=10  " smoother side-scrolling
@@ -83,7 +84,6 @@ set sidescrolloff=5
 set scrolljump=5   " Lines to scroll when cursor leaves screen
 set scrolloff=3    " Minimum lines to keep above and below cursor
 set ttyscroll=3    " faster terminal scrolling
-
 
 set lazyredraw " Don't redraw while executing macros
 
@@ -129,11 +129,11 @@ if &term =~ '^screen'
   " map <Esc>[B <Down>
 endif
 
-colorscheme solarized
+" colorscheme solarized
 let g:solarized_termtrans = 1
 set t_Co=256
 set background=dark
-" color jellybeans
+color jellybeans
 
 " minor optical fix vor vim-gitgutter / syntastic / vim-signature
 highlight SignColumn ctermbg=8
@@ -436,12 +436,6 @@ let g:ctrlp_max_height = 12
 " Gist filetype-detection
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
-
-
-" " airline config
-" let g:airline_theme = 'solarized'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '◀'
 
 
 " Mac Dash.app integration
