@@ -55,7 +55,8 @@ Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
+" Bundle 'tpope/vim-markdown'
+Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'joshtronic/php.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
@@ -541,3 +542,6 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
       \: "\<TAB>"
+
+" vim markdown table
+let g:table_mode_corner="|"

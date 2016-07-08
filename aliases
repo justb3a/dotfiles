@@ -52,8 +52,10 @@ alias gsvn='git checkout master && git svn fetch && git merge dev && git svn reb
 alias gmo='$EDITOR $(git ls-files -m)'
 alias gba='git branch -u origin/$(current_branch)'
 
-# brew
+# brew, npm
 alias b='brew'
+alias nom='npm'
+alias npmre='rm -rf node_modules && npm cache clean && npm install'
 
 # aliases for apache, nginx, php and mysql
 alias apachestart='sudo apachectl start'

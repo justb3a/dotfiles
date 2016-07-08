@@ -69,6 +69,7 @@ var fox = slate.operation("focus", { "app": "Firefox" });
 var vim = slate.operation("focus", { "app": "MacVim" });
 var sequelpro = slate.operation("focus", { "app": "Sequel Pro" });
 var pass = slate.operation("focus", { "app": "1Password" });
+var sketch = slate.operation("focus", { "app": "Sketch" });
 
 
 var fullscreen = slate.operation('move', {
@@ -101,7 +102,7 @@ var throwNext = function(win) {
   }
   var winRect = win.rect();
   var screen = win.screen().visibleRect();
- 
+
   var newX = (winRect.x - screen.x) / screen.width + '*screenSizeX+screenOriginX';
   var newY = (winRect.y - screen.y) / screen.height + '*screenSizeY+screenOriginY';
   var newWidth = winRect.width / screen.width + '*screenSizeX';
@@ -122,7 +123,7 @@ var throwPrev = function(win) {
   }
   var winRect = win.rect();
   var screen = win.screen().visibleRect();
- 
+
   var newX = (winRect.x - screen.x) / screen.width + '*screenSizeX+screenOriginX';
   var newY = (winRect.y - screen.y) / screen.height + '*screenSizeY+screenOriginY';
   var newWidth = winRect.width / screen.width + '*screenSizeX';
@@ -209,6 +210,7 @@ slate.bind("c" + hyper, chrome, false);
 slate.bind("d" + hyper, dash, false);
 slate.bind('f' + hyper, fork, false);
 slate.bind("i" + hyper, itunes, false);
+slate.bind("k" + hyper, sketch, false);
 slate.bind("m" + hyper, mail, false);
 slate.bind("p" + hyper, pass, false);
 slate.bind("q" + hyper, sequelpro, false);
