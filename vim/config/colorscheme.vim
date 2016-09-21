@@ -12,5 +12,4 @@ set cpoptions+=$    " Add a $ to the end of a selection
 set cpoptions+=J    " 2 spaces after a sentence for easier text manupulation
 
 set background=dark
-" set t_Co=256
-color jellybeans
+color smarties
