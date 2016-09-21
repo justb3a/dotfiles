@@ -1,0 +1,139 @@
+snippet v
+	var ${1:sth} = ${2:value};
+
+snippet c
+	const ${1:sth} = ${2:value};
+
+snippet l
+	let ${1:sth} = ${2:value};
+
+snippet for
+	for (var ${1:i} = 0; $1 <= ${2:var}; $1 += 1) {
+		${3}
+	}
+
+snippet fun
+	const ${1:functionname} = (${2:argument}) => {
+		${3}
+	};
+
+snippet func
+	function ${1:funcname} (${2}) {
+		${3}
+	}
+
+snippet =>
+	(${1}) => {
+		${2}
+	}
+
+snippet mod
+	const ${1:module} = (${2:args}) => {
+	};
+
+	export default ${1};
+
+snippet req
+	var ${1:var} = require('./modules/${2:modulename}');
+
+snippet imp
+	import ${1:module} from './modules/${2:modulename}';
+
+snippet ife
+	if (${1:condition}) {
+		${2}
+	} else {
+		${3}
+	}
+
+snippet if
+	if (${1:condition}) {
+		${2}
+	}
+
+snippet ifl
+	if ($${1:('.selector')}.length) {
+		${2}
+	}
+
+snippet switch
+	switch (${1:expression}) {
+		case '${3:case}':
+			${4}
+			break;
+		default:
+			${2}
+			break;
+	}
+
+snippet case
+	case '${1:case}':
+		${2}
+		break;
+
+snippet cl
+	console.log(${1:data});
+
+snippet cw
+	console.warn(${1:data});
+
+snippet ce
+	console.error(${1:data});
+
+snippet ct
+	console.table(${1:data});
+
+snippet ca
+	console.assert(${1:assertion}, '${2:message}'});
+
+snippet $
+	const $${1:varname} = $('${2:.selector}');
+
+snippet find
+	$${1:('.selector')}.find('.${2:selector}');
+
+snippet parent
+	$${1:('.selector')}.parent(${2:'.selector'});
+
+snippet children
+	$${1:('.selector')}.children(${2:'.selector'});
+
+snippet on
+	$${1:('.selector')}.on('${2:click}', function ${2} (e) {
+		e.preventDefault();
+		${3}
+	});
+
+snippet each
+	$${1:('.selector')}.each(function (i) {
+		var $item = $(this);
+		${2}
+	});
+
+snippet append
+	$${1:('.selector')}.append($${2:item});
+
+snippet html
+	$${1:('.selector')}.html('${2:htmlstring}');
+
+snippet text
+	$${1:('.selector')}.text('${2:text}');
+
+snippet acl
+	$${1:('.selector')}.addClass('${2:class}');
+
+snippet rcl
+	$${1:('.selector')}.removeClass('${2:class}');
+
+snippet tcl
+	$${1:('.selector')}.toggleClass('${2:class}');
+
+snippet ajax
+	$.ajax({
+		type: '${1:GET}',
+		url: ${2:window.location.href},
+		data: ${3:$form.serialize()},
+		success: function (response) {
+			${4}
+		}
+	});
