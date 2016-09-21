@@ -3,24 +3,26 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = /Applications/MacVim.app/Contents/MacOS/Vim
   autocrlf = input
   eol = lf
-  pager = less -FXRS -x2
-  fileMode = false
+  pager = diff-so-fancy | less --tabs=2 -RFX
 
 [color]
   ui = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
   whitespace = red reverse
+
 [color "status"]
   added = yellow
   changed = green
@@ -29,6 +31,7 @@
 [alias]
 	st = status
 	a = add -A
+  cl = clean -f -d
 	cm = commit -m
 	co = checkout
 	br = branch -a
@@ -52,8 +55,6 @@
 	dh = diff --color HEAD@{1}
 
 	fi = flow init
-	ffs = flow feature start
-	fff = flow feature finish
 
 	url = config --get remote.origin.url
   seturl = remote set-url origin
@@ -69,6 +70,7 @@
 [diff]
   tool = vimdiff
   guitool = vimdiff
+  compactionHeuristic = true
 
 [mergetool]
   prompt = false
@@ -76,16 +78,9 @@
 
 [push]
 	default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
 [http]
 	postBuffer = 157286400
-[user]
-	name = Tabea David
-	email = info@justonestep.de
-[github]
-	user = tabea.david
+
+[interactive]
+  diffFilter = diff-highlight
