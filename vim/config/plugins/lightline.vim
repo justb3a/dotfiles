@@ -2,7 +2,7 @@
 "======================================================================
 
 let g:lightline = {
-  \ 'colorscheme': 'jellybeans',
+  \ 'colorscheme': 'powerline',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
   \   'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -20,11 +20,12 @@ let g:lightline = {
   \ }
 
 function! LightlineModified()
-  return &ft =~ 'help' ? '' : &modified ? 'ɱ' : &modifiable ? '' : 'ɯ'
+  return &ft =~ 'help' ? '' : &modified ? '*' : &modifiable ? '' : '~ɯ'
+
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'help' && &readonly ? 'ɹ' : ''
+  return &ft !~? 'help' && &readonly ? '~ɹ' : ''
 endfunction
 
 function! LightlineFilename()
@@ -37,7 +38,7 @@ endfunction
 function! LightlineFugitive()
   if exists("*fugitive#head")
     let _ = fugitive#head()
-    return strlen(_) ? 'ɓ '._ : ''
+    return strlen(_) ? '∴ '._ : ''
   endif
   return ''
 endfunction
