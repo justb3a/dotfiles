@@ -28,7 +28,7 @@ I use a lot of plugins and custom syntaxes. They are all
 installed via vundle - for a list of the plugins see vimrc.
 
 To get things to work properly you first have to install
-vundle - see the instructions here: [vundle](https://github.com/gmarik/vundle)
+dein.vim - see the instructions here: [dein.vim](https://github.com/Shougo/dein.vim)
 
 add in /etc/shells `/usr/local/bin/zsh`
 and run in vim `:BundleInstall`
