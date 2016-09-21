@@ -1,0 +1,371 @@
+# scss / compass snippets
+#########################
+
+snippet imp
+	@import "${1}";
+
+snippet ext
+	@extend %${1};
+
+snippet in
+	@include ${1:mixin};
+
+snippet inc
+	@include ${1:mixin}(${2:parameters});
+
+snippet incc
+	@include ${1:mixin}(${2:parameters}) {
+		${3:@content}
+	}
+
+snippet mix
+	@mixin ${1:mixin}(${2:parameters}) {
+		${3}
+	}
+
+snippet fun
+	@function ${1:function}(${2:parameters}) {
+		${3}
+	}
+
+snippet fe
+	@each $${1:item} in $${2:variable} {
+		${3}
+	}
+
+snippet mq
+	@include mediaquery(${1:s}) {
+		${2}
+	}
+
+
+# css3 stuff and using compass mixins
+######################################
+
+snippet rad
+	border-radius: ${1:$base-unit};
+
+snippet bsh
+	box-shadow: 0 0 ${1:$base-unit} 0 $color-shadow;
+
+snippet tsh
+	text-shadow: 0 0 ${1:$base-unit / 4} ${2:$color-default};
+
+snippet tra
+	transition: all ${1:0.4}s ease-in-out;
+
+snippet trf
+	transform: ${1:scale}(${2:1});
+
+snippet grd
+	background-image: linear-gradient(to bottom, ${1:$color-one}, ${2:$color-two});
+
+
+# custom css/scss snippets
+##########################
+
+snippet bga
+	background-attachment: ${1:scroll/fixed};
+
+snippet bgc
+	background-color: ${1:$color-background-default};
+
+snippet bgt
+	background-color: transparent;
+
+snippet bgi
+	background-image: url('../img/${1}.png');
+
+snippet bgp
+	background-position: ${1:0}px ${2:0}px;
+
+snippet bgr
+	background-repeat: ${1:repeat/repeat-x/repeat-y/no-repeat};
+
+snippet bgf
+	background: ${1:$color-main} url('../img/${2:bg.png}') ${3:no-repeat} ${4:scroll/fixed} ${5:top left};
+
+snippet bgs
+	background-size: cover;
+
+snippet bg
+	background: ${1:$color-background};
+
+snippet bd
+	border: ${1:1px} ${2:solid} ${3:$color-main};
+
+snippet bdt
+	border-top: ${1:1px} ${2:solid} ${3:$color-main};
+
+snippet bdr
+	border-right: ${1:1px} ${2:solid} ${3:$color-main};
+
+snippet bdb
+	border-bottom: ${1:1px} ${2:solid} ${3:$color-main};
+
+snippet bdl
+	border-left: ${1:1px} ${2:solid} ${3:$color-main};
+
+snippet bdc
+	border-color: ${1:$color-border};
+
+snippet ol
+	outline: ${1:0};
+
+snippet ps
+	@include ${1:absolute}(${2:top 0 left 0});
+
+snippet psa
+	position: absolute;
+
+snippet psr
+	position: relative;
+
+snippet pss
+	position: static;
+
+snippet psf
+	position: fixed;
+
+snippet t
+	top: ${1};
+
+snippet r
+	right: ${1};
+
+snippet b
+	bottom: ${1};
+
+snippet l
+	left: ${1};
+
+snippet w
+	width: ${1};
+
+snippet h
+	height: ${1};
+
+snippet db
+	display: block;
+
+snippet dn
+	display: none;
+
+snippet di
+	display: inline;
+
+snippet dt
+	display: table;
+
+snippet dtc
+	display: table-cell;
+
+snippet dib
+	display: inline-block;
+
+snippet dtt
+	display: ${1:table/inline-table/table-row-group/table-header-group/table-footer-group/table-row/table-column-group/table-column/table-cell/table-caption};
+
+snippet c
+	color: ${1:$color-main};
+
+snippet rgba
+	rgba(${1:$color-main}, ${2:0.5})
+
+snippet cf
+	@extend %clearfix;
+
+snippet cl
+	clear: ${1:left/right/both/none};
+
+snippet clb
+	clear: both;
+
+snippet cll
+	clear: left;
+
+snippet clr
+	clear: right;
+
+snippet fl
+	float: ${1:left/right/none};
+
+snippet fll
+	float: left;
+
+snippet flr
+	float: right;
+
+snippet fln
+	float: none;
+
+snippet ov
+	overflow: ${1:visible/hidden/scroll/auto};
+
+snippet ovh
+	overflow: hidden;
+
+snippet ova
+	overflow: auto;
+
+snippet ovx
+	overflow-x: hidden;
+
+snippet ovy
+	overflow-y: hidden;
+
+snippet cr
+	cursor: ${1:default/auto/crosshair/pointer/move/*-resize/text/wait/help};
+
+snippet crp
+	cursor: pointer;
+
+snippet crd
+	cursor: default;
+
+snippet ff
+	font-family: $font-family${1:-special};
+
+snippet fs
+	@include font-size(${1:h1});
+
+snippet fsi
+	font-style: italic;
+
+snippet fso
+	font-style: oblique;
+
+snippet fsn
+	font-style: normal;
+
+snippet fv
+	font-variant: ${1:normal/small-caps};
+
+snippet fwb
+	font-weight: bold;
+
+snippet fwn
+	font-weight: normal;
+
+snippet font
+	font: ${1:normal/italic} ${2:normal/bold} ${3:#{$font-size}}/${4:#{$font-line-height}} ${5:Arial}, ${6:sans-serif};
+
+snippet lsp
+	letter-spacing: ${1:1}px;
+
+snippet lh
+	line-height: ${1:$font-line-height};
+
+snippet ta
+	text-align: ${1:left/right/center/justify};
+
+snippet tac
+	text-align: center;
+
+snippet tal
+	text-align: left;
+
+snippet tar
+	text-align: right;
+
+snippet taj
+	text-align: justify;
+
+snippet tdu
+	text-decoration: underline;
+
+snippet tdn
+	text-decoration: none;
+
+snippet ti
+	text-indent: ${1:-9999px};
+
+snippet ttu
+	text-transform: uppercase;
+
+snippet ttl
+	text-transform: lowercase;
+
+snippet ttn
+	text-transform: none;
+
+snippet ls
+	list-style: ${1:none/disc/circle/square/decimal/zero};
+
+snippet lsn
+	list-style: none;
+
+snippet lsd
+	list-style: disc;
+
+snippet m
+	margin: ${1:$base-unit};
+
+snippet mt
+	margin-top: ${1:$base-unit};
+
+snippet mr
+	margin-right: ${1:$base-unit};
+
+snippet mb
+	margin-bottom: ${1:$base-unit};
+
+snippet ml
+	margin-left: ${1:$base-unit};
+
+snippet mm
+	margin: ${1:0} ${2:0} ${3:0};
+
+snippet p
+	padding: ${1:$base-unit};
+
+snippet pt
+	padding-top: ${1:$base-unit};
+
+snippet pr
+	padding-right: ${1:$base-unit};
+
+snippet pb
+	padding-bottom: ${1:$base-unit};
+
+snippet pl
+	padding-left: ${1:$base-unit};
+
+snippet pp
+	padding: ${1:0} ${2:0} ${3:0} ${4:0};
+
+snippet mah
+	max-height: ${1:100%};
+
+snippet maw
+	max-width: ${1:100%};
+
+snippet mih
+	min-height: ${1:100%};
+
+snippet miw
+	min-width: ${1:100%};
+
+snippet !
+	${1:!important}
+
+snippet va
+	vertical-align: ${1:baseline/sub/super/top/text-top/middle/bottom/text-bottom/length/%};
+
+snippet vat
+	vertical-align: top;
+
+snippet vam
+	vertical-align: middle;
+
+snippet vab
+	vertical-align: bottom;
+
+snippet vis
+	visibility: ${1:visible/hidden/collapse};
+
+snippet wsp
+	white-space: ${1:normal/pre/nowrap};
+
+snippet z
+	z-index: ${1:10};

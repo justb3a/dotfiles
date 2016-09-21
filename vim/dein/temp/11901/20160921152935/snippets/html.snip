@@ -1,0 +1,271 @@
+# HEAD stuff
+snippet doc
+	<!doctype html>
+
+snippet //
+	<!-- ${1:your comment here} -->
+
+snippet body
+	<body class="${1:bodyclass}">
+		${2}
+	</body>
+
+snippet title
+	<title>${1:PageTitle}</title>
+
+
+snippet html
+	<html class="no-js" lang="de">
+		${1}
+	</html>
+
+snippet head
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>${1:PageTitle}</title>
+		<meta name="description" content="${2:metadesc}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		${3}
+	</head>
+
+snippet link
+	<link rel="${1:stylesheet}" href="${2:/css/main.css}" />
+
+snippet meta
+	<meta name="${1:name}" content="${2:content}" />
+
+snippet scrs
+	<script src="${1}"></script>
+
+snippet scr
+	<script>
+		${1}
+	</script>
+
+snippet style
+	<style>
+		${1}
+	</style>
+
+
+
+
+# inputs and form stuff
+
+snippet label
+	<label for="${1:inputid}">${2}</label>
+	<input type="${3:text}" class="${3:class}" name="$1" value="" id="$1" />
+
+snippet input
+	<input type="${1:text}" class="${2:class}" name="${3:name}" value="" />
+
+snippet opt
+	<option value="${1:value}"}>${2}</option>
+
+snippet select
+	<select name="$1" id="${1:id}">
+		<option value=""></option>
+		<option value="${2:value}"}>${3:Text}</option>
+	</select>
+
+snippet textarea
+	<textarea name="${1:name}" rows="${2:8}" cols="${3:40}">${4}</textarea>
+
+snippet btn
+	<button id="${1:id}" class="${2:button}">${3:text}</button>
+
+snippet fieldset
+	<fieldset class="${1:class}"}>
+		<legend>${2:legend}</legend>
+
+		${3}
+	</fieldset>
+
+
+snippet form
+	<form action="${1:./}" method="${2:get/post}" accept-charset="utf-8">
+		${3}
+	</form>
+
+
+# headings
+
+snippet h1
+	<h1>${1}</h1>
+
+snippet h2
+	<h2>${1}</h2>
+
+snippet h3
+	<h3>${1}</h3>
+
+snippet h4
+	<h4>${1}</h4>
+
+snippet h5
+	<h5>${1}</h5>
+
+snippet h6
+	<h6>${1}</h6>
+
+
+# General stuff and html5 stuff
+
+snippet t
+	<${1:div}${2: class="class"}>
+		${3}
+	</$1>
+
+
+snippet div
+	<div class="${1:class}">
+		${2}
+	</div>
+
+snippet header
+	<header class="${1:header}">
+		${2}
+	</header>
+
+
+snippet section
+	<section class="${1:content}">
+		${2}
+	</section>
+
+
+snippet article
+	<article class="${1:article}">
+		${2}
+	</article>
+
+snippet footer
+	<footer class="${1:footer}">
+		${2}
+	</footer>
+
+snippet main
+	<main class="${1:main}">
+		${2}
+	</main>
+
+snippet aside
+	<aside class="${1:sidebar}">
+		${2}
+	</aside>
+
+snippet nav
+	<nav class="${1:nav}">
+		${2}
+	</nav>
+
+
+
+# links
+
+snippet mail
+	<a href="mailto:${1:joe@example.com}${2:?subject=feedback}">${3:email me}</a>
+
+snippet a
+	<a href="${1:/someurl}" class="${2:class}">${3:text}</a>
+
+
+# default text
+
+snippet p
+	<p>${1}</p>
+
+snippet em
+	<em>${1}</em>
+
+snippet str
+	<strong>${1}</strong>
+
+snippet pre
+	<pre>${1}</pre>
+
+snippet span
+	<span class="${1:class}">${2}</span>
+
+snippet br
+	<br />
+
+snippet li
+	<li>${1}</li>
+
+snippet ul
+	<ul class="${1:class}">
+		<li class="$1__item">${12</li>
+	</ul>
+
+snippet ol
+	<ol class="${1:class}">
+		<li class="$1__item">${2}</li>
+	</ol>
+
+snippet figure
+	<figure class="${1:class}">
+		<img src="${2:image.jpg}" alt="${3}" class="$1__image" />
+		<figcaption class="$1__caption">${4}</figcaption>
+	</figure>
+
+snippet bq
+	<blockquote>${1:quote}</blockquote>
+
+
+# tables stuff
+
+snippet table
+	<table class="${1:class}">
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+snippet td
+	<td>${1}</td>
+
+snippet tr
+	<tr>
+		${1}
+	</tr>
+
+
+# init base
+
+snippet init
+	<!DOCTYPE html>
+	<html class="no-js" lang="de">
+		<head>
+			<meta charset="utf-8" />
+			<title>${1:PageTitle}</title>
+			<link href="/css/${2:main.css}" rel="stylesheet" />
+		</head>
+		<body>
+			<header class="header">
+				${3}
+			</header>
+			<main class="main" role="main">
+				${4}
+			</main>
+			<footer class="footer">
+				${5}
+			</footer>
+			<script src="/js/${6:script.js}"></script>
+		</body>
+	</html>
+
+
+snippet video
+	<video width="${1:1280}" height="${2:720}" poster="${3:filename}.jpg" controls>
+		<source type="video/mp4" src="$3.mp4" />
+		<source type="video/webm" src="$3.webm" />
+	</video>
