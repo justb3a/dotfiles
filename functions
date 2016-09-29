@@ -10,7 +10,7 @@ function take() {
 
 # find process by name and kill them
 function grepkill() {
-  ps -axf | grep -v grep | grep "$@" | awk '{print $2}' | xargs kill
+  ps -axf | grep -v grep | grep "$@" | awk '{print $2}' | xargs kill -9
 }
 
 # open changed files in git index
