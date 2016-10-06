@@ -124,7 +124,7 @@ function! dein#parse#_dict(repo, plugin) abort "{{{
   endif
 
   if has_key(a:plugin, 'if') && type(a:plugin.if) == type('')
-    sandbox let plugin.if = eval(a:plugin.if)
+    let plugin.if = eval(a:plugin.if)
   endif
 
   " Hooks
@@ -173,6 +173,9 @@ function! dein#parse#_load_toml(filename, default) abort "{{{
       call dein#add(plugin.repo, options)
     endfor
   endif
+
+  " Add to g:dein#_vimrcs
+  call add(g:dein#_vimrcs, dein#util#_expand(a:filename))
 endfunction"}}}
 function! dein#parse#_plugins2toml(plugins) abort "{{{
   let toml = []

@@ -1,5 +1,5 @@
 function! vital#of(name) abort
-  let files = globpath(&runtimepath, 'autoload/vital/' . a:name . '.vital', 1)
+  let files = globpath(&runtimepath, 'autoload/vital/' . a:name . '.vital')
   let file = split(files, "\n")
   if empty(file)
     throw 'vital: version file not found: ' . a:name
