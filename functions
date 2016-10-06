@@ -11,6 +11,12 @@ function take() {
 # find process by name and kill them
 function grepkill() {
   ps -axf | grep -v grep | grep "$@" | awk '{print $2}' | xargs kill -9
+  greplist "$@"
+}
+
+# find process by name and list them
+function greplist() {
+  ps -axf | grep -v grep | grep "$@" | awk '{print $2}'
 }
 
 # open changed files in git index
@@ -68,6 +74,7 @@ function phpstop() {
 }
 
 # link another php version
+# example: bphp php56
 function bphp() {
   # if no parameters given
   if [ -z "$1" ]; then
@@ -84,6 +91,7 @@ function bphp() {
 }
 
 # start all processes
+# example: dev php56
 function dev() {
   # if no parameters given
   if [ -z "$1" ]; then
