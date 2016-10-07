@@ -1,1 +1,4 @@
-doc/tags
+*~
+*.swp
+tags
+.DS_Store

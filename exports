@@ -57,4 +57,4 @@ export LC_ALL=en_US.UTF-8
 
 export RBENV_VERSION="2.2.3"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_80`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_80`

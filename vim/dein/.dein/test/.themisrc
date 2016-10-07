@@ -1,37 +1,20 @@
-call themis#option('recursive', 1)
-" For development
-call themis#option('runtimepath', expand('~/.vim/bundle/vital.vim'))
-call themis#option('runtimepath', expand('~/.vim/bundle/vital-vimlcompiler'))
-call themis#option('runtimepath', expand('~/.vim/bundle/vital-safe-string'))
-call themis#option('runtimepath', expand('~/.vim/bundle/vital-power-assert'))
-
-let g:Expect = themis#helper('expect')
-call themis#helper('command').with(themis#helper('assert')).with({'Expect': g:Expect})
-
-let g:__vital_power_assert_config = {
-\   '__debug__': 1,
-\   '__pseudo_throw__': 0,
-\   '__max_length__': -1
-\ }
-
-" mock
-function! incsearch#over#modules#bulk_input_char#make() abort
-  return {}
+let s:sids = {}
+function! s:sid(path) abort
+  if has_key(s:sids, a:path)
+    return s:sids[a:path]
+  endif
+  redir => scriptnames
+    silent! scriptnames
+  redir END
+  for line in split(scriptnames, '\n')
+    if line =~# a:path
+      let sid =  matchstr(line, '\v^\s*\zs\d+\ze')
+      let s:sids[a:path] = sid
+      return sid
+    endif
+  endfor
 endfunction
 
-language C
-
-" Helper Functions:
-
-function! AddLine(str)
-    put! =a:str
+function! SID(name) abort
+  return function(printf("\<SNR>%d_%s", s:sid('autoload/lightline.vim'), a:name))
 endfunction
-function! AddLines(lines)
-    for line in reverse(deepcopy(a:lines))
-        put! =line
-    endfor
-endfunction
-function! GetPosChar()
-    return getline('.')[col('.')-1]
-endfunction
-

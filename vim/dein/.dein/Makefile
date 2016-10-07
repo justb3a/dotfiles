@@ -1,40 +1,81 @@
-NAME = node
-TITLE = Node.vim
-VERSION = 0.8.1
-ID = 4674
-TEST_OPTS =
+PLUGIN   =  $(wildcard plugin/*.vim)
+SOURCES  =  $(PLUGIN)
+LIB      =  $(wildcard autoload/*.vim)
+SOURCES  += $(LIB)
+DOC      =  $(wildcard doc/*.txt)
+SOURCES  += $(DOC)
+NAME     =  delimitMate
+VERSION  =  $(shell $(SED) -n -e '/Current \+release/{s/^ \+\([0-9.]\+\).*/\1/;p;}' $(firstword $(DOC)))
+FILENAME =  $(NAME)-$(VERSION)
+DESTDIR  =  $(HOME)/.vim
+VIM      =  vim
+SED      =  $(shell command -v gsed || command -v sed)
+PERL     =  perl
+comma    := ,
+empty    :=
+space    := $(empty) $(empty)
 
-love:
-	@echo "Feel like makin' love."
+.PHONY: version clean distclean undo release test install uninstall
 
-test: spec
-autotest: autospec
+all: zip gzip
+dist: version all
+vimball: $(FILENAME).vmb
+zip: $(FILENAME).zip $(FILENAME).vmb.zip
+gzip: $(FILENAME).tar.gz $(FILENAME).vmb.gz
 
-spec: $(shell find . -name "*_test.rb")
-	@ruby -rbundler/setup $(addprefix -r./,$^) -e "" -- $(TEST_OPTS)
+clean:
+	rm -f */*.orig *.~* .VimballRecord *.zip *.gz *.vmb
 
-autospec:
-	@bundle exec guard start --no-interactions
+distclean: clean
+	-zsh -c 'setopt extendedglob; rm -f ^(README.md|Makefile|basic_vimrc)(.)'
+	-zsh -c 'setopt extendedglob; rm -f .^(git|README.md|Makefile|basic_vimrc)*'
 
-pack:
-	rm -rf "$(NAME)-$(VERSION).zip"
-	zip -r "$(NAME)-$(VERSION).zip" * -x @.packignore
+undo:
+	for i in */*.orig; do mv -f "$$i" "$${i%.*}"; done
 
-publish:
-	open "http://www.vim.org/scripts/add_script_version.php?script_id=$(ID)"
+version:
+	$(PERL) -i.orig -pne 'if (/^"\sVersion:/) {s/(\d+\.\S+)/$(VERSION)/}' $(PLUGIN) $(LIB)
+	$(PERL) -i.orig -pne \
+	  'if (/let\sdelimitMate_version/) {s/"(\d+\.\S+)"/"$(VERSION)"/}' $(PLUGIN)
+	$(PERL) -i.orig -pne 'if (/beasts/) {s/(v\d+\.\S+)/v$(VERSION)/}' $(DOC)
+	$(PERL) -i.orig -MPOSIX -pne \
+	  'if (/^"\sModified:/) {$$now_string = strftime "%F", localtime; s/(\d+-\d+-\d+)/$$now_string/e}' \
+	  $(PLUGIN) $(LIB)
+	$(PERL) -i.orig -MPOSIX -pne \
+	  'if (/^\s+$(VERSION)\s+\d+-\d+-\d+\s+\*/) {$$now_string = strftime "%F", localtime; s/(\d+-\d+-\d+)/$$now_string/}' \
+	  $(DOC)
 
-tag:
-	git tag "v$(VERSION)"
+test:
+	$(MAKE) -C test
 
-node.tar.gz:
-	wget -c "https://github.com/nodejs/node/archive/master.tar.gz" -O node.tar.gz
+install: $(SOURCES)
+	for dir in $(^D);\
+  do install -d -m 0755 $(DESTDIR)$(PREFIX)/$$dir;\
+done;\
+for file in $^;\
+  do install -m 0644 $$file $(DESTDIR)$(PREFIX)/$$file;\
+done;
 
-list-core-modules: node.tar.gz
-	tar tf node.tar.gz |\
-	egrep "^node[^/]*/lib/.+" |\
-	xargs -n1 basename -s .js |\
-	{ cat; echo node; } | sort
+uninstall:
+	for file in $(SOURCES);\
+  do rm -f $(DESTDIR)$(PREFIX)/$$file;\
+done;
 
-.PHONY: love
-.PHONY: spec autospec
-.PHONY: pack publish tag
+%.vmb: $(SOURCES)
+	$(VIM) -N -es -u NORC \
+  -c 'call setline(1,["$(subst $(space),"$(comma)",$^)"])'\
+  -c "%MkVimball! $(basename $@) ." -c 'q!'
+
+%.vmb.zip: vimball
+	zip $@ $(basename $@)
+
+%.zip: $(SOURCES)
+	zip $@ $^
+
+%.vmb.gz: vimball
+	gzip -f < $(basename $@) > $@
+
+%.tar.gz: $(SOURCES)
+	tar -cvzf $@ $^
+
+# vim:ts=2:sw=2
