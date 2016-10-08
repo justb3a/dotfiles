@@ -3,3 +3,5 @@ vim/dein/temp
 vim/dein/repos
 !vim/dein/repos/github.com/Shougo/dein.vim
 vim/dein/merged
+add
+vim/dein/.dein
