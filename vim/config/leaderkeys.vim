@@ -5,7 +5,7 @@ let g:mapleader = ","
 let g:maplocalleader = ","
 
 " open new vertical split and change to split
-nnoremap <leader>\ <C-w>v<C-w>l
+nnoremap <leader>, <C-w>v<C-w>l
 nnoremap <leader>- <C-w>s<C-w>j
 
 " Adjust viewports/splits to equal widths/heights
