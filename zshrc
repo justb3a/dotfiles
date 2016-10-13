@@ -7,6 +7,9 @@ unset file
 # Load private aliases
 source ~/.aliases
 
+# Load private exports
+source ~/.exports
+
 # nice dircolors -- this requires installed coreutils and lscolors fallback
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
