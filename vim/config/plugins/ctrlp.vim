@@ -2,7 +2,7 @@
 "======================================================================
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>r :CtrlPMRU<cr>
-let g:ctrlp_map = '<leader>t'
+let g:ctrlp_map = '<leader>f'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = 0 " easier split screens
