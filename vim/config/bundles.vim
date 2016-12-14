@@ -37,4 +37,3 @@ call dein#add('tpope/vim-ragtag')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-unimpaired')
-" call dein#add('wellle/tmux-complete.vim') "// P R O B L E M
