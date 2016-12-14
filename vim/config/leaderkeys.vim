@@ -33,6 +33,3 @@ nnoremap <leader>w :cd %:p:h<CR>:pwd<CR>
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
 noremap <leader>Y "*Y
-
-" start a new document-wide seach-replace
-nnoremap <leader>f :%s/
