@@ -53,6 +53,7 @@
 	df = diff --color
 	dfs = diff --staged
 	dh = diff --color HEAD@{1}
+  dt = diff-tree --no-commit-id --name-status -r
 
 	fi = flow init
 
