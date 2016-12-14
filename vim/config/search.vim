@@ -6,6 +6,7 @@ set smartcase
 set hlsearch
 set showmatch
 set wrapscan
+set gdefault
 
 " set gdefault
 " set incsearch
