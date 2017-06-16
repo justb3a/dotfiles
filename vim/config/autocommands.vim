@@ -22,7 +22,7 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.scss set filetype=scss.css
 
   " Syntaxes for other files
-  autocmd BufNewFile,BufRead *.twig set filetype=html.twig
+  " autocmd BufNewFile,BufRead *.twig set filetype=html.twig
   autocmd BufNewFile,BufRead {Phakefile|.module|.install} set ft=php
   " autocmd BufNewFile,BufRead *.txt set ft=typoscript
 
