@@ -64,6 +64,7 @@ alias apachestart='sudo apachectl start'
 alias apachestop='sudo apachectl stop'
 alias nginxstart='sudo nginx'
 alias nginxstop='sudo nginx -s stop'
+alias nginxrestart='nginxstop && nginxstart'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
 
