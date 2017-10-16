@@ -8,6 +8,13 @@ function take() {
   cd $1
 }
 
+# find files by name and search and replace pattern
+function findreplace() {
+  echo "Number of files: $(fname $1 | wc -l)"
+  fname $1 | xargs perl -pi -E "s/${2}/${3}/g"
+  echo "Replaced '$2' with '$3'"
+}
+
 # find process by name and kill them
 function grepkill() {
   ps -axf | grep -v grep | grep "$@" | awk '{print $2}' | xargs kill -9
