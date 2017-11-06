@@ -18,6 +18,7 @@ alias drop='cd ~/Dropbox && ls -al'
 alias dot='cd ~/Dotfiles && ls -al'
 alias web='cd ~/Projects && ls -al'
 alias wire='cd ~/.composer/vendor/wireshell/wireshell'
+alias iawriter='cd ~/Library/Mobile\ Documents/27N4MQEA55\~pro\~writer/Documents'
 
 # system && random usefull stuff
 alias e='exit'
