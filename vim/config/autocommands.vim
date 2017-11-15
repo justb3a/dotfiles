@@ -24,7 +24,7 @@ augroup vimrc
   " Syntaxes for other files
   autocmd BufNewFile,BufRead *.twig set filetype=html.twig
   autocmd BufNewFile,BufRead {Phakefile|.module|.install} set ft=php
-  " autocmd BufNewFile,BufRead *.txt set ft=typoscript
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
   " omnicompletion for some filetypes
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
