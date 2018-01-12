@@ -1,28 +1,20 @@
-#!/usr/bin/env zsh
+nvm install 6.11.5
+nvm install 8.9.0
+nvm use 8.9.0
+nvm alias default 8.9.0
 
-brew uninstall node
-brew update
-brew install node --without-npm
-brew unlink node
-brew link node
-curl https://npmjs.org/install.sh | sh
+npm install -g npm@latest
+npm update -g
 
-# set npm to use npm_lazy
-npm install -g npm_lazy
-npm config set registry http://localhost:8080/
-grepkill npm_lazy
-npm_lazy &
-
-npm install -g bower
-npm install -g dploy
-npm install -g generator-generator
-npm install -g grunt-cli
-npm install -g jake
-npm install -g js-beautify
-npm install -g jshint
+npm install -g diff-so-fancy
+npm install -g eslint
+npm install -g eslint-config-xo-space
+npm install -g fkill-cli
+npm install -g gulp
+npm install -g htmlhint
 npm install -g jsonlint
 npm install -g npm-check-updates
-npm install -g recursive-blame
-npm install -g uglify-js
-npm install -g yo
-npm install -g caniuse-cmd
+npm install -g pure-prompt
+npm install -g sass-lint
+npm install -g trash-cli
+npm install -g vtop
