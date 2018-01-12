@@ -3,7 +3,7 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = /Applications/MacVim.app/Contents/MacOS/Vim
+  editor = /usr/local/bin/nvim
   autocrlf = input
   eol = lf
   pager = diff-so-fancy | less --tabs=2 -RFX

@@ -9,7 +9,7 @@ call dein#add('Shougo/vimproc.vim', {
     \    },
     \ })
 
-call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neosnippet')
 call dein#add('cakebaker/scss-syntax.vim')
 call dein#add('christoomey/vim-tmux-navigator')

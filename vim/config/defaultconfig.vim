@@ -15,7 +15,7 @@ set lazyredraw                   " Don't redraw while executing macros
 set mouse=a                      " mouse for scrolling
 set nobackup                     " no backups
 set noerrorbells                 " don't beep
-set noesckeys                    " no delay for escaping
+" set noesckeys                    " no delay for escaping
 " set noshowmode                   " dont show active mode
 " set showmode                     " show active mode
 set noswapfile                   " no swp-files
@@ -31,9 +31,9 @@ set showcmd                      " show me what im doing. helps a lot
 set sidescroll=10                " smoother side-scrolling
 set sidescrolloff=5              " jump by 5 when scrolling sideways
 set timeout ttimeoutlen=100      " get rid of the delay when pressing O (for example)
-set ttyfast                      " faster terminal usage
-set ttymouse=xterm2              " xterm/tmux compatible mouse
-set ttyscroll=3                  " faster terminal scrolling
+" set ttyfast                      " faster terminal usage
+" set ttymouse=xterm2              " xterm/tmux compatible mouse
+" set ttyscroll=3                  " faster terminal scrolling
 set virtualedit=all              " every mode active from v V to StrgV
 set visualbell                   " don't flicker
 " set complete-=i                  " dont complete from files

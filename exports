@@ -30,9 +30,9 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export COPYFILE_DISABLE=true
 
 # editor
-export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
-export VISUAL="/Applications/MacVim.app/Contents/MacOS/Vim"
-export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+export EDITOR="/usr/local/bin/nvim"
+export VISUAL="/usr/local/bin/nvim"
+export GIT_EDITOR="/usr/local/bin/nvim"
 
 # node.js
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
