@@ -5,7 +5,7 @@
 xcode-select --install
 
 # install homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 
 # tap the casks
@@ -17,25 +17,17 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # install some neccessary brew packages
+brew install git
+brew install neovim --HEAD
+brew install python3
 brew install tmux
 brew install zsh
-brew install git
-brew install brew-cask
 brew install coreutils
 
-brew cask install forklift
-brew cask install iterm2-beta
-brew cask install dropbox
+brew tap homebrew/services
 
-# set zsh to the default
-sudo vim /etc/shells
-chsh -s /usr/local/bin/zsh
-/usr/bin/env zsh
-sudo mv /etc/zshenv /etc/zprofile
-
-# install all submodules
-git submodule init
-git submodule update
+# set xterm/screen terminals to enable italic fonts in terminal
+tic ~/dotfiles/other/xterm-256color.terminfo
 
 # link the dotfiles
 ln -s ~/dotfiles/agignore ~/.agignore
@@ -52,3 +44,10 @@ ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pu
 ln -s ~/dotfiles/tmux/tmuxifier ~/.tmuxifier
 
 # now restart your terminal/iterm2 and hope for the best
+
+# set zsh to the default
+sudo vim /etc/shells
+chsh -s /usr/local/bin/zsh
+/usr/bin/env zsh
+sudo mv /etc/zshenv /etc/zprofile
+sudo launchctl config user path $PATH
