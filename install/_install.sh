@@ -8,10 +8,6 @@ xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 
-# tap the casks
-brew tap phinze/homebrew-cask
-brew tap caskroom/versions
-
 # brew paths
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
