@@ -22,6 +22,10 @@ brew install coreutils
 
 brew tap homebrew/services
 
+# to keep ~/.vimrc you source it from the new location
+mkdir -p ~/.config/nvim
+echo 'source ~/.vimrc' > ~/.config/nvim/init.vim
+
 # install deps + plugins for neovim
 pip3 install neovim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
