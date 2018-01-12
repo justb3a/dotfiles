@@ -22,6 +22,12 @@ brew install coreutils
 
 brew tap homebrew/services
 
+# install deps + plugins for neovim
+pip3 install neovim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh installer.sh ~/.config/nvim/dein
+rm installer.sh
+
 # set xterm/screen terminals to enable italic fonts in terminal
 tic ~/dotfiles/other/xterm-256color.terminfo
 
