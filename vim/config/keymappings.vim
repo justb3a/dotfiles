@@ -27,31 +27,43 @@ nnoremap N Nzz
 nnoremap n nzz
 
 " dont use the arrow keys in insert mode
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 " use the arrowkeys for usefull stuff in normal mode -- switching buffers
-nnoremap <up> :bfirst<cr>
-nnoremap <down> :blast<cr>
-nnoremap <left> :bp<cr>
-nnoremap <right> :bn<cr>
+nnoremap <Up> :bfirst<cr>
+nnoremap <Down> :blast<cr>
+nnoremap <Left> :bp<cr>
+nnoremap <Right> :bn<cr>
 
 " Bubble/indent lines using unimpaired
-" using left alt + hjkl on mac usgerman keyboard
-nmap ˚ [e
-nmap ∆ ]e
-nmap ˙ <<
-nmap ¬ >>
-vmap ˚ [egv
-vmap ∆ ]egv
-vmap ˙ <gv
-vmap ¬ >gv
-" nmap <S-up> [e
-" nmap <S-down> ]e
-" vmap <S-up> [egv
-" vmap <S-down> ]egv
+" for mapping ALT+hjkl, use instead the real character generated
+" k ∆  up / j º  down / l @ right / h ª left
+" terminal > profiles > Keyboard
+" S-Up: \033[1;2A | S-Down: \033[1;2A | S-Right: \033[1;2C | S-Left: \033[1;2D
+nmap ∆ [e
+vmap ∆ [egv
+nmap <S-Up> [e
+vmap <S-Up> [egv
+
+nmap º ]e
+vmap º ]egv
+nmap <S-Down> ]e
+vmap <S-Down> ]egv
+
+nmap ª <<
+nmap <S-left> <<
+vmap ª <gv
+vmap <S-left> <gv
+imap <S-left> <Esc><<i
+
+nmap @ >>
+nmap <S-right> >>
+vmap @ >gv
+vmap <S-right> >gv
+imap <S-right> <Esc>>>i
 
 " Fast Switch between windows/buffers with tab
 nnoremap <tab> <C-w><C-w>
@@ -79,17 +91,3 @@ vnoremap / /\v
 
 " increase number, default tmux
 nnoremap <C-Y> <C-A>
-
-" in/outdent Keymappings
-nmap <S-left> <<
-nmap <S-right> >>
-imap <S-left> <Esc><<i
-imap <S-right> <Esc>>>i
-vmap <S-left> <gv
-vmap <S-right> >gv
-
-" Bubble/indent lines using unimpaired
-nmap <S-up> [e
-nmap <S-down> ]e
-vmap <S-up> [egv
-vmap <S-down> ]egv
