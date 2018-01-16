@@ -91,7 +91,6 @@ alias nginxconf='cd /usr/local/etc/nginx'
 alias httpdf='vim /usr/local/etc/apache2/2.4/httpd.conf'
 alias errorlog='tail -f /var/log/apache2/error.log'
 alias mycnf='sudo vim /usr/local/Cellar/mysql/5.6.17/my.cnf'
-alias salias='source ~/dotfiles/aliases'
 
 # vagrant stuff
 alias vu='vagrant up'
