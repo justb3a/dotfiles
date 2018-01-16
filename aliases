@@ -122,3 +122,6 @@ alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | 
 alias weather="curl wttr.in"
 
 alias rm="trash"
+
+# clipper -- https://github.com/wincent/clipper
+alias clip="nc localhost 8377"

@@ -91,3 +91,6 @@ vnoremap / /\v
 
 " increase number, default tmux
 nnoremap <C-Y> <C-A>
+
+" auto-yanking with clipper for selected yanking, see leader-y mapping
+vnoremap y y :call system('nc localhost 8377', @0)<cr>
