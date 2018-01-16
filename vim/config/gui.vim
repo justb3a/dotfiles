@@ -10,5 +10,3 @@ if has('gui_running')
   set guioptions-=L    " no left scrollbar
   set guioptions-=r    " no right scrollbar
 endif
-
-au VimLeave * set guicursor=a:ver10-blinkon0

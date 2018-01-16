@@ -40,3 +40,5 @@ source ~/.vim/config/plugins/neosnippet.vim
 source ~/.vim/config/plugins/syntastic.vim
 source ~/.vim/config/plugins/sneak.vim
 source ~/.vim/config/plugins/tablemode.vim
+
+set guicursor=
