@@ -40,17 +40,13 @@ ln -s ~/dotfiles/agignore ~/.agignore
 ln -s ~/dotfiles/editorconfig ~/.editorconfig
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
-ln -s ~/dotfiles/jshintrc ~/.jshintrc
-ln -s ~/dotfiles/slate.js ~/.slate.js
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-ln -s ~/dotfiles/tmux/tmuxifier ~/.tmuxifier
-ln -s ~/dotfiles/zsh/pure/pure.zsh /Users/tabeadavid/dotfiles/zsh/zsh-completions/src/prompt_pure_setup
 
-# now restart your terminal/iterm2 and hope for the best
+# now restart your terminal and hope for the best
 
 # set zsh to the default
 sudo vim /etc/shells

@@ -39,8 +39,6 @@ and run in vim `:BundleInstall`
 
 Sorts pictures in several folders automatically by creation date.
 
-![screenshot](screens/make-sortpictures.png)
-
 Please use `make sortpictures` to start sorting.  
 Optional you can pass several arguments:
 
