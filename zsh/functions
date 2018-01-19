@@ -121,7 +121,7 @@ function devs() {
 
 # restart all processes
 function devr() {
-  version=$(brew services list | grep started | awk {'print $1'})
+  version=$(brew services list | grep php | grep started | awk {'print $1'})
   devs $version
 
   # if no parameters given

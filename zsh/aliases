@@ -124,3 +124,6 @@ alias rm="trash"
 
 # clipper -- https://github.com/wincent/clipper
 alias clip="nc localhost 8377"
+
+# repair cursor
+alias cs='echo -ne "\e[6 q"'
