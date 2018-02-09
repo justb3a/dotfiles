@@ -69,7 +69,7 @@ extract () {
 # stop php, detect running version
 function phpstop() {
   if [ -z "$1" ]; then
-    for i in {55,56,70,71}; do
+    for i in {56,70,71}; do
       php=$(brew services list | grep php$i)
       if [ "${php/started}" != "$php" ] ; then
         brew services stop php$i
@@ -90,7 +90,7 @@ function bphp() {
     version=$1
   fi
 
-  for i in {55,56,70,71}; do
+  for i in {56,70,71}; do
     brew unlink php$i
   done
 
