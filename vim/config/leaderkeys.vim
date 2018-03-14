@@ -10,6 +10,10 @@ nnoremap <leader>- <C-w>s<C-w>j
 
 " Adjust viewports/splits to equal widths/heights
 nnoremap <leader>= <C-w>=
+nnoremap <leader>h 40<C-w>>
+nnoremap <leader>j 20<C-w>+
+nnoremap <leader>k 20<C-w>-
+nnoremap <leader>l 40<C-w><
 
 " open a new split and edit the vimrc // easy sourcing vimrc
 nnoremap <leader>ve <C-w>v<C-w>l :e ~/.vimrc<cr>
