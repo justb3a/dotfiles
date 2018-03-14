@@ -43,25 +43,18 @@ nnoremap <Right> :bn<cr>
 " k ∆  up / j º  down / l @ right / h ª left
 " terminal > profiles > Keyboard
 " S-Up: \033[1;2A | S-Down: \033[1;2A | S-Right: \033[1;2C | S-Left: \033[1;2D
-nmap ∆ [e
-vmap ∆ [egv
 nmap <S-Up> [e
 vmap <S-Up> [egv
 
-nmap º ]e
-vmap º ]egv
 nmap <S-Down> ]e
 vmap <S-Down> ]egv
 
-nmap ª <<
 nmap <S-left> <<
-vmap ª <gv
 vmap <S-left> <gv
 imap <S-left> <Esc><<i
 
-nmap @ >>
+" to not map ALT+L because it's needed to execute a makro (@q)
 nmap <S-right> >>
-vmap @ >gv
 vmap <S-right> >gv
 imap <S-right> <Esc>>>i
 
