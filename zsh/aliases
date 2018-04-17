@@ -31,7 +31,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias dnsflush='sudo dscacheutil -flushcache'
 alias psa="ps aux"
 alias sudo='sudo '
-alias dr='drush'
 alias ws='wireshell'
 alias desktophide='defaults write com.apple.finder CreateDesktop -bool false;killall Finder'
 alias desktopshow='defaults write com.apple.finder CreateDesktop -bool true;killall Finder'
@@ -58,54 +57,27 @@ alias gba='git branch -u origin/$(current_branch)'
 # brew, npm
 alias b='brew'
 alias nom='npm'
-alias npmre='rm -rf node_modules && npm cache clean && npm install'
+alias npmre='rm -f package-lock.json && rm -rf node_modules && npm install'
 
 # aliases for apache, nginx, php and mysql
-alias apachestart='sudo apachectl start'
-alias apachestop='sudo apachectl stop'
 alias nginxstart='sudo nginx'
 alias nginxstop='sudo nginx -s stop'
 alias nginxrestart='nginxstop && nginxstart'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
 
-alias deva='apachestart && mysqlstart'
-alias devsa='apachestop && mysqlstop'
-alias devra='devsa && deva'
-
 # tmux
 alias t='tmux -u -2'
 alias ta='tmux attach'
 
 # all in one homebrew, gem update commands
-alias brewup='brew update && brew upgrade && brew cleanup && brew linkapps'
-alias gemup='gem update --system && gem update && gem cleanup'
-alias npmup='npm -g cache clean && npm -g update && npm-check-updates -u && npm install'
-alias sysup='sudo softwareupdate -i -a'
-alias upall='sysup && brewup && gemup && npmup'
+alias brewup='brew update && brew upgrade && brew cu -a -f -y && brew cleanup'
+alias npmup='ncu -g && npm -g outdated && npm -g update'
+alias upall='brewup && npmup'
 
 # easy hosts / apache / php editing
 alias hosts='sudo vim /etc/hosts'
-alias vhosts='sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf'
 alias nginxconf='cd /usr/local/etc/nginx'
-alias httpdf='vim /usr/local/etc/apache2/2.4/httpd.conf'
-alias errorlog='tail -f /var/log/apache2/error.log'
-alias mycnf='sudo vim /usr/local/Cellar/mysql/5.6.17/my.cnf'
-
-# vagrant stuff
-alias vu='vagrant up'
-alias vr='vagrant reload'
-alias vp='vagrant provision'
-alias vh='vagrant halt'
-alias vs='vagrant status'
-alias vd='vagrant destroy'
-
-# imagemagick downsampling shortcuts (c&p retina folder, run, done!)
-# http://www.imagemagick.org/Usage/filter/nicolas/#downsample
-alias png25='find . -name "*.png" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 25% -colorspace sRGB'
-alias jpg25='find . -name "*.jpg" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 25% -colorspace sRGB'
-alias png50='find . -name "*.png" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 50% -colorspace sRGB'
-alias jpg50='find . -name "*.jpg" | xargs mogrify -colorspace RGB -filter LanczosRadius -distort Resize 50% -colorspace sRGB'
 
 # capistrano
 alias cap='bundle exec cap'
@@ -117,13 +89,23 @@ alias csdbi='bundle exec cap staging db:import'
 alias csdbe='bundle exec cap staging db:export'
 alias csdbd='bundle exec cap staging db:fetch_dump'
 
-alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20"
-alias weather="curl wttr.in"
-
-alias rm="trash"
-
 # clipper -- https://github.com/wincent/clipper
 alias clip="nc localhost 8377"
 
 # repair cursor
 alias cs='echo -ne "\e[6 q"'
+
+# random usefull stuff
+alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20"
+alias weather="curl wttr.in"
+alias rm="trash"
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# imagemagick downsampling shortcuts (c&p retina folder, run, done!)
+alias jpegoptim='for i (*.jpg) mozjpeg -copy none -optimize -scans ~/dotfiles/other/scans.txt -outfile $i $i'
+alias jpg25='mogrify -format jpg -resize 25% -strip -quality 80 *.jpg'
+alias jpg50='mogrify -format jpg -resize 50% -strip -quality 80 *.jpg'
+alias png25='mogrify -format png -resize 25% -strip -quality 80 *.png'
+alias png50='mogrify -format png -resize 50% -strip -quality 80 *.png'
+alias gallery='mogrify -format jpg -resize 2280x2280 -strip -quality 80 *.jpg'
+alias anigif='convert -delay 12 -loop 0 *.jpg animated.gif'
