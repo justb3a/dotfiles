@@ -26,14 +26,14 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 " Find merge conflict markers
-nnoremap <leader>g /\v^[<\|=>]{7}( .*\|$)<CR>
+nnoremap <leader>gf /\v^[<\|=>]{7}( .*\|$)<CR>
 
 " paste keeping indentation
 nnoremap <leader>p p`[v`]=
 
-" change working directory to current file
-nnoremap <leader>w :cd %:p:h<CR>:pwd<CR>
-
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
 noremap <leader>Y "*Y
+
+" toggle wrapping
+nnoremap <leader>w :set wrap! wrap?<CR>
