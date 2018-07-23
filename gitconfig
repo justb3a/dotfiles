@@ -41,7 +41,6 @@
 	mgt = mergetool
 	c = commit
 	r = rebase
-	fac = push origin refac
 	rs = reset
 	rss = reset --soft HEAD~1
 	rsh = reset HEAD --hard
