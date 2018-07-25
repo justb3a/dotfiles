@@ -25,6 +25,7 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.twig set filetype=html.twig
   autocmd BufNewFile,BufRead {Phakefile|.module|.install} set ft=php
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufNewFile,BufRead *.vue set filetype=vue
 
   " omnicompletion for some filetypes
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
