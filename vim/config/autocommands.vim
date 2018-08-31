@@ -34,3 +34,8 @@ augroup vimrc
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
+
+augroup basic
+  autocmd!
+  autocmd BufEnter * syntax sync fromstart
+augroup end

@@ -1,5 +1,4 @@
-" Custom key mappings and shortcuts
-"======================================================================
+" Custom key mappings and shortcuts ======================================================================
 
 " remap semi-colon to be colon in normal an visual mode
 nnoremap ; :
@@ -87,3 +86,6 @@ nnoremap <C-Y> <C-A>
 
 " auto-yanking with clipper for selected yanking, see leader-y mapping
 vnoremap y y :call system('nc localhost 8377', @0)<cr>
+
+" fix missing syntax highlighting
+nnoremap <silent> <C-l> :nohlsearch<CR>:setl nolist nospell<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>

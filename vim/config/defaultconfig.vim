@@ -41,6 +41,11 @@ set nrformats-=octal             " nobody uses octal anyway
 set display+=lastline            " shorten long lastlines
 set formatoptions+=j             " Delete comment character when joining commented lines
 
+" Maximum column in which to search for syntax items.
+" In long lines the text after this column is not highlighted and following lines may not be highlighted correctly
+" Set to zero to remove the limit
+set synmaxcol=500
+
 " deactivate syntax highlighting when diffing
 if &diff
   syntax off
