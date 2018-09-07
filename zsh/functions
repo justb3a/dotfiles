@@ -31,6 +31,18 @@ function gch () {
   vim `git status | grep modified | awk '{print $3}'`
 }
 
+# git history for certain day
+function ghist() {
+  if [ -z "$1" ]; then
+    day=$(date +'%Y-%m-%d')
+  else
+    day=$(date +'%Y-')$1
+  fi
+
+  echo "Git History '$day'"
+  git hist --after="$day 00:00" --until="$day 23:59"
+}
+
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
