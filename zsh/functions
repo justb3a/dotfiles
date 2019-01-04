@@ -34,12 +34,16 @@ function gch () {
 # git history for certain day
 function ghist() {
   if [ -z "$1" ]; then
-    day=$(date +'%Y-%m-%d')
+      day=$(date +'%Y-%m-%d')
   else
-    day=$(date +'%Y-')$1
+    if [ "${1[1, 1]}" = '-' ]; then
+      day=$(date -j -v${1}d +'%Y-%m-%d')
+    else
+      day=$(date +'%Y-')$1
+    fi
   fi
 
-  echo "Git History '$day'"
+  echo "\nGit History: $day\n"
   git hist --after="$day 00:00" --until="$day 23:59"
 }
 
