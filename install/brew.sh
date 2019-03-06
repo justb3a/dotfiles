@@ -4,52 +4,40 @@ brew tap caskroom/versions
 brew tap buo/cask-upgrade
 
 # install brew packages
+brew install clipper
+brew install composer
+brew install curl
+brew install diff-so-fancy
+brew install elixir
+brew install erlang
+brew install fzf
 brew install ghostscript
+brew install git
 brew install git-flow
 brew install imagemagick
-brew install macvim
 brew install markdown
+brew install mariadb
 brew install mcrypt
-brew install mysql
+brew install mozjpeg
+brew install neovim
+brew install ngnix
 brew install node
-brew install reattach-to-user-namespace
-brew install composer
+brew install openssl
+brew install php
+brew install python
 brew install rbenv
+brew install reattach-to-user-namespace
+brew install rsync
+brew install ruby
 brew install ruby-build
 brew install ssh-copy-id
 brew install the_silver_searcher
+brew install tmux
 brew install unrar
+brew install vim
 brew install wget
-brew install youtube-dl
-
-
-# brew cask and install software
-brew cask install alfred
-brew cask install bill
-brew cask install carbon-copy-cloner
-brew cask install dash
-brew cask install doxie
-brew cask install firefox
-brew cask install flux
-brew cask install google-chrome
-brew cask install imagealpha
-brew cask install imageoptim
-brew cask install kap
-brew cask install karabiner-elements
-brew cask install ngrok
-brew cask install ocenaudio
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install sequel-pro
-brew cask install signal
-brew cask install sketch
-brew cask install skype
-brew cask install slack
-brew cask install spotify
-brew cask install telegram
-brew cask install virtualbox
-brew cask install vlc
-brew cask install xld
+brew install yarn
+brew install zsh
 
 # quicklook stuff
 brew cask install qlcolorcode
@@ -66,5 +54,3 @@ defaults write org.n8gray.QLColorCode fontSizePoints 8
 # have a look a the most current github repo for qlcolorcode
 defaults write org.n8gray.QLColorCode hlTheme solarized-dark
 qlmanage -r
-
-# the rest -> appstore or adobe or others :-)
