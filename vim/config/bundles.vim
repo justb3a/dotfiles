@@ -9,33 +9,23 @@ call dein#add('Shougo/vimproc.vim', {
     \    },
     \ })
 
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neosnippet')
-call dein#add('cakebaker/scss-syntax.vim')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('dhruvasagar/vim-table-mode')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('gcorne/vim-sass-lint')
-call dein#add('haya14busa/incsearch.vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('justinmk/vim-sneak')
-call dein#add('kien/ctrlp.vim')
-call dein#add('justb3a/vim-smarties')
-call dein#add('justb3a/vim-snippets')
-call dein#add('mattn/emmet-vim')
-call dein#add('moll/vim-node')
-call dein#add('mtscout6/syntastic-local-eslint.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic')
-call dein#add('sekel/vim-vue-syntastic')
-call dein#add('Raimondi/delimitMate')
-call dein#add('rking/ag.vim')
-call dein#add('sheerun/vim-polyglot')
-call dein#add('tpope/vim-abolish')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-ragtag')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-markdown')
+call dein#add('Shougo/deoplete.nvim')             " autocomplete asynchronous
+call dein#add('Shougo/neosnippet')                " snippets
+call dein#add('justb3a/vim-snippets')             " snippets: vim
+call dein#add('sheerun/vim-polyglot')             " syntax: collection of language packs
+call dein#add('christoomey/vim-tmux-navigator')   " tmux support
+call dein#add('editorconfig/editorconfig-vim')    " respect editor config
+call dein#add('rking/ag.vim')                     " search
+call dein#add('junegunn/fzf.vim')                 " search: fuzzy finding
+call dein#add('haya14busa/incsearch.vim')         " search: highlights ALL pattern matches
+call dein#add('itchyny/lightline.vim')            " statusbar
+call dein#add('justb3a/vim-smarties')             " color scheme
+call dein#add('scrooloose/nerdtree')              " file tree
+call dein#add('tpope/vim-fugitive')               " git for vim
+call dein#add('Raimondi/delimitMate')             " helper: automatic closing of brackets etc.
+call dein#add('tpope/vim-abolish')                " helper: abbreviation, substitution, coercion
+call dein#add('dhruvasagar/vim-table-mode')       " helper: table mode
+call dein#add('tpope/vim-commentary')             " helper: commenting out
+call dein#add('tpope/vim-ragtag')                 " helper: set of mappings
+call dein#add('tpope/vim-unimpaired')             " helper: mappings, identation
+call dein#add('w0rp/ale')

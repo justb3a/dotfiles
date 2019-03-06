@@ -12,6 +12,7 @@ set encoding=utf-8               " Yeah. UTF-8 FTW!
 set grepprg=ag                   " use ag for grepping
 set hidden                       " allows for switching buffers without writing
 set lazyredraw                   " Don't redraw while executing macros
+set linebreak                    " Break long lines by word, not char
 set mouse=a                      " mouse for scrolling
 set nobackup                     " no backups
 set noerrorbells                 " don't beep

@@ -75,7 +75,7 @@ nnoremap K <nop>
 nnoremap <F5> :checktime<CR>
 
 " For when you forget to sudo.. Really Write the file.
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee >/dev/null %
 
 " just insert slash to start searching
 nnoremap / /\v
