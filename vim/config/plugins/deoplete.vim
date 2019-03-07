@@ -21,8 +21,8 @@ function! s:deoplete_cr_function() abort
   return deoplete#close_popup() . "\<CR>"
 endfunction
 
-" Set bin if you have many instalations
-" let g:deoplete#sources#ternjs#tern_bin = '/path/to/tern_bin'
+" JAVASCRIPT COMPLETION
+" =========================================================================
 let g:deoplete#sources#ternjs#timeout = 1
 
 " Whether to include the types of the completions in the result data. Default: 0
@@ -77,3 +77,8 @@ let g:deoplete#sources#ternjs#filetypes = [
     \ 'javascript.jsx',
     \ 'vue'
     \ ]
+
+" PHP COMPLETION
+" =========================================================================
+" let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+" let g:deoplete#ignore_sources.php = ['omni']
