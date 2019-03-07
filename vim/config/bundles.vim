@@ -9,6 +9,7 @@ call dein#add('Shougo/vimproc.vim', {
     \    },
     \ })
 
+" @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 call dein#add('Shougo/deoplete.nvim')             " autocomplete asynchronous
 call dein#add('carlitux/deoplete-ternjs', {
     \ 'build': {
