@@ -12,6 +12,7 @@ inoremap <expr><C-y> deoplete#close_popup()
 
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
@@ -19,7 +20,6 @@ inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 function! s:deoplete_cr_function() abort
   return deoplete#close_popup() . "\<CR>"
 endfunction
-
 
 " Set bin if you have many instalations
 " let g:deoplete#sources#ternjs#tern_bin = '/path/to/tern_bin'
