@@ -6,4 +6,3 @@ set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <leader>r :Tags<CR>
 nmap <leader>t :Files<CR>
-nmap <leader>a :Ag<CR>
