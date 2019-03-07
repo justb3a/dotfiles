@@ -1,0 +1,13 @@
+{
+  "libs": [ "browser", "ecma6", "ecma5" ],
+  "loadEagerly": [],
+  "dontLoad": ["node_modules"],
+  "plugins": {
+    "complete_strings": true,
+    "doc_comment": true,
+    "es_modules": true,
+    "modules": true,
+    "node": true,
+    "node_require": true
+  }
+}
