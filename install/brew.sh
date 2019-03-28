@@ -9,7 +9,10 @@ brew install composer
 brew install curl
 brew install diff-so-fancy
 brew install elixir
+
 brew install erlang
+Pretty Eshell: https://github.com/spawnfest/ErlShell
+
 brew install fzf
 brew install ghostscript
 brew install git
