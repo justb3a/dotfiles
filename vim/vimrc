@@ -29,6 +29,7 @@ source ~/.vim/config/leaderkeys.vim
 
 " and the configs and mappings for plugins loaded in bundles.vim
 source ~/.vim/config/plugins/ag.vim
+source ~/.vim/config/plugins/ale.vim
 source ~/.vim/config/plugins/commentary.vim
 source ~/.vim/config/plugins/fugitive.vim
 source ~/.vim/config/plugins/fzf.vim

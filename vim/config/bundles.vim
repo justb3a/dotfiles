@@ -33,4 +33,5 @@ call dein#add('justb3a/vim-snippets')                                          "
 call dein#add('w0rp/ale')                                                      " syntax: linting asynchronous
 call dein#add('sheerun/vim-polyglot')                                          " syntax: collection of language packs
 call dein#add('itchyny/lightline.vim')                                         " statusbar
+call dein#add('maximbaz/lightline-ale')                                        " ale (error, warnings) indicator for lightline
 call dein#add('christoomey/vim-tmux-navigator')                                " tmux support
