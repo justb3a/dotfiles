@@ -82,3 +82,8 @@ let g:deoplete#sources#ternjs#filetypes = [
 " =========================================================================
 " let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 " let g:deoplete#ignore_sources.php = ['omni']
+
+" SCALA COMPLETION
+" =========================================================================
+let g:deoplete#omni#input_patterns={}
+let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'

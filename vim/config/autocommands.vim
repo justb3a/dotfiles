@@ -27,6 +27,8 @@ augroup vimrc
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.vue set filetype=vue
 
+  autocmd BufWritePost *.scala silent :EnTypeCheck
+
   " omnicompletion for some filetypes
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,php,twig setlocal omnifunc=htmlcomplete#CompleteTags

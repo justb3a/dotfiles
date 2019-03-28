@@ -13,6 +13,8 @@ call dein#add('Shougo/vimproc.vim', {
 call dein#add('Shougo/deoplete.nvim')                                          " autocomplete asynchronous
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
 call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
+call dein#add('ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' })           " autocomplete scala / java
+call dein#add('derekwyatt/vim-scala')                                          " syntax checking, autocomplete scala
 call dein#add('justb3a/vim-smarties')                                          " color scheme
 call dein#add('scrooloose/nerdtree')                                           " file tree
 call dein#add('tpope/vim-fugitive')                                            " git for vim
