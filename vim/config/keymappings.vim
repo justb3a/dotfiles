@@ -89,3 +89,6 @@ vnoremap y y :call system('nc localhost 8377', @0)<cr>
 
 " fix missing syntax highlighting
 nnoremap <silent> <C-l> :nohlsearch<CR>:setl nolist nospell<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>
+
+" pretty print json
+vnoremap <C-p> :%!python -m json.tool<CR>
