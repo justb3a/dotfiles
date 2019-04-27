@@ -35,3 +35,8 @@ call dein#add('sheerun/vim-polyglot')                                          "
 call dein#add('itchyny/lightline.vim')                                         " statusbar
 call dein#add('maximbaz/lightline-ale')                                        " ale (error, warnings) indicator for lightline
 call dein#add('christoomey/vim-tmux-navigator')                                " tmux support
+
+" GO
+call dein#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })                   " GoInstallBinaries
+call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
+call dein#add('stamblerre/gocode', { 'rtp': 'nvim/' })                         " go get -u github.com/stamblerre/gocod

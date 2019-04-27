@@ -38,3 +38,6 @@ export GREP_COLOR='1;32'
 # pager
 export PAGER="less"
 export LESS="-R"
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
