@@ -97,3 +97,6 @@ bindkey "\e[F" end-of-line
 bindkey '\^i' expand-or-complete-prefix
 # enable reverse history search
 bindkey "^R" history-incremental-search-backward
+
+# jump around
+. $HOME/dotfiles/zsh/z/z.sh
