@@ -11,13 +11,14 @@ brew install diff-so-fancy
 brew install elixir
 
 brew install erlang
-Pretty Eshell: https://github.com/spawnfest/ErlShell
+# Pretty Eshell: https://github.com/spawnfest/ErlShell
 
 brew install fzf
 brew install ghostscript
 brew install git
 brew install git-flow
 brew install imagemagick
+brew install jq
 brew install markdown
 brew install mariadb
 brew install mcrypt
