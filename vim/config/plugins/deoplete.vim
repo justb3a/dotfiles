@@ -35,7 +35,7 @@ let g:deoplete#sources#ternjs#depths = 1
 
 " Whether to include documentation strings (if found) in the result data.
 " Default: 0
-let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#docs = 0
 
 " When on, only completions that match the current word at the given point will
 " be returned. Turn this off to get all results, so that you can filter on the
