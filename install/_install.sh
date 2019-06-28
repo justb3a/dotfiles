@@ -33,7 +33,7 @@ sh installer.sh ~/.config/nvim/dein
 rm installer.sh
 
 # set xterm/screen terminals to enable italic fonts in terminal
-tic ~/dotfiles/other/xterm-256color.terminfo
+tic ~/dotfiles/zsh/xterm-256color.terminfo
 
 # link the dotfiles
 ln -s ~/dotfiles/agignore ~/.agignore
@@ -46,11 +46,13 @@ ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
 
+brew cask install caskroom/fonts/font-fira-code
+
 # now restart your terminal and hope for the best
 
 # set zsh to the default
 sudo vim /etc/shells
+  add `/usr/local/bin/zsh `
 chsh -s /usr/local/bin/zsh
 /usr/bin/env zsh
-sudo mv /etc/zshenv /etc/zprofile
 sudo launchctl config user path $PATH

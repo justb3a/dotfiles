@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
-brew tap caskroom/versions
-brew tap buo/cask-upgrade
-
 # install brew packages
 brew install clipper
 brew install composer
 brew install curl
 brew install diff-so-fancy
 brew install elixir
-
 brew install erlang
 # Pretty Eshell: https://github.com/spawnfest/ErlShell
 
@@ -27,7 +23,10 @@ brew install neovim
 brew install ngnix
 brew install node
 brew install openssl
-brew install php
+brew install php72 --with-homebrew-curl
+brew install php72-intl
+brew install php72-imagick
+brew install php72-mcrypt
 brew install python
 brew install rbenv
 brew install reattach-to-user-namespace
@@ -43,18 +42,5 @@ brew install wget
 brew install yarn
 brew install zsh
 
-# quicklook stuff
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install quicklook-csv
-brew cask install betterzipql
-
-# set some options for qlcolorcode
-defaults write org.n8gray.QLColorCode font Menlo
-defaults write org.n8gray.QLColorCode fontSizePoints 8
-# maybe you have to copy solarized-dark into the caskroom to use it
-# have a look a the most current github repo for qlcolorcode
-defaults write org.n8gray.QLColorCode hlTheme solarized-dark
-qlmanage -r
+# link keg-only / pre-installed duplicates
+brew link --force curl

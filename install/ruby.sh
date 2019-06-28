@@ -1,3 +1,6 @@
+# install a current ruby version
+rbenv install 2.4.2
+
 #!/usr/bin/env bash
 
 gem install bundler --no-ri --no-rdoc

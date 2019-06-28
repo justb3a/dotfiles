@@ -43,16 +43,16 @@ call dein#add('haya14busa/incsearch.vim')                                      "
 " === LANGUAGES ===
 
 " PHP
-call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
+" call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
 
 " JAVASCRIPT
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
 
 " SCALA
-call dein#add('ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' })           " autocomplete scala / java
-call dein#add('derekwyatt/vim-scala')                                          " syntax checking, autocomplete scala
+"call dein#add('ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' })           " autocomplete scala / java
+"call dein#add('derekwyatt/vim-scala')                                          " syntax checking, autocomplete scala
 
 " GO
-call dein#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })                   " GoInstallBinaries
-call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})               " autocomplete GO
-call dein#add('stamblerre/gocode', { 'rtp': 'nvim/' })                         " go get -u github.com/stamblerre/gocod
+"call dein#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })                   " GoInstallBinaries
+"call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})               " autocomplete GO
+"call dein#add('stamblerre/gocode', { 'rtp': 'nvim/' })                         " go get -u github.com/stamblerre/gocod
