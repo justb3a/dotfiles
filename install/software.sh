@@ -10,6 +10,12 @@ brew cask install quicklook-json
 brew cask install quicklook-csv
 brew cask install betterzipql
 
+brew cask install spectacle
+# Spectacle saves its settings in a JSON file located at
+# `~/Library/Application Support/Spectacle/Shortcuts.json`.
+# To import a previously saved settings file, save it to this path and restart Spectacle.
+# @see: `spectacle/Shortcuts.json`
+
 # set some options for qlcolorcode
 defaults write org.n8gray.QLColorCode font "Fira Code"
 defaults write org.n8gray.QLColorCode fontSizePoints 9
