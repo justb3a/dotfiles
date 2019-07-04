@@ -9,6 +9,7 @@ brew cask install qlmarkdown
 brew cask install quicklook-json
 brew cask install quicklook-csv
 brew cask install betterzipql
+brew cask install sequel-pro
 
 brew cask install spectacle
 # Spectacle saves its settings in a JSON file located at
