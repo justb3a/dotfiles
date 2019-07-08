@@ -23,3 +23,4 @@ npm install -g trash-cli
 npm install -g vtop
 npm install -g prettier
 npm install -g yarn
+npm install -g tern

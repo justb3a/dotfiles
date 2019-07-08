@@ -75,7 +75,8 @@ let g:deoplete#sources#ternjs#in_literal = 0
 let g:deoplete#sources#ternjs#filetypes = [
     \ 'jsx',
     \ 'javascript.jsx',
-    \ 'vue'
+    \ 'vue',
+    \ 'ts'
     \ ]
 
 " PHP COMPLETION
