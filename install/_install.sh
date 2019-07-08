@@ -4,24 +4,6 @@
 # everything neccessary first - command line tools
 xcode-select --install
 
-# install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
-
-# brew paths
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-# install some neccessary brew packages
-brew install git
-brew install neovim --HEAD
-brew install python3
-brew install tmux
-brew install zsh
-brew install coreutils
-
-brew tap homebrew/services
-
 # to keep ~/.vimrc you source it from the new location
 mkdir -p ~/.config/nvim
 echo 'source ~/.vimrc' > ~/.config/nvim/init.vim
@@ -45,8 +27,6 @@ ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-
-brew cask install caskroom/fonts/font-fira-code
 
 # now restart your terminal and hope for the best
 
