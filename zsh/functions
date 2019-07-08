@@ -82,55 +82,16 @@ extract () {
   fi
 }
 
-# stop php, detect running version
-function phpstop() {
-  if [ -z "$1" ]; then
-    for i in {56,72}; do
-      php=$(brew services list | grep php$i)
-      if [ "${php/started}" != "$php" ] ; then
-        brew services stop php$i
-      fi
-    done
-  else
-    brew services stop $1
-  fi
-}
-
-# link another php version
-# example: bphp php56
-function bphp() {
-  # if no parameters given
-  if [ -z "$1" ]; then
-    version=php72
-  else
-    version=$1
-  fi
-
-  for i in {56,72}; do
-    brew unlink php$i
-  done
-
-  brew link $version
-}
-
 # start all processes
-# example: dev php56
 function dev() {
-  # if no parameters given
-  if [ -z "$1" ]; then
-    version=php72
-  else
-    version=$1
-  fi
-
-  brew services start $version
+  brew services start php
   nginxstart
   mysqlstart
 }
 
 # stop all processes
 function devs() {
-  phpstop $1
+  brew services stop php
   nginxstop
   mysqlstop
 }
@@ -148,36 +109,12 @@ function devr() {
   fi
 }
 
-# change php version, restart processes
-function phpv() {
-  if [ -z "$1" ]; then
-    version=php72
-  else
-    version=php$1
-  fi
-
-  bphp $version
-
-  # no param - restart nginx
-  if [ -z "$2" ]; then
-    devr php$1
-  else
-    # include correct php module, restart apache
-    vim /usr/local/etc/apache2/2.4/httpd.conf
-    devra
-  fi
-}
-
 # edit current php ini
 function phpini() {
   php -i | grep php.ini
   phpinipath=$(php -i | grep \/php.ini | awk '{print $5}')
   vim $phpinipath
 }
-
-# function devu() {
-#    ulimit -n 4096
-# }
 
 # docker
 function dockerstart() {
