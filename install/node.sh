@@ -16,6 +16,7 @@ npm install -g fkill-cli
 npm install -g gulp
 npm install -g htmlhint
 npm install -g jsonlint
+npm install -g neovim
 npm install -g npm-check-updates
 npm install -g pure-prompt
 npm install -g sass-lint
@@ -24,3 +25,4 @@ npm install -g vtop
 npm install -g prettier
 npm install -g yarn
 npm install -g tern
+npm install -g typescript
