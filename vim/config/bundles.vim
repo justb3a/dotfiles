@@ -47,6 +47,7 @@ call dein#add('haya14busa/incsearch.vim')                                      "
 
 " JAVASCRIPT
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
+call dein#add('HerringtonDarkholme/yats.vim')                                  " typescript syntax highlighting
 call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})        " language service plugin for typescript
 
 " SCALA
