@@ -11,33 +11,13 @@ call dein#begin(expand('~/.vim/dein')) " plugins' root path
 call dein#add('Shougo/dein.vim')
 
 " Let dein.vim handle the rest, and start by loading bundles and
-source ~/.vim/config/plugins.vim
+source ~/.vim/config/bundles.vim
 
 " end dein.vim config
 call dein#end()
 
 " load the default config and mappings
-source ~/.vim/config/settings/defaultconfig.vim
-source ~/.vim/config/settings/search.vim
-source ~/.vim/config/settings/whitespace.vim
-source ~/.vim/config/settings/autocommands.vim
-source ~/.vim/config/settings/commands.vim
-source ~/.vim/config/settings/gui.vim
-source ~/.vim/config/settings/colorscheme.vim
-source ~/.vim/config/settings/keymappings.vim
-source ~/.vim/config/settings/leaderkeys.vim
+source ~/.vim/config/settings.vim
 
 " and the configs and mappings for plugins loaded in bundles.vim
-source ~/.vim/config/plugins/ag.vim
-source ~/.vim/config/plugins/ale.vim
-source ~/.vim/config/plugins/commentary.vim
-source ~/.vim/config/plugins/fugitive.vim
-source ~/.vim/config/plugins/fzf.vim
-" source ~/.vim/config/plugins/go.vim
-source ~/.vim/config/plugins/incsearch.vim
-source ~/.vim/config/plugins/lightline.vim
-source ~/.vim/config/plugins/nerdtree.vim
-source ~/.vim/config/plugins/deoplete.vim
-source ~/.vim/config/plugins/neosnippet.vim
-source ~/.vim/config/plugins/nvim_typescript.vim
-source ~/.vim/config/plugins/tablemode.vim
+source ~/.vim/config/plugins.vim
