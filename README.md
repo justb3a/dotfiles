@@ -3,7 +3,7 @@
 This is a collection of my dotfiles.
 
 ```
-git clone git://github.com/justonestep/dotfiles ~/dotfiles
+git clone git://github.com/justb3a/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./install/_install.sh
 ```
