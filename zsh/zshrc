@@ -99,4 +99,4 @@ bindkey '\^i' expand-or-complete-prefix
 bindkey "^R" history-incremental-search-backward
 
 # jump around
-. $HOME/dotfiles/zsh/z/z.sh
+# . $HOME/dotfiles/zsh/z/z.sh
