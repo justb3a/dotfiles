@@ -1,5 +1,11 @@
 # install a current ruby version
 rbenv install 2.4.2
+rbenv global 2.4.2
+
+# rbenv version
+# system (set by /Users/xx/.rbenv/version) FAILURE
+# 2.4.2 (set by /Users/xx/.rbenv/version)  SUCCESS
+# test: curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
 #!/usr/bin/env bash
 
