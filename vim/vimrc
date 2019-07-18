@@ -8,10 +8,11 @@ if has('vim_starting')
 endif
 
 call dein#begin(expand('~/.vim/dein')) " plugins' root path
-call dein#add('Shougo/dein.vim')
 
-" Let dein.vim handle the rest, and start by loading bundles and
-source ~/.vim/config/bundles.vim
+  call dein#add('Shougo/dein.vim')
+
+  " Let dein.vim handle the rest, and start by loading bundles and
+  source ~/.vim/config/bundles.vim
 
 " end dein.vim config
 call dein#end()

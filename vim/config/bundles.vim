@@ -1,6 +1,7 @@
 " All bundles, syntaxes and plugins
 "======================================================================
 
+" @TODO: vimproc needed?
 call dein#add('Shougo/vimproc.vim', {
     \ 'build': {
     \     'mac': 'make -f make_mac.mak',
@@ -34,6 +35,7 @@ call dein#add('tpope/vim-unimpaired')                                          "
 call dein#add('editorconfig/editorconfig-vim')                                 " helper: respect editor config
 call dein#add('Shougo/neosnippet')                                             " snippets
 call dein#add('justb3a/vim-snippets')                                          " snippets: vim
+" call dein#add('terryma/vim-multiple-cursors')
 
 " SEARCH
 call dein#add('rking/ag.vim')                                                  " search
