@@ -45,7 +45,7 @@ call dein#add('haya14busa/incsearch.vim')                                      "
 " === LANGUAGES ===
 
 " PHP
-" call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
+call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
 
 " JAVASCRIPT
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
