@@ -26,13 +26,14 @@ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -s ~/dotfiles/tern-project ~/.tern-project
 ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
 
 # now restart your terminal and hope for the best
 
 # set zsh to the default
 sudo vim /etc/shells
-  add `/usr/local/bin/zsh `
+  add `/usr/local/bin/zsh`
 chsh -s /usr/local/bin/zsh
 /usr/bin/env zsh
 sudo launchctl config user path $PATH
