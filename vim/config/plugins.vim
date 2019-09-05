@@ -1,6 +1,7 @@
 source ~/.vim/config/plugins/ag.vim
 source ~/.vim/config/plugins/ale.vim
 source ~/.vim/config/plugins/commentary.vim
+source ~/.vim/config/plugins/delimitmate.vim
 source ~/.vim/config/plugins/fugitive.vim
 source ~/.vim/config/plugins/fzf.vim
 " source ~/.vim/config/plugins/go.vim
