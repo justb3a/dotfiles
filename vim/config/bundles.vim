@@ -44,17 +44,18 @@ call dein#add('haya14busa/incsearch.vim')                                      "
 
 " === LANGUAGES ===
 
-" PHP
-" call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
+" CSS
+call dein#add('gko/vim-coloresque')
 
 " JAVASCRIPT
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
 call dein#add('HerringtonDarkholme/yats.vim')                                  " typescript syntax highlighting
 call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})        " language service plugin for typescript
 call dein#add('posva/vim-vue')                                                 " vue file syntax highlighting
+call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })            " code formatter
 
-" CSS
-call dein#add('ap/vim-css-color')                                              " css color name highlighter
+" PHP
+" call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
 
 " SCALA
 "call dein#add('ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' })           " autocomplete scala / java
