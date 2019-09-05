@@ -10,8 +10,17 @@ let g:prettier#autoformat = 0
 " single quotes over double quotes
 let g:prettier#config#single_quote = 'true'
 
-" print semicolons
-" autocmd FileType js, ts, jsx let g:prettier#config#semi = 'false'
-let g:prettier#config#semi = 'false'
+" max line length that prettier will wrap on
+let g:prettier#config#print_width = 120
 
+" number of spaces per indentation level
+let g:prettier#config#tab_width = 2
+
+" enforce trailing comma
+let g:prettier#config#trailing_comma = 'all'
+
+" print semicolons
+autocmd FileType js, ts, jsx let g:prettier#config#semi = 'false'
+
+" trigger async formatting
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
