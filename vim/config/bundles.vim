@@ -52,7 +52,11 @@ call dein#add('carlitux/deoplete-ternjs')                                      "
 call dein#add('HerringtonDarkholme/yats.vim')                                  " typescript syntax highlighting
 call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})        " language service plugin for typescript
 call dein#add('posva/vim-vue')                                                 " vue file syntax highlighting
-call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })            " code formatter
+
+call dein#add('prettier/vim-prettier', {
+    \ 'build': 'yarn install',
+    \ 'branch': 'release/1.x',
+    \ })                                                                       " code formatter
 
 " PHP
 " call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
