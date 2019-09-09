@@ -19,6 +19,9 @@ let g:prettier#config#tab_width = 2
 " enforce trailing comma
 let g:prettier#config#trailing_comma = 'all'
 
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
+
 let g:prettier#exec_cmd_async = 1
 
 " print semicolons
