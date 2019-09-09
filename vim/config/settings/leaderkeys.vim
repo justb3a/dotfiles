@@ -8,6 +8,13 @@ let g:maplocalleader = ","
 nnoremap <leader>, <C-w>v<C-w>l
 nnoremap <leader>- <C-w>s<C-w>j
 
+" edit existing file under cursor
+nnoremap <leader>g gf
+" edit existing file under cursor in vertical split
+nnoremap <leader>g- <C-w>f
+" edit existing file under cursor in horizontal split
+nnoremap <leader>g, :vertical wincmd f<CR>
+
 " Adjust viewports/splits to equal widths/heights
 nnoremap <leader>= <C-w>=
 nnoremap <leader>h 40<C-w>>
