@@ -70,13 +70,12 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 " If completions should be returned when inside a literal. Default: 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
-
 "Add extra filetypes
 let g:deoplete#sources#ternjs#filetypes = [
     \ 'jsx',
     \ 'javascript.jsx',
     \ 'vue',
-    \ 'ts'
+    \ 'ts',
     \ ]
 
 " PHP COMPLETION

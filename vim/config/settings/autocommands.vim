@@ -14,8 +14,8 @@ augroup vimrc
 
   " add the dash to keywords -- makes better css/js/html search
   " do this for specific files only (not in php/rb e.g.)
-  autocmd BufNewFile,BufRead *.{js,json,scss,css,html} set iskeyword+=-
-  autocmd BufNewFile,BufRead *.{js,json,scss,css,html} set iskeyword-=_
+  autocmd BufNewFile,BufRead *.{js,ts,json,scss,css,html} set iskeyword+=-
+  autocmd BufNewFile,BufRead *.{js,ts,json,scss,css,html} set iskeyword-=_
   autocmd BufNewFile,BufRead *.php set iskeyword-=-
 
   " scss.css snippets and stuff
@@ -26,8 +26,9 @@ augroup vimrc
   autocmd BufNewFile,BufRead {Phakefile|.module|.install} set ft=php
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.vue set filetype=vue
+  " autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
-  autocmd BufWritePost *.scala silent :EnTypeCheck
+  " autocmd BufWritePost *.scala silent :EnTypeCheck
 
   " omnicompletion for some filetypes
   autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS

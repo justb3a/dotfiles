@@ -1,17 +1,6 @@
 " All bundles, syntaxes and plugins
 "======================================================================
 
-" @TODO: vimproc needed?
-call dein#add('Shougo/vimproc.vim', {
-    \ 'build': {
-    \     'mac': 'make -f make_mac.mak',
-    \     'linux': 'make',
-    \     'unix': 'gmake',
-    \    },
-    \ })
-
-" @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
-
 " BASIC
 call dein#add('justb3a/vim-smarties')                                          " color scheme
 call dein#add('scrooloose/nerdtree')                                           " file tree
@@ -20,6 +9,7 @@ call dein#add('itchyny/lightline.vim')                                         "
 call dein#add('christoomey/vim-tmux-navigator')                                " tmux support
 
 " AUTOCOMPLETE / LINTING
+" @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 call dein#add('Shougo/deoplete.nvim')                                          " autocomplete asynchronous
 call dein#add('w0rp/ale')                                                      " syntax: linting asynchronous
 call dein#add('maximbaz/lightline-ale')                                        " ale (error, warnings) indicator for lightline
@@ -51,12 +41,13 @@ call dein#add('gko/vim-coloresque')
 call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
 call dein#add('HerringtonDarkholme/yats.vim')                                  " typescript syntax highlighting
 call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})        " language service plugin for typescript
-call dein#add('posva/vim-vue')                                                 " vue file syntax highlighting
 
 call dein#add('prettier/vim-prettier', {
     \ 'build': 'yarn install',
     \ 'branch': 'release/1.x',
     \ })                                                                       " code formatter
+
+" call dein#add('posva/vim-vue')                                                 " vue file syntax highlighting
 
 " PHP
 " call dein#add('lvht/phpcd.vim', {'on_ft': 'php', 'build': 'composer install'}) " autocomplete php // composer install
