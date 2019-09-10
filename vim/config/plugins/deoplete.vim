@@ -71,12 +71,13 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
 "Add extra filetypes
-let g:deoplete#sources#ternjs#filetypes = [
-    \ 'jsx',
-    \ 'javascript.jsx',
-    \ 'vue',
-    \ 'ts',
-    \ ]
+let g:deoplete#sources#ternjs#filetypes = [ 'jsx', 'javascript.jsx', 'vue', 'ts', ]
+
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" disable ale completion for typescript
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.typescript = ['ale']
 
 " PHP COMPLETION
 " =========================================================================
