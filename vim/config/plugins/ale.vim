@@ -12,3 +12,5 @@ let g:ale_linters = {
 " navigate between errors quickly
 nmap <silent> <leader>8 <Plug>(ale_next_wrap)
 nmap <silent> <leader>9 <Plug>(ale_previous_wrap)
+
+let g:ale_completion_enabled = 0
