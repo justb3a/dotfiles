@@ -25,7 +25,7 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#exec_cmd_async = 1
 
 " print semicolons
-autocmd FileType js, ts, jsx let g:prettier#config#semi = 'false'
+autocmd FileType js,ts,jsx,tsx let g:prettier#config#semi = 'false'
 
 let g:prettier#exec_cmd_path = "~/.vim/dein/repos/github.com/prettier/vim-prettier/node_modules/prettier"
 
