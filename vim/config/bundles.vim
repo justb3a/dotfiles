@@ -4,9 +4,12 @@
 " BASIC
 call dein#add('justb3a/vim-smarties')                                          " color scheme
 call dein#add('scrooloose/nerdtree')                                           " file tree
-call dein#add('tpope/vim-fugitive')                                            " git for vim
 call dein#add('itchyny/lightline.vim')                                         " statusbar
 call dein#add('christoomey/vim-tmux-navigator')                                " tmux support
+
+" GIT
+call dein#add('tpope/vim-fugitive')                                            " git for vim
+call dein#add('airblade/vim-gitgutter')                                        " show git diff in the gutter
 
 " AUTOCOMPLETE / LINTING
 " " @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
