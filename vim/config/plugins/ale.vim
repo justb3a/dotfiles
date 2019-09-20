@@ -6,7 +6,7 @@ let g:ale_sign_warning = 'W'
 
 let g:ale_linters = {
 \   'html': [],
-\   'typescript': ['tsserver', 'tslint'],
+\   'typescript': ['tsserver', 'tslint', 'eslint'],
 \}
 
 " navigate between errors quickly

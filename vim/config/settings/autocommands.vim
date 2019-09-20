@@ -26,7 +26,7 @@ augroup vimrc
   autocmd BufNewFile,BufRead {Phakefile|.module|.install} set ft=php
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.vue set filetype=vue
-  autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+  autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
   " autocmd BufWritePost *.scala silent :EnTypeCheck
 
