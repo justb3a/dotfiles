@@ -4,12 +4,6 @@
 nnoremap ; :
 vnoremap ; :
 
-" Swap v and CTRL-V, because Block mode is more useful
-nnoremap v <C-V>
-nnoremap <C-V> v
-vnoremap v <C-V>
-vnoremap <C-V> v
-
 " jk nice behaviour (screen lines vs. shown lines)
 nnoremap j gj
 nnoremap k gk
