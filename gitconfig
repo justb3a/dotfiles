@@ -58,8 +58,8 @@
 
 	url = config --get remote.origin.url
   seturl = remote set-url origin
+  prune = remote prune origin
 
-  unst = reset HEAD
   hist = log --pretty=format:\"%h | %ad | %an | %s%d \" --graph --date=local
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lo = log --graph --decorate --pretty=oneline --abbrev-commit --all
