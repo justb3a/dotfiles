@@ -22,3 +22,7 @@ source ~/.vim/config/settings.vim
 
 " and the configs and mappings for plugins loaded in bundles.vim
 source ~/.vim/config/plugins.vim
+
+" allow putting a file `.vimlocal` in a project root directory
+" set additional options or override defaults
+silent! so .vimlocal
