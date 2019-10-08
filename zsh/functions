@@ -53,6 +53,17 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+git-branch-irrelevant() {
+  concat=""
+  for arg in $@; do concat+=" | grep -v $arg"; done
+  target="git branch --merged"
+  eval "$target $concat"
+}
+
+git-prune-irrelevant() {
+  git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d | git branch -a
+}
+
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar" "${1%%/}"; }
 mktgz() { tar cvzf "${1%%/}.tgz" "${1%%/}"; }
