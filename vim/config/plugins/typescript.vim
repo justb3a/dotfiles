@@ -9,3 +9,5 @@ let g:nvim_typescript#quiet_startup = 1
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+autocmd FileType typescript :set makeprg=tsc\ --noEmit

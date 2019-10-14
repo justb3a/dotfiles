@@ -100,13 +100,3 @@ bindkey "^R" history-incremental-search-backward
 
 # jump around
 # . $HOME/dotfiles/zsh/z/z.sh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tabea.david/Projects/unite-bff/node_modules/tabtab/.completions/slss.zsh
