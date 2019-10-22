@@ -64,6 +64,11 @@ git-prune-irrelevant() {
   git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d | git branch -a
 }
 
+git-rename() {
+  oldname=$(current_branch)
+  git branch -m "$1" && git push origin :${oldname} "$1" && git push origin -u "$1"
+}
+
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar" "${1%%/}"; }
 mktgz() { tar cvzf "${1%%/}.tgz" "${1%%/}"; }

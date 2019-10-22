@@ -17,7 +17,7 @@ alias .....='cd ../../../..'
 alias drop='cd ~/Dropbox && ls -al'
 alias dot='cd ~/Dotfiles && ls -al'
 alias web='cd ~/Projects && ls -al'
-alias wire='cd ~/.composer/vendor/wireshell/wireshell'
+alias m='cd ~/Projects/mercateo'
 alias iawriter='cd ~/Library/Mobile\ Documents/27N4MQEA55\~pro\~writer/Documents'
 
 # system && random usefull stuff
@@ -101,6 +101,7 @@ alias cs='echo -ne "\e[6 q"'
 # random usefull stuff
 alias tmof="lsof | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20"
 alias weather="curl wttr.in"
+alias rmf="rm"
 alias rm="trash"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
