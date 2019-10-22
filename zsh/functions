@@ -64,7 +64,7 @@ git-prune-irrelevant() {
   git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d | git branch -a
 }
 
-git-rename() {
+git-rename-branch() {
   oldname=$(git-current-branch)
   git branch -m "$1" && git push origin :${oldname} "$1" && git push origin -u "$1"
 }
