@@ -13,6 +13,7 @@ brew cask install sequel-pro
 brew cask install cyberduck
 brew cask install caskroom/fonts/font-fira-code
 brew cask install notion
+brew cask install insomnia
 
 brew cask install spectacle
 # Spectacle saves its settings in a JSON file located at
