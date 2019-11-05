@@ -61,7 +61,7 @@ git-branch-irrelevant() {
 }
 
 git-prune-irrelevant() {
-  git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d | git branch -a
+  git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d
 }
 
 git-rename-branch() {
