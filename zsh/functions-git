@@ -1,0 +1,52 @@
+# open changed files in git index
+gch () {
+  vim `git status | grep modified | awk '{print $3}'`
+}
+
+# git history for certain day
+ghist() {
+  if [ -z "$1" ]; then
+      day=$(date +'%Y-%m-%d')
+  else
+    if [ "${1[1, 1]}" = '-' ]; then
+      day=$(date -j -v${1}d +'%Y-%m-%d')
+    else
+      day=$1
+    fi
+  fi
+
+  echo "\nGit History: $day\n"
+  git hist --after="$day 00:00" --until="$day 23:59"
+}
+
+# get current branch
+git-current-branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+# determine irrelevant branches
+git-branch-irrelevant() {
+  concat=""
+  for arg in $@; do concat+=" | grep -v $arg"; done
+  target="git branch --merged"
+  eval "$target $concat"
+}
+
+# cleanup irrelevant branches
+git-prune-irrelevant() {
+  git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d
+}
+
+# rename branch
+git-rename-branch() {
+  oldname=$(git-current-branch)
+  git branch -m "$1" && git push origin :${oldname} "$1" && git push origin -u "$1"
+}
+
+# delete branch
+git-delete-branch() {
+  git branch -d "$1" && git push origin :${1}
+}
+

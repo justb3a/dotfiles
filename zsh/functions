@@ -26,49 +26,6 @@ function greplist() {
   ps -axf | grep -v grep | grep "$@" | awk '{print $2}'
 }
 
-# open changed files in git index
-function gch () {
-  vim `git status | grep modified | awk '{print $3}'`
-}
-
-# git history for certain day
-function ghist() {
-  if [ -z "$1" ]; then
-      day=$(date +'%Y-%m-%d')
-  else
-    if [ "${1[1, 1]}" = '-' ]; then
-      day=$(date -j -v${1}d +'%Y-%m-%d')
-    else
-      day=$1
-    fi
-  fi
-
-  echo "\nGit History: $day\n"
-  git hist --after="$day 00:00" --until="$day 23:59"
-}
-
-function git-current-branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
-
-git-branch-irrelevant() {
-  concat=""
-  for arg in $@; do concat+=" | grep -v $arg"; done
-  target="git branch --merged"
-  eval "$target $concat"
-}
-
-git-prune-irrelevant() {
-  git prune && git remote prune origin && git-branch-irrelevant $@ | xargs git branch -d
-}
-
-git-rename-branch() {
-  oldname=$(git-current-branch)
-  git branch -m "$1" && git push origin :${oldname} "$1" && git push origin -u "$1"
-}
-
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar" "${1%%/}"; }
 mktgz() { tar cvzf "${1%%/}.tgz" "${1%%/}"; }
