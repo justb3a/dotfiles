@@ -82,6 +82,9 @@ alias upall='brewup && npmup'
 alias hosts='sudo vim /etc/hosts'
 alias nginxconf='cd /usr/local/etc/nginx'
 
+# ag https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
+alias ag='ag --path-to-ignore ~/.ignore'
+
 # capistrano
 alias cap='bundle exec cap'
 alias cdd='bundle exec cap develop deploy'
