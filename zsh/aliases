@@ -38,9 +38,9 @@ alias desktopshow='defaults write com.apple.finder CreateDesktop -bool true;kill
 # ruby
 alias r='bundle exec ruby'
 
-# gnu coreutils
-alias ls="gls -al --color=auto"
-alias l='gls -al --color=auto'
+# listing
+alias ls='exa -lF'
+alias l='exa -lF'
 
 # Gitty gitgit
 alias g="git"
