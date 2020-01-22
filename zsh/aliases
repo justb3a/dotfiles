@@ -85,16 +85,6 @@ alias nginxconf='cd /usr/local/etc/nginx'
 # ag https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
 alias ag='ag --path-to-ignore ~/.ignore'
 
-# capistrano
-alias cap='bundle exec cap'
-alias cdd='bundle exec cap develop deploy'
-alias csd='bundle exec cap staging deploy'
-alias cpd='bundle exec cap production deploy'
-alias cpdp='bundle exec cap production deploy:pending'
-alias csdbi='bundle exec cap staging db:import'
-alias csdbe='bundle exec cap staging db:export'
-alias csdbd='bundle exec cap staging db:fetch_dump'
-
 # clipper -- https://github.com/wincent/clipper
 alias clip="nc localhost 8377"
 
