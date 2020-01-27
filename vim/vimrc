@@ -24,5 +24,9 @@ source ~/.vim/config/settings.vim
 source ~/.vim/config/plugins.vim
 
 " allow putting a file `.vimlocal` in a project root directory
-" set additional options or override defaults
-silent! so .vimlocal
+if match(expand('%:p:h'), '/Users/[a-zA-Z.-_]\+/Projects/mercateo/unite-front') !~ -1
+  if filereadable(expand('%:p:h') . '/.vimlocal')
+    " set additional options or override defaults
+    silent! so .vimlocal
+  endif
+endif
