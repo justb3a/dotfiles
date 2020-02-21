@@ -25,6 +25,7 @@ let g:prettier#config#bracket_spacing = 'true'
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = 'false'
 
+" enforce asynchronous execution
 let g:prettier#exec_cmd_async = 1
 
 " print semicolons
@@ -34,3 +35,6 @@ let g:prettier#exec_cmd_path = "~/.vim/dein/repos/github.com/prettier/vim-pretti
 
 " trigger async formatting
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+
+" one-off bypassing of Prettier
+command! W noautocmd w
