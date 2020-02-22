@@ -17,5 +17,5 @@ let g:ale_fixers = {
 \}
 
 " navigate between errors quickly
-nmap <silent> <leader>8 <Plug>(ale_next_wrap)
-nmap <silent> <leader>9 <Plug>(ale_previous_wrap)
+nmap <silent> <leader>N <Plug>(ale_next_wrap)
+nmap <silent> <leader>P <Plug>(ale_previous_wrap)
