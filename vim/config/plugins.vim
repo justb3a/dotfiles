@@ -6,6 +6,7 @@ source ~/.vim/config/plugins/deoplete.vim
 source ~/.vim/config/plugins/fugitive.vim
 source ~/.vim/config/plugins/fzf.vim
 source ~/.vim/config/plugins/gitgutter.vim
+source ~/.vim/config/plugins/importjs.vim
 source ~/.vim/config/plugins/incsearch.vim
 source ~/.vim/config/plugins/lightline.vim
 source ~/.vim/config/plugins/nerdtree.vim

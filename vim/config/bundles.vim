@@ -14,9 +14,10 @@ call dein#add('airblade/vim-gitgutter')                                        "
 " AUTOCOMPLETE / LINTING
 " " @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 call dein#add('Shougo/deoplete.nvim')                                          " autocomplete asynchronous
-call dein#add('w0rp/ale')                                                      " syntax: linting asynchronous
-call dein#add('maximbaz/lightline-ale')                                        " ale (error, warnings) indicator for lightline
 call dein#add('sheerun/vim-polyglot')                                          " syntax: collection of language packs
+call dein#add('Galooshi/vim-import-js')                                        " syntax: simplify importing JS modules
+call dein#add('dense-analysis/ale')                                            " syntax: linting asynchronous
+call dein#add('maximbaz/lightline-ale')                                        " ale indicator for lightline
 
 " HELPER
 call dein#add('Raimondi/delimitMate')                                          " helper: automatic closing of brackets etc.
