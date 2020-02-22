@@ -27,3 +27,4 @@ npm install -g yarn
 npm install -g tern
 npm install -g typescript
 npm install -g @11ty/eleventy
+npm install -g import-js
