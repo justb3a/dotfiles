@@ -8,12 +8,17 @@ let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
 \   'html': [],
-\   'typescript': ['tsserver', 'tslint', 'eslint'],
+\   'typescript': ['tsserver', 'eslint'],
+\   'javascript': ['eslint'],
 \}
 
 let g:ale_fixers = {
-\  'javascript': ['eslint'],
-\  'typescript': ['eslint']
+\  'javascript': ['eslint', 'importjs'],
+\  'typescript': ['eslint', 'importjs']
+\}
+
+let g:ale_pattern_options = {
+\ 'unite-front': { 'ale_javascript_eslint_options': '--rulesdir  ~/Projects/mercateo/unite-front/packages/eslint-rules/lib/rules' }
 \}
 
 " navigate between errors quickly
