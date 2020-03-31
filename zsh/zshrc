@@ -110,3 +110,4 @@ bindkey "^R" history-incremental-search-backward
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/slss.zsh
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

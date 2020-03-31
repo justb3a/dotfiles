@@ -18,6 +18,7 @@ call dein#add('sheerun/vim-polyglot')                                          "
 call dein#add('Galooshi/vim-import-js')                                        " syntax: simplify importing JS modules
 call dein#add('dense-analysis/ale')                                            " syntax: linting asynchronous
 call dein#add('maximbaz/lightline-ale')                                        " ale indicator for lightline
+call dein#add('rhysd/conflict-marker.vim')
 
 " HELPER
 call dein#add('Raimondi/delimitMate')                                          " helper: automatic closing of brackets etc.

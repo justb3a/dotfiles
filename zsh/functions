@@ -26,6 +26,31 @@ function greplist() {
   ps -axf | grep -v grep | grep "$@" | awk '{print $2}'
 }
 
+read_var() {
+  local USER_NAME=$(id -un)
+  local ENV_FILE="/Users/${USER_NAME}/.env"
+
+  if [ ! -z "$2" ]; then
+    ENV_FILE="$2"
+  fi
+
+  local VAR=$(grep $1 "$ENV_FILE" | xargs)
+  IFS="=" read -rA VAR <<< "$VAR"
+  echo ${VAR[2]}
+}
+
+gotowork() {
+  local USER=$(read_var ANYCONNECT_USERNAME)
+  local PASS=$(read_var ANYCONNECT_PASSWORD)
+  local HOST=$(read_var ANYCONNECT_HOST)
+
+  printf "\n${USER}\n${PASS}\ny" | /opt/cisco/anyconnect/bin/vpn -s connect $HOST
+}
+
+callitaday() {
+  /opt/cisco/anyconnect/bin/vpn disconnect
+}
+
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar" "${1%%/}"; }
 mktgz() { tar cvzf "${1%%/}.tgz" "${1%%/}"; }
