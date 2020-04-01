@@ -50,3 +50,7 @@ git-delete-branch() {
   git branch -d "$1" && git push origin :${1}
 }
 
+# delete branch
+git-delete-local-branches() {
+  git branch -D `git branch -l | grep -v \* | xargs`
+}
