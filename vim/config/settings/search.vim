@@ -17,7 +17,7 @@ set wildmenu
 
 " better folding
 set foldignore=
-set foldmethod=indent " indent folding
+set foldmethod=manual " indent folding
 set foldnestmax=20    " max 20 levels of folding
-set nofoldenable      " dont fold by default - let me do it
+" set nofoldenable      " dont fold by default - let me do it
 set foldlevelstart=1  " deactivate folding on fileload
