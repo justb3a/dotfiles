@@ -39,6 +39,7 @@ read_var() {
   echo ${VAR[2]}
 }
 
+# vpn
 gotowork() {
   local USER=$(read_var ANYCONNECT_USERNAME)
   local PASS=$(read_var ANYCONNECT_PASSWORD)
@@ -77,78 +78,6 @@ extract () {
     esac
   else
     echo "'$1' is not a valid file!"
-  fi
-}
-
-# start all processes
-function dev() {
-  brew services start php
-  nginxstart
-  mysqlstart
-}
-
-# stop all processes
-function devs() {
-  brew services stop php
-  nginxstop
-  mysqlstop
-}
-
-# restart all processes
-function devr() {
-  version=$(brew services list | grep php | grep started | awk {'print $1'})
-  devs $version
-
-  # if no parameters given
-  if [ -z "$1" ]; then
-    dev $version
-  else
-    dev $1
-  fi
-}
-
-# edit current php ini
-function phpini() {
-  php -i | grep php.ini
-  phpinipath=$(php -i | grep \/php.ini | awk '{print $5}')
-  vim $phpinipath
-}
-
-# docker
-function dockerstart() {
-  if [ -z "$1" ]; then
-    # if no parameters given
-    docker-machine start klb
-    eval "$(docker-machine env klb)"
-  else
-    docker-machine start $1
-    eval "$(docker-machine env $1)"
-  fi
-
-  docker-compose up -d
-  bin/console server:start
-}
-
-function dockerstop() {
-  bin/console server:stop
-  docker-compose stop
-
-  if [ -z "$1" ]; then
-    # if no parameters given
-    docker-machine stop klb
-  else
-    docker-machine stop $1
-  fi
-}
-
-function dre() {
-  if [ -z "$1" ]; then
-    # if no parameters given
-    dockerstop
-    dockerstart
-  else
-    dockerstop $1
-    dockerstart $1
   fi
 }
 
