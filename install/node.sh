@@ -20,6 +20,7 @@ npm install -g neovim
 npm install -g npm-check-updates
 npm install -g pure-prompt
 npm install -g sass-lint
+npm install -g sort-package-json
 npm install -g trash-cli
 npm install -g vtop
 npm install -g prettier
