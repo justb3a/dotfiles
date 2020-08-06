@@ -48,6 +48,7 @@ alias gf="git-flow"
 alias gst="git status"
 alias gpl='git pull origin $(git-current-branch)'
 alias gps='git push origin $(git-current-branch)'
+alias gpsf='git push origin $(git-current-branch) --force'
 alias gpsu='git push -u origin $(git-current-branch)'
 alias grm='git rm $(git ls-files --deleted)'
 alias gsmu='git submodule init && git submodule update'
