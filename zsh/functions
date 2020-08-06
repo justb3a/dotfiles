@@ -84,3 +84,17 @@ extract () {
 function dmfixedip() {
   echo "ifconfig eth1 $2 netmask 255.255.255.0 broadcast 192.168.99.255 up" | docker-machine ssh $1 sudo tee /var/lib/boot2docker/bootsync.sh > /dev/null
 }
+
+heic-to-jpg () {
+  count=$(find . -depth 1 -name "*.HEIC" | wc -l | sed 's/[[:space:]]*//')
+  echo "Converting $count files .HEIC files to .jpg"
+
+  magick mogrify -monitor -format jpg *.HEIC
+
+  echo "Remove .HEIC files? [y/n]"
+  read remove
+
+  if [[ "$remove" == "y" ]]; then
+    find . -depth 1 -name "*.HEIC" -delete
+  fi
+}
