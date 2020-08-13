@@ -63,3 +63,8 @@ git-fuzzy-checkout-branch() {
   branch=$(echo "$branches" | fzf +s +m -e) &&
   git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
+
+git-cleanup() {
+  git-prune-irrelevant
+  git-delete-local-branches
+}
