@@ -90,11 +90,5 @@ heic-to-jpg () {
   echo "Converting $count files .HEIC files to .jpg"
 
   magick mogrify -monitor -format jpg *.HEIC
-
-  echo "Remove .HEIC files? [y/n]"
-  read remove
-
-  if [[ "$remove" == "y" ]]; then
-    find . -depth 1 -name "*.HEIC" -delete
-  fi
+  find . -depth 1 -name "*.HEIC" -delete
 }
