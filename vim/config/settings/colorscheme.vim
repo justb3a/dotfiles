@@ -3,7 +3,7 @@
 
 " custom list/invisible chars
 set list! " nice Whitespace chars
-set listchars=extends:»,precedes:«,tab:▸\ ,trail:·
+set listchars=extends:»,precedes:«,tab:·\ ,trail:·
 set fillchars=
 
 set laststatus=2    " statusbar is 2 high
