@@ -1,9 +1,12 @@
 " deoplete
 "======================================================================
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
 let g:deoplete#auto_complete_delay=150
 let g:deoplete#auto_completion_start_length=3
+call deoplete#custom#option({
+    \ 'smart_case': v:true,
+    \ })
+
 
 inoremap <expr><C-g> deoplete#undo_completion()
 inoremap <expr><C-l> deoplete#complete_common_string()
