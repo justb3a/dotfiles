@@ -68,3 +68,8 @@ git-cleanup() {
   git-prune-irrelevant
   git-delete-local-branches
 }
+
+#
+git-rename-file() {
+  git mv "$1" "${1}.bak" && git mv "${1}.bak" "$2"
+}
