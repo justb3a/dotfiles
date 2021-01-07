@@ -1,12 +1,11 @@
 " deoplete
 "======================================================================
 let g:deoplete#enable_at_startup=1
-let g:deoplete#auto_complete_delay=150
 let g:deoplete#auto_completion_start_length=3
 call deoplete#custom#option({
     \ 'smart_case': v:true,
+    \ 'auto_complete_delay': 150,
     \ })
-
 
 inoremap <expr><C-g> deoplete#undo_completion()
 inoremap <expr><C-l> deoplete#complete_common_string()
@@ -79,8 +78,7 @@ let g:deoplete#sources#ternjs#filetypes = [ 'jsx', 'javascript.jsx', 'vue', 'ts'
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " disable ale completion for typescript
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.typescript = ['ale']
+call deoplete#custom#option('ignore_sources', {'_': ['ale']})
 
 " PHP COMPLETION
 " =========================================================================
