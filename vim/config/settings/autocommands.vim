@@ -9,8 +9,8 @@ augroup vimrc
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
   " spell correction on text-files
-  autocmd BufNewFile,BufRead *.{md|rst|txt} setlocal spell
-  autocmd BufNewFile,BufRead *.{md|rst|txt} setlocal wrap
+  autocmd BufNewFile,BufRead *.{md|rst|txt|mdx} setlocal spell
+  autocmd BufNewFile,BufRead *.{md|rst|txt|mdx} setlocal wrap
 
   " add the dash to keywords -- makes better css/js/html search
   " do this for specific files only (not in php/rb e.g.)
