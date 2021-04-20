@@ -10,6 +10,7 @@ call dein#add('christoomey/vim-tmux-navigator')                                "
 " GIT
 call dein#add('tpope/vim-fugitive')                                            " git for vim
 call dein#add('airblade/vim-gitgutter')                                        " show git diff in the gutter
+call dein#add('rhysd/conflict-marker.vim')                                     " git merge conflict markers
 
 " AUTOCOMPLETE / LINTING
 " " @see: https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
@@ -18,7 +19,10 @@ call dein#add('sheerun/vim-polyglot')                                          "
 call dein#add('Galooshi/vim-import-js')                                        " syntax: simplify importing JS modules
 call dein#add('dense-analysis/ale')                                            " syntax: linting asynchronous
 call dein#add('maximbaz/lightline-ale')                                        " ale indicator for lightline
-call dein#add('rhysd/conflict-marker.vim')
+call dein#add('prettier/vim-prettier', {
+    \ 'build': 'yarn install',
+    \ 'branch': 'release/1.x',
+    \ })                                                                       " code formatter
 
 " HELPER
 call dein#add('Raimondi/delimitMate')                                          " helper: automatic closing of brackets etc.
@@ -33,21 +37,15 @@ call dein#add('justb3a/vim-snippets')                                          "
 
 " SEARCH
 call dein#add('rking/ag.vim')                                                  " search
-call dein#add('junegunn/fzf.vim')                                              " search: fuzzy finding
+call dein#add('junegunn/fzf', { 'merged': 0 })                                 " search: fuzzy finding
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })                        " search: fuzzy finding
 call dein#add('haya14busa/incsearch.vim')                                      " search: highlights ALL pattern matches
 
 " === LANGUAGES ===
 
 " CSS
-call dein#add('gko/vim-coloresque')
+" call dein#add('gko/vim-coloresque')
 
 " JAVASCRIPT
-call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern
 call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})        " language service plugin for typescript
-" call dein#add('HerringtonDarkholme/yats.vim')                                  " typescript syntax highlighting
-
-call dein#add('prettier/vim-prettier', {
-    \ 'build': 'yarn install',
-    \ 'branch': 'release/1.x',
-    \ })                                                                       " code formatter
-
+call dein#add('carlitux/deoplete-ternjs')                                      " autocomplete javascript // npm install -g tern

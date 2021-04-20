@@ -17,6 +17,7 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.{js,ts,json,scss,css,html} set iskeyword+=-
   autocmd BufNewFile,BufRead *.{js,ts,json,scss,css,html} set iskeyword-=_
   autocmd BufNewFile,BufRead *.php set iskeyword-=-
+  autocmd BufNewFile,BufRead *.yml set iskeyword+=-
 
   " scss.css snippets and stuff
   autocmd BufNewFile,BufRead *.scss set filetype=scss.css
