@@ -12,6 +12,7 @@ let g:ale_fix_on_save = 0
 
 let g:ale_linters = {
 \   'html': [],
+\   'mdx': ['tsserver', 'eslint'],
 \   'typescript': ['tsserver', 'eslint'],
 \   'typescriptreact': ['tsserver', 'eslint'],
 \   'javascript': ['eslint'],
@@ -19,6 +20,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
+\  'mdx': ['eslint'],
 \  'typescript': ['eslint'],
 \  'typescriptreact': ['eslint'],
 \}
