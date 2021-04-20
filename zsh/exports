@@ -35,6 +35,9 @@ export DISABLE_AUTO_TITLE=true
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
+# fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # pager
 export PAGER="less"
 export LESS="-R"

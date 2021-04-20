@@ -92,3 +92,14 @@ heic-to-jpg () {
   magick mogrify -monitor -format jpg *.HEIC
   find . -depth 1 -name "*.HEIC" -delete
 }
+
+JPG-to-jpg () {
+  count=$(find . -depth 1 -name "*.JPG" | wc -l | sed 's/[[:space:]]*//')
+
+  if [ ! -z "$1" ]; then
+    echo "Dry run: Convert $count files from .JPG to .jpg."
+  else
+    echo "Converting $count files .JPG files to .jpg"
+    magick mogrify -monitor -format jpg *.JPG
+  fi
+}
