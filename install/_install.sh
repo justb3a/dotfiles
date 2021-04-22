@@ -10,9 +10,11 @@ echo 'source ~/.vimrc' > ~/.config/nvim/init.vim
 
 # install deps + plugins for neovim
 pip3 install neovim
+pip3 install pynvim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh installer.sh ~/.config/nvim/dein
 rm installer.sh
+mv .config/nvim/dein .vim
 
 # set xterm/screen terminals to enable italic fonts in terminal
 tic ~/dotfiles/zsh/xterm-256color.terminfo
@@ -34,7 +36,7 @@ ln -s ~/dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pu
 
 # set zsh to the default
 sudo vim /etc/shells
-  add `/usr/local/bin/zsh`
+add `/usr/local/bin/zsh`
 chsh -s /usr/local/bin/zsh
 /usr/bin/env zsh
 sudo launchctl config user path $PATH

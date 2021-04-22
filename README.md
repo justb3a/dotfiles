@@ -30,8 +30,15 @@ installed via vundle - for a list of the plugins see vimrc.
 To get things to work properly you first have to install
 dein.vim - see the instructions here: [dein.vim](https://github.com/Shougo/dein.vim)
 
-add in /etc/shells `/usr/local/bin/zsh`
-and run in vim `:BundleInstall`
+```
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+# Use `~/.vim/dein` as installation directory
+sh ./installer.sh ~/.vim/dein
+```
+
+Add in /etc/shells `/usr/local/bin/zsh`.
+
+Open vim and install dein `:call dein#install()`.
 
 ## MAKE
 

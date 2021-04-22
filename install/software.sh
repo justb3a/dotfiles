@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
-brew tap caskroom/versions
+brew tap homebrew/cask-versions
 brew tap buo/cask-upgrade
+brew tap homebrew/cask-fonts
 
 # quicklook stuff
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install quicklook-csv
-brew cask install betterzipql
-brew cask install sequel-pro
-brew cask install cyberduck
-brew cask install caskroom/fonts/font-fira-code
-brew cask install notion
-brew cask install insomnia
+brew install --cask qlcolorcode
+brew install --cask qlstephen
+brew install --cask qlmarkdown
+brew install --cask quicklook-json
+brew install --cask quicklook-csv
+brew install --cask betterzipql
+brew install --cask sequel-pro
+brew install --cask cyberduck
+brew install --cask caskroom/fonts/font-fira-code
+brew install --cask notion
+brew install --cask insomnia
 
-brew cask install spectacle
+brew install --cask spectacle
 # Spectacle saves its settings in a JSON file located at
 # `~/Library/Application Support/Spectacle/Shortcuts.json`.
 # To import a previously saved settings file, save it to this path and restart Spectacle.
@@ -27,3 +28,5 @@ defaults write org.n8gray.QLColorCode fontSizePoints 9
 defaults write org.n8gray.QLColorCode hlTheme blacknblue
 defaults write org.n8gray.QLColorCode extraHLFlags '--replace-tabs=2'
 qlmanage -r
+
+# https://support.1password.com/cs/1password-classic-extension/

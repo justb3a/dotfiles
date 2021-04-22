@@ -13,10 +13,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "frickelbook"
-sudo scutil --set HostName "frickelbook"
-sudo scutil --set LocalHostName "frickelbook"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "frickelbook"
+sudo scutil --set ComputerName "name"
+sudo scutil --set HostName "name"
+sudo scutil --set LocalHostName "name"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "name"
+
+# Finder
+defaults write com.apple.Finder AppleShowAllFiles true
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false

@@ -2,10 +2,11 @@
 " other config files from vim/config + the plugins-subfolder
 "======================================================================
 
-if has('vim_starting')
+ if &compatible
   set nocompatible
-  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
 endif
+
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
 
 call dein#begin(expand('~/.vim/dein')) " plugins' root path
 
