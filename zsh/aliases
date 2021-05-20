@@ -84,7 +84,7 @@ alias hosts='sudo vim /etc/hosts'
 alias nginxconf='cd /usr/local/etc/nginx'
 
 # ag https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
-alias ag='ag --path-to-ignore ~/.ignore'
+alias ag='ag --hidden --path-to-ignore ~/.ignore'
 
 # clipper -- https://github.com/wincent/clipper
 alias clip="nc localhost 8377"
