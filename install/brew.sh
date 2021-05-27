@@ -12,6 +12,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 brew tap homebrew/services
 
 # install brew packages
+brew install bat
 brew install clipper
 brew install composer
 brew install coreutils
