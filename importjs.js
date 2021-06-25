@@ -8,9 +8,36 @@ module.exports = {
   emptyLineBetweenGroups: false,
   groupImports: false,
   sortImports: false,
-  // importDevDependencies: true,
+  useRelativePaths: true,
+  importDevDependencies: false,
+  globals: ['React'],
   aliases: {
     styled: 'styled-components',
     React: 'react',
+    styles: './{filename}.module.scss',
+  },
+  moduleNameFormatter: function ({ moduleName }) {
+    if (moduleName.includes('ui-components')) {
+      return moduleName.substr(moduleName.indexOf('ui-components'));
+    }
+    return moduleName;
+  },
+  importStatementFormatter: function ({ importStatement }) {
+    return importStatement.replace(/;$/, '').replace(/'/g, '"');
+  },
+  namedExports: {
+    'react': [
+      'FC', 'useEffect', 'useState'
+    ],
+    'react-router-dom': [
+      'useHistory',
+      'useLocation',
+    ],
+    'react-router': [
+      'Redirect'
+    ],
+    '@apollo/client': [
+      'useQuery'
+    ],
   },
 };

@@ -44,3 +44,6 @@ noremap <leader>Y "*Y
 
 " toggle wrapping
 nnoremap <leader>w :set wrap! wrap?<CR>
+
+" fix wrong indentation
+" nnoremap <leader>i :set autoindent noexpandtab tabstop=2 shiftwidth=2

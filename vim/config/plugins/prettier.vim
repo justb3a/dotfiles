@@ -34,7 +34,7 @@ autocmd FileType js,ts,jsx,tsx,mdx let g:prettier#config#semi = 'false'
 let g:prettier#exec_cmd_path = "~/.vim/dein/repos/github.com/prettier/vim-prettier/node_modules/prettier"
 
 " trigger async formatting
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.mdx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.mdx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.gql,*.vue,*.yaml,*.html Prettier
 
 " one-off bypassing of Prettier
 command! W noautocmd w

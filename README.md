@@ -40,6 +40,8 @@ Add in /etc/shells `/usr/local/bin/zsh`.
 
 Open vim and install dein `:call dein#install()`.
 
+Then, update remote plugins by running `:UpdateRemotePlugins`.
+
 ## MAKE
 
 ### sortpictures
