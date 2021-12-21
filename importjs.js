@@ -20,24 +20,18 @@ module.exports = {
     if (moduleName.includes('ui-components')) {
       return moduleName.substr(moduleName.indexOf('ui-components'));
     }
+    if (moduleName.includes('generated/graphql-types')) {
+      return moduleName.substr(moduleName.indexOf('generated/graphql-types'));
+    }
     return moduleName;
   },
   importStatementFormatter: function ({ importStatement }) {
     return importStatement.replace(/;$/, '').replace(/'/g, '"');
   },
   namedExports: {
-    'react': [
-      'FC', 'useEffect', 'useState'
-    ],
-    'react-router-dom': [
-      'useHistory',
-      'useLocation',
-    ],
-    'react-router': [
-      'Redirect'
-    ],
-    '@apollo/client': [
-      'useQuery'
-    ],
+    react: ['FC', 'useEffect', 'useState', 'ReactNode'],
+    'react-router-dom': ['useHistory', 'useLocation'],
+    'react-router': ['Redirect'],
+    '@apollo/client': ['useQuery'],
   },
 };

@@ -86,11 +86,11 @@ function dmfixedip() {
 }
 
 heic-to-jpg () {
-  count=$(find . -depth 1 -name "*.HEIC" | wc -l | sed 's/[[:space:]]*//')
+  count=$(find . -depth 1 -iname "*.HEIC" | wc -l | sed 's/[[:space:]]*//')
   echo "Converting $count files .HEIC files to .jpg"
 
-  magick mogrify -monitor -format jpg *.HEIC
-  find . -depth 1 -name "*.HEIC" -delete
+  magick mogrify -monitor -format jpg *.(HEIC|heic)
+  # find . -depth 1 -iname "*.HEIC" -delete
 }
 
 JPG-to-jpg () {
