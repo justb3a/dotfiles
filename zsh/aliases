@@ -101,7 +101,7 @@ alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 alias sortpj="sort-package-json \"package.json\" \"packages/*/package.json\""
 
 # imagemagick downsampling shortcuts (c&p retina folder, run, done!)
-alias jpegoptim='for i (*.jpg) mozjpeg -copy none -optimize -scans ~/dotfiles/other/scans.txt -outfile $i $i'
+alias jpegoptim='for i (*.jpg) mozjpeg -copy none -optimize -scans ~/Dotfiles/other/scans.txt -outfile $i $i'
 alias jpg25='mogrify -format jpg -resize 25% -strip -quality 80 *.jpg'
 alias jpg50='mogrify -format jpg -resize 50% -strip -quality 80 *.jpg'
 alias png25='mogrify -format png -resize 25% -strip -quality 80 *.png'

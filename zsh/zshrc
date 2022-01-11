@@ -1,5 +1,5 @@
 # Load the functions, aliases, function etc.
-for file in ~/dotfiles/zsh/{exports,aliases,functions,functions-git}; do
+for file in ~/Dotfiles/zsh/{exports,aliases,functions,functions-git}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
@@ -14,7 +14,7 @@ autoload bashcompinit && bashcompinit
 
 # autocomplete for the git alias
 compdef g=git
-compdef gf=git-flow
+# compdef gf=git-flow
 
 # case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -55,8 +55,8 @@ zle -N self-insert url-quote-magic
 setopt long_list_jobs
 
 # source some zsh and other plugins
-source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/dotfiles/zsh/zsh-completions/zsh-completions.plugin.zsh
+source $HOME/Dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/Dotfiles/zsh/zsh-completions/zsh-completions.plugin.zsh
 
 # nice dircolors for ls
 export CLICOLOR=1
@@ -99,15 +99,6 @@ bindkey '\^i' expand-or-complete-prefix
 bindkey "^R" history-incremental-search-backward
 
 # jump around
-# . $HOME/dotfiles/zsh/z/z.sh
+# . $HOME/Dotfiles/zsh/z/z.sh
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tabea.david/Projects/mercateo/unite-graphql/node_modules/tabtab/.completions/slss.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

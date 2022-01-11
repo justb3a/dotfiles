@@ -6,10 +6,10 @@ export LANG=en_US.UTF-8
 export SHELL=/usr/local/bin/zsh
 
 # brew CASK
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # paths
-export PATH=$HOME/.composer/vendor/bin:$PATH
+# export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=/usr/local/share/man:$MANPATH
 
@@ -17,7 +17,7 @@ export MANPATH=/usr/local/share/man:$MANPATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # zsh-completions
-fpath=($HOME/dotfiles/zsh/zsh-completions/src $fpath)
+fpath=($HOME/Dotfiles/zsh/zsh-completions/src $fpath)
 
 # disable stupid ._ and dsstore files
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
@@ -42,5 +42,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export PAGER="less"
 export LESS="-R"
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
