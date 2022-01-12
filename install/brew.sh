@@ -14,17 +14,13 @@ brew tap homebrew/services
 # install brew packages
 brew install bat
 brew install clipper
-brew install composer
 brew install coreutils
 brew install curl
 brew install diff-so-fancy
-brew install elixir
-brew install erlang # Pretty Eshell: https://github.com/spawnfest/ErlShell
 brew install exa
 brew install fzf
 brew install ghostscript
 brew install git
-brew install git-flow
 brew install imagemagick
 brew install jq
 brew install markdown
@@ -35,10 +31,6 @@ brew install neovim
 brew install ngnix
 brew install node
 brew install openssl
-brew install php --with-homebrew-curl
-brew install php-intl
-brew install php-imagick
-brew install php-mcrypt
 brew install python3
 brew install rbenv
 brew install reattach-to-user-namespace
@@ -49,7 +41,6 @@ brew install ssh-copy-id
 brew install the_silver_searcher
 brew install tmux
 brew install unrar
-brew install vim
 brew install wget
 brew install yarn
 brew install zsh
