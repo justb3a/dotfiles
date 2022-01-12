@@ -1,12 +1,12 @@
 " take me to your leader!
 "======================================================================
 
-let g:mapleader = ","
-let g:maplocalleader = ","
+" let g:mapleader = ","
+" let g:maplocalleader = ","
 
 " open new vertical split and change to split
-nnoremap <leader>, <C-w>v<C-w>l
-nnoremap <leader>- <C-w>s<C-w>j
+" nnoremap <leader>, <C-w>v<C-w>l
+" nnoremap <leader>- <C-w>s<C-w>j
 
 " edit existing file under cursor
 nnoremap <leader>g gf
@@ -23,8 +23,8 @@ nnoremap <leader>k 20<C-w>-
 nnoremap <leader>l 40<C-w><
 
 " open a new split and edit the vimrc // easy sourcing vimrc
-nnoremap <leader>ve <C-w>v<C-w>l :e ~/.vimrc<cr>
-nnoremap <leader>vs :source ~/.vimrc<cr>
+" nnoremap <leader>ve <C-w>v<C-w>l :e ~/.vimrc<cr>
+" nnoremap <leader>vs :source ~/.vimrc<cr>
 
 " Opens an edit command with the path of the currently edited file filled in
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -43,7 +43,7 @@ noremap <leader>y "*y
 noremap <leader>Y "*Y
 
 " toggle wrapping
-nnoremap <leader>w :set wrap! wrap?<CR>
+" nnoremap <leader>w :set wrap! wrap?<CR>
 
 " fix wrong indentation
 " nnoremap <leader>i :set autoindent noexpandtab tabstop=2 shiftwidth=2

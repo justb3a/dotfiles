@@ -25,6 +25,15 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
 
+  -- nvim tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
   -- textobjects, surroung, for stuff like cs", cib etc.
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use {
@@ -68,12 +77,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- floating-terminal integration for nnn, lazygit etc.
-  use {
-    'voldikss/vim-floaterm',
-    config = get_config('floaterm')
-  }
-
   -- fzf integration
   use {
     'ibhagwan/fzf-lua',
@@ -110,13 +113,6 @@ return require('packer').startup(function(use)
     requires = {
       { 'kyazdani42/nvim-web-devicons', opt = true }
     },
-  }
-
-  -- hop for easy navigation
-  use {
-    'phaazon/hop.nvim',
-    config = get_config('hop'),
-    event = 'BufReadPre',
   }
 
   -- git diff view, using lazygit for everything else

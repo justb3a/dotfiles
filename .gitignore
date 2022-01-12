@@ -6,3 +6,4 @@ vim/dein/merged
 add
 vim/dein/.dein
 .ruby-version
+nvim/plugin

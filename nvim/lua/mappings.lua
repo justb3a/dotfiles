@@ -40,12 +40,6 @@ map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
 map('v', 'y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
 map('v', 'Y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
 
--- Swap v and CTRL-V, because Block mode is more useful
-map('n', 'v', '<C-V>')
-map('n', '<C-V>', 'v')
-map('v', 'v', '<C-V>')
-map('v', '<C-V>', 'v')
-
 -- add undo-repo-breakpoints automatically when writing long text
 map('i', ',', ',<c-g>u')
 map('i', '.', '.<c-g>u')
@@ -101,18 +95,17 @@ map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
 map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
 map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
 
--- floaterm
-map('n', '-', '<cmd>FloatermNew nnn<cr>')
-map('n', '<leader>t', '<cmd>FloatermNew<cr>')
-
 -- vsnip snippets expansion
 map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
 map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false
 })
 
+-- nerdtree
+map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>o','<cmd>NvimTreeFocus<cr>')
+
 -- other useful mappings
 map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
-map('n', '<leader>j', '<cmd>lua require("hop").hint_words()<cr>')
 map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
 map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
 map('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
