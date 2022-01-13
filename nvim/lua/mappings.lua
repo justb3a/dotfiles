@@ -40,6 +40,14 @@ map('n', '<S-tab>', '<C-w>W')
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
 map('n', '<leader>o','<cmd>NvimTreeFocus<cr>')
 
+-- comment
+map('n', '<leader>.', '<cmd>lua require"Comment.api".toggle_current_linewise()<cr>')
+map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
+map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim.fn.visualmode())<cr>')
+map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
+map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
+map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
+
 -- other useful mappings
 map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
 map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
