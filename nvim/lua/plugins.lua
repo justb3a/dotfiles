@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = function() require'nvim-tree'.setup {} end
+    config = get_config('nvim-tree'),
   }
 
   -- textobjects, surroung, for stuff like cs", cib etc.
@@ -124,8 +124,7 @@ return require('packer').startup(function(use)
 
   -- finally: the colorscheme of choice
   use {
-    'ellisonleao/gruvbox.nvim',
-    requires = { 'rktjmp/lush.nvim' },
+    'justb3a/vim-smarties',
   }
 
   -- oldschool vimscript plugins that still provide a lot of value

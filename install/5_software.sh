@@ -5,6 +5,7 @@ brew tap homebrew/cask-versions
 
 brew install --cask firefox
 brew install --cask google-chrome
+brew install --cask iterm2
 brew install --cask qlstephen
 brew install --cask syntax-highlight
 brew install --cask notion
