@@ -36,7 +36,40 @@ map('n', '<right>', '<cmd>bn<cr>')
 map('n', '<tab>', '<C-w><C-w>')
 map('n', '<S-tab>', '<C-w>W')
 
--- nerdtree
+-- Keeping it centered when searching and jumping to next entry
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
+
+-- j and k for wrapped lines
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+
+-- behave - yank just like D and C
+map('n', 'Y', 'y$')
+
+-- auto-yanking with clipper for selected yanking
+map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
+map('v', 'y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
+map('v', 'Y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
+
+-- bubbling of lines/selections with alt + hjkl
+-- for mapping ALT+hjkl, use instead the real character generated
+-- k ∆  up / j º  down / l @ right / h ª left
+-- terminal > profiles > Keyboard
+-- S-Up: \033[1;2A | S-Down: \033[1;2A | S-Right: \033[1;2C | S-Left: \033[1;2D
+map('n', '<S-Up>', ':move .-2<cr>', { noremap = false })
+map('v', '<S-Up>', ":move '<-2<cr>gv", { noremap = false })
+
+map('n', '<S-Down>', ':move .+1<cr>', { noremap = false })
+map('v', '<S-Down>', ":move '>+1<cr>gv", { noremap = false })
+
+map('n', '<S-left>', '<<', { noremap = false })
+map('v', '<S-left>', '<gv', { noremap = false })
+
+map('n', '<S-right>', '>>', { noremap = false })
+map('v', '<S-right>', '>gv', { noremap = false })
+
+-- nvim tree
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
 map('n', '<leader>o','<cmd>NvimTreeFocus<cr>')
 
@@ -55,25 +88,17 @@ map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
 map('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
 
 
+
+
+
 -- LINE LINE INTERMISSION
 
 
 
 
 
--- Keeping it centered when searching and jumping to next entry
-map('n', 'n', 'nzzzv')
-map('n', 'N', 'Nzzzv')
 
--- j and k for wrapped lines
-map('n', 'j', 'gj')
-map('n', 'k', 'gk')
 
--- sane yanking and copying to clipboard/alfred-history
-map('n', 'Y', 'y$')
-map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
-map('v', 'y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
-map('v', 'Y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
 
 -- add undo-repo-breakpoints automatically when writing long text
 map('i', ',', ',<c-g>u')
@@ -81,15 +106,6 @@ map('i', '.', '.<c-g>u')
 map('i', '!', '!<c-g>u')
 map('i', '?', '?<c-g>u')
 
--- bubbling of lines/selections with alt + hjkl
--- map('n', '˚', ':move .-2<cr>', { noremap = false })
--- map('n', '∆', ':move .+1<cr>', { noremap = false })
--- map('n', '˙', '<<', { noremap = false })
--- map('n', '¬', '>>', { noremap = false })
--- map('v', '˚', ":move '<-2<cr>gv", { noremap = false })
--- map('v', '∆', ":move '>+1<cr>gv", { noremap = false })
--- map('v', '˙', '<gv', { noremap = false })
--- map('v', '¬', '>gv', { noremap = false })
 
 -- fzf-lua
 -- map('n', '<leader>,', '<cmd>lua require("fzf-lua").files()<cr>')
@@ -122,6 +138,5 @@ map('n', '<leader>x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 
 -- vsnip snippets expansion
 map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
-map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false
-})
+map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
 
