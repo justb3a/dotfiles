@@ -34,7 +34,7 @@ map('n', '<right>', '<cmd>bn<cr>')
 
 -- fast switch between windows / buffers with tab
 map('n', '<tab>', '<C-w><C-w>')
-map('n', '<S-tab>', '<C-w>w')
+map('n', '<S-tab>', '<C-w>W')
 
 -- nerdtree
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
