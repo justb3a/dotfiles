@@ -1,5 +1,3 @@
--- https://github.com/webgefrickel/dotfiles/blob/master/nvim/lua/mappings.lua
---
 -- set the leader key to comma
 vim.api.nvim_set_keymap('n', ',', '', {})
 vim.g.mapleader = ','
@@ -26,6 +24,9 @@ map('n', '<leader>-', '<C-w>s<C-w>j')
 map('n', 'Q', '')
 map('n', 'K', '')
 
+-- opens an edit command with the path of the currently edited file filled in
+map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>')
+
 -- use the arrowkeys for usefull stuff in normal mode -- switching buffers
 map('n', '<up>', '<cmd>bfirst<cr>')
 map('n', '<down>', '<cmd>blast<cr>')
@@ -48,6 +49,8 @@ map('n', 'k', 'gk')
 map('n', 'Y', 'y$')
 
 -- auto-yanking with clipper for selected yanking
+map('n', 'y', '"*y')
+map('n', 'Y', '"*Y')
 map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
 map('v', 'y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
 map('v', 'Y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
@@ -87,25 +90,11 @@ map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
 map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
 map('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
 
-
-
-
-
--- LINE LINE INTERMISSION
-
-
-
-
-
-
-
-
 -- add undo-repo-breakpoints automatically when writing long text
 map('i', ',', ',<c-g>u')
 map('i', '.', '.<c-g>u')
 map('i', '!', '!<c-g>u')
 map('i', '?', '?<c-g>u')
-
 
 -- fzf-lua
 -- map('n', '<leader>,', '<cmd>lua require("fzf-lua").files()<cr>')
@@ -119,15 +108,15 @@ map('i', '?', '?<c-g>u')
 -- map('n', '<leader>]', '<cmd>lua require("fzf-lua").lines()<cr>')
 
 -- lsp and diagnostics
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-map('n', '<leader>d', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-map('n', '<leader>e', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
-map('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<cr>')
-map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>')
-map('n', '<leader>x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+-- map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+-- map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+-- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+-- map('n', '<leader>d', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+-- map('n', '<leader>e', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+-- map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+-- map('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<cr>')
+-- map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>')
+-- map('n', '<leader>x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 
 -- git
 -- map('n', '<leader>l', '<cmd>FloatermNew lazygit<cr>')
@@ -137,6 +126,6 @@ map('n', '<leader>x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 -- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
 
 -- vsnip snippets expansion
-map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
-map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
+-- map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
+-- map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
 
