@@ -15,6 +15,7 @@ brew install jump
 brew install lazygit
 brew install mozjpeg
 brew install nnn
+brew install ripgrep
 brew install rsync
 brew install tree
 brew install unrar

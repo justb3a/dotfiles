@@ -9,8 +9,5 @@ cmd([[
 
     " Autoresize windows/splits when vim resizes
     autocmd VimResized * wincmd =
-
-    " When opening temporary mails in mutt, automatically set filetype to mail
-    autocmd BufNewFile,BufRead neomutt-* set ft=mail
   augroup END
 ]])

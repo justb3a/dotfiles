@@ -36,7 +36,8 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
 # fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export RIPGREP_CONFIG_PATH="$HOME/Dotfiles/ripgreprc"
 
 # pager
 export PAGER="less"
