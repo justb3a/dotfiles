@@ -123,12 +123,33 @@ map('n', '<leader>vc', '<cmd>lua require("fzf-lua").git_bcommits()<cr>')
 map('n', '<leader>vl', '<cmd>lua require("fzf-lua").lines()<cr>')
 
 -- lsp and diagnostics
-map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
-map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
-map('n', 'tn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+
+-- Displays hover information about the symbol under the cursor in a floating window.
+-- Calling the function twice will jump into the floating window.
 map('n', 'tt', '<cmd>lua vim.lsp.buf.hover()<cr>')
--- map('n', ' i', '<cmd>lua vim.lsp.buf.implementation()<cr>')
--- map('n', ' d', '<cmd>lua vim.lsp.buf.declaration()<cr>')
--- map('n', ' e', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+
+-- Jumps to the definition of the symbol under the cursor.
+map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
+
+-- Jumps to the definition of the type of the symbol under the cursor.
+-- map('n', 't?', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+
+-- Renames all references to the symbol under the cursor.
+map('n', 'tn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+
+-- Lists all the references to the symbol under the cursor in the quickfix window.
+map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
+
+-- Lists all the implementations for the symbol under the cursor in the quickfix window.
+-- map('n', 't?', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+
+-- Selects a code action available at the current cursor position.
+map('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+
+-- Formats the current buffer.
 -- map('n', ' f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
--- map('n', ' x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+
+-- Move to the next diagnostic.
+map('n', '<leader>n', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+-- Move to the previous diagnostic in the current buffer.
+map('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
