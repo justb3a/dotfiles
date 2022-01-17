@@ -1,6 +1,8 @@
 local nvim_tree = require('nvim-tree')
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
+
+-- { key = "<C-r>",  cb = tree_cb("full_rename") },
 local list = {
   { key = {"<CR>"}, cb = tree_cb("edit") },
   { key = "R",      cb = tree_cb("refresh") },
@@ -16,7 +18,6 @@ local list = {
   { key = "K",      cb = tree_cb("first_sibling") },
   { key = "J",      cb = tree_cb("last_sibling") },
   { key = "r",      cb = tree_cb("rename") },
-  { key = "<C-r>",  cb = tree_cb("full_rename") },
   { key = "x",      cb = tree_cb("cut") },
   { key = "c",      cb = tree_cb("copy") },
   { key = "p",      cb = tree_cb("paste") },

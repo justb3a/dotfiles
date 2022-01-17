@@ -25,7 +25,7 @@ map('n', 'Q', '')
 map('n', 'K', '')
 
 -- opens an edit command with the path of the currently edited file filled in
-map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>')
+map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>', { silent = false })
 
 -- use the arrowkeys for usefull stuff in normal mode -- switching buffers
 map('n', '<up>', '<cmd>bfirst<cr>')
@@ -77,12 +77,15 @@ map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
 map('n', '<leader>o','<cmd>NvimTreeFocus<cr>')
 
 -- comment
+-- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
+-- Check additional keymaps using:
+-- `:nmap <leader>e`
 map('n', '<leader>.', '<cmd>lua require"Comment.api".toggle_current_linewise()<cr>')
-map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
+-- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
 map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim.fn.visualmode())<cr>')
-map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
-map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
-map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
+-- map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
+-- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
+-- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
 
 -- other useful mappings
 map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
