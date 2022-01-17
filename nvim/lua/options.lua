@@ -8,6 +8,7 @@ g.loaded_perl_provider = 0
 
 -- general options
 set.breakindent = true
+set.clipboard = 'unnamed'
 set.cmdheight = 2
 set.completeopt= { 'menu', 'menuone', 'noselect' }
 set.cpoptions:append('$')
