@@ -74,7 +74,7 @@ map('v', '<S-right>', '>gv', { noremap = false })
 
 -- nvim tree
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
-map('n', '<leader>o','<cmd>NvimTreeFocus<cr>')
+map('n', '<leader>o','<cmd>NvimTreeFindFile<cr>')
 
 -- comment
 -- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
@@ -99,6 +99,17 @@ map('i', '.', '.<c-g>u')
 map('i', '!', '!<c-g>u')
 map('i', '?', '?<c-g>u')
 
+-- git
+map('n', '<leader>gs', '<cmd>Git<cr>')
+map('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
+map('n', '<leader>gw', '<cmd>Gwrite<cr>')
+map('n', '<leader>gp', '<cmd>Git push<cr>')
+map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
+-- map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
+-- map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
+-- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
+-- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
+
 -- fzf-lua
 -- map('n', '<leader>,', '<cmd>lua require("fzf-lua").files()<cr>')
 -- map('n', '<leader>.', '<cmd>lua require("fzf-lua").buffers()<cr>')
@@ -111,6 +122,7 @@ map('i', '?', '?<c-g>u')
 -- map('n', '<leader>]', '<cmd>lua require("fzf-lua").lines()<cr>')
 
 -- lsp and diagnostics
+-- TODO: autocomplete with tab instead of arrow key and enter
 -- map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
 -- map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
 -- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
@@ -120,15 +132,3 @@ map('i', '?', '?<c-g>u')
 -- map('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<cr>')
 -- map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>')
 -- map('n', '<leader>x', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-
--- git
--- map('n', '<leader>l', '<cmd>FloatermNew lazygit<cr>')
--- map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
--- map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
--- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
--- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
-
--- vsnip snippets expansion
--- map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
--- map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
-

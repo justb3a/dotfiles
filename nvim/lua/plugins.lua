@@ -105,6 +105,11 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- git plugin for vim
+  use {
+    'tpope/vim-fugitive',
+  }
+
   -- git diff view, using lazygit for everything else
   use {
     'sindrets/diffview.nvim',
