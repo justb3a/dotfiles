@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   }
 
-  -- autocompletion and snippets
+  -- autocompletion
   use {
     'hrsh7th/nvim-cmp',
     config = get_config('cmp'),
