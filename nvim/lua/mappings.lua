@@ -122,7 +122,6 @@ map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
 -- map('n', '<leader>]', '<cmd>lua require("fzf-lua").lines()<cr>')
 
 -- lsp and diagnostics
--- TODO: autocomplete with tab instead of arrow key and enter
 -- map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
 -- map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
 -- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
