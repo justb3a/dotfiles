@@ -18,13 +18,6 @@ return require('packer').startup(function(use)
   -- packer for plugin management itself
   use 'wbthomason/packer.nvim'
 
-  -- Treesitter for nicer syntax-highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = get_config('treesitter'),
-    run = ':TSUpdate',
-  }
-
   -- nvim tree
   use {
     'kyazdani42/nvim-tree.lua',
@@ -34,7 +27,14 @@ return require('packer').startup(function(use)
     config = get_config('nvim-tree'),
   }
 
-  -- textobjects, surroung, for stuff like cs", cib etc.
+  -- Treesitter for nicer syntax-highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = get_config('treesitter'),
+    run = ':TSUpdate',
+  }
+
+  -- textobjects, surround, for stuff like cs", cib etc.
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use {
     'blackCauldron7/surround.nvim',
@@ -64,16 +64,6 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-vsnip',
-    },
-  }
-  use {
-    'hrsh7th/vim-vsnip',
-    config = get_config('vsnip')
-  }
-  use {
-    'rafamadriz/friendly-snippets',
-    requires = {
-      'hrsh7th/vim-vsnip',
     },
   }
 
