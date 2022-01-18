@@ -150,6 +150,6 @@ map('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 -- map('n', ' f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
 
 -- Move to the next diagnostic.
-map('n', '<leader>n', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+map('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 -- Move to the previous diagnostic in the current buffer.
-map('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+map('n', '<leader>P', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
