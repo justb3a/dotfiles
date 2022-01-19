@@ -17,7 +17,7 @@ alias .....='cd ../../../..'
 alias drop='cd ~/Dropbox && ls -al'
 alias dot='cd ~/Dotfiles && ls -al'
 alias web='cd ~/Projects && ls -al'
-alias m='cd ~/Projects/mercateo'
+alias webnu='cd ~/Projects/nu'
 alias iawriter='cd ~/Library/Mobile\ Documents/27N4MQEA55\~pro\~writer/Documents'
 
 # system && random usefull stuff
