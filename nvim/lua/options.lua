@@ -14,6 +14,7 @@ set.completeopt= { 'menu', 'menuone', 'noselect' }
 set.cpoptions:append('$')
 set.cursorline = true
 set.foldexpr = 'nvim_treesitter#foldexpr()'
+set.foldenable = false
 set.foldmethod = 'expr'
 set.gdefault = true
 set.grepprg = 'rg'
@@ -21,9 +22,9 @@ set.hidden = true
 set.ignorecase = true
 set.infercase = true
 set.lazyredraw = true
+set.linebreak = true
 set.list = true
 set.listchars = 'extends:»,precedes:«,tab:· ,trail:·'
-set.foldenable = false
 set.showmode = false
 set.swapfile = false
 set.wrap = false
@@ -34,7 +35,7 @@ set.scrolloff = 3
 set.shiftround = true
 set.shiftwidth = 2
 set.shortmess:append('c')
-set.showbreak = '\\\\\\\\'
+set.showbreak = '↳ '
 set.showmatch = true
 set.sidescroll = 10
 set.sidescrolloff = 5

@@ -17,6 +17,4 @@ Optional you can pass several arguments:
 ## TODO
 
 [] Remove trailing whitespaces -> prettier??
-[] Spell check red highlight — disable?
-[] Vim LineBreak display `\\\\` atm
 [] deepl command line tool
