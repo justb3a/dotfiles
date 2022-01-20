@@ -26,6 +26,7 @@ curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | s
 
 ln -s ~/Dotfiles/lazygit ~/.config/lazygit
 ln -s ~/Dotfiles/lazygit ~/Library/Application\ Support/lazygit
+ln -s ~/Dotfiles/yamllint.yml ~/.config/yamllint/config
 
 # node cli tools and helpers
 npm install -g diff-so-fancy

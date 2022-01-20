@@ -48,6 +48,7 @@ set.wildmode = { 'list:longest', 'list:full' }
 
 -- colorscheme and default language
 set.background = 'dark'
+set.termguicolors = true
 
 cmd 'colorscheme smarties'
 cmd 'language en_US.UTF-8'
