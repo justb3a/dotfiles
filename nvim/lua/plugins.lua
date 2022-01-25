@@ -126,6 +126,7 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'editorconfig/editorconfig-vim'
   use 'wincent/terminus'
+  use 'dhruvasagar/vim-table-mode'
 
   -- automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
