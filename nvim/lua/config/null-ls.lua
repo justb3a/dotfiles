@@ -8,6 +8,10 @@ local sources = {
   b.formatting.eslint_d,
   b.code_actions.eslint_d,
 
+  -- prettier
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#prettier
+  b.formatting.prettier.with({ prefer_local = 'node_modules/.bin' }),
+
   -- css and scss-files
   b.diagnostics.stylelint.with({ prefer_local = 'node_modules/.bin' }),
   b.formatting.stylelint.with({ prefer_local = 'node_modules/.bin' }),
@@ -25,4 +29,9 @@ local sources = {
 
 null_ls.setup({
   sources = sources,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+    end
+  end,
 })
