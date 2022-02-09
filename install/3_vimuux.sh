@@ -20,7 +20,7 @@ npm i -g markdownlint-cli
 npm i -g npm-check-updates
 npm i -g fixjson
 npm i -g neovim
-npm i -g prettier
+npm i -g @fsouza/prettierd
 npm i -g sort-package-json
 npm i -g typescript
 npm i -g typescript-language-server

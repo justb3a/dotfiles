@@ -10,6 +10,7 @@ brew install --cask qlstephen
 brew install --cask syntax-highlight
 brew install --cask notion
 brew install --cask telegram
+brew install --cask visual-studio-code
 brew install --cask zoom
 
 brew install --cask spectacle
