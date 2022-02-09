@@ -44,7 +44,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'vsnip' },
-    { name = 'tmux', option = { all_panes = true } }, -- TODO 'true' makes things sloppy
+    { name = 'tmux', option = { all_panes = false } },
     { name = 'calc' },
   }),
   formatting = {
