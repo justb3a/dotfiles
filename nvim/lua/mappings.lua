@@ -105,8 +105,28 @@ map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim
 -- Git
 -- -----------------------------------------------------
 
--- git
-map('n', '<leader>gs', '<cmd>Git<cr>')
+local function isempty(s)
+  return s == nil or s == ''
+end
+
+toggle_git_status = function()
+  local window_number = nil
+
+  for winnr=1,vim.fn.winnr('$') do
+    if not isempty(vim.fn.getwinvar(winnr, 'fugitive_status')) then
+      window_number = winnr
+    end
+  end
+
+  if isempty(window_number) then
+    vim.cmd("Git")
+  else
+    vim.cmd(window_number .. "close")
+  end
+
+end
+
+map('n', '<leader>gs', '<cmd>lua toggle_git_status()<cr>')
 map('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
 map('n', '<leader>gw', '<cmd>Gwrite<cr>')
 map('n', '<leader>gp', '<cmd>Git push<cr>')
@@ -116,6 +136,8 @@ map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
 -- map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
 -- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
 -- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
+
+-- nnoremap <C-s> :call <SID>ToggleGstatus()<CR>
 
 -- -----------------------------------------------------
 -- Floatterm
