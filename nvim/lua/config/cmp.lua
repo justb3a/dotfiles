@@ -9,6 +9,11 @@ cmp.setup({
   completion = {
     keyword_length = 3,
   },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end
+  },
   mapping = {
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
@@ -28,7 +33,6 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     {
       name = 'buffer',
       option = {
@@ -37,7 +41,9 @@ cmp.setup({
         end
       },
     },
+    { name = 'nvim_lsp' },
     { name = 'path' },
+    { name = 'vsnip' },
     { name = 'tmux', option = { all_panes = true } }, -- TODO 'true' makes things sloppy
     { name = 'calc' },
   }),
@@ -45,10 +51,11 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.menu = ({
         buffer = "[Buffer]",
-        calc = "[Calc]",
         nvim_lsp = "[LSP]",
         path = "[Path]",
+        vsnip = "[Snippet]",
         tmux = "[tmux]",
+        calc = "[Calc]",
       })[entry.source.name]
       return vim_item
     end
