@@ -49,6 +49,8 @@ set.wildmode = { 'list:longest', 'list:full' }
 -- colorscheme and default language
 set.background = 'dark'
 set.termguicolors = true
+g.gruvbox_italic = 1
 
-cmd 'colorscheme smarties'
+cmd 'colorscheme gruvbox'
+-- cmd 'colorscheme smarties'
 cmd 'language en_US.UTF-8'
