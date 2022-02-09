@@ -12,6 +12,10 @@ local map = function(mode, lhs, rhs, opts)
   }))
 end
 
+-- -----------------------------------------------------
+-- Basic Configurations
+-- -----------------------------------------------------
+
 -- remap semi-colon to be colon in normal an visual mode
 map('n', ';', ':')
 map('v', ';', ':')
@@ -70,11 +74,23 @@ map('v', '<S-left>', '<gv', { noremap = false })
 map('n', '<S-right>', '>>', { noremap = false })
 map('v', '<S-right>', '>gv', { noremap = false })
 
--- nvim tree
+-- add undo-repo-breakpoints automatically when writing long text
+map('i', ',', ',<c-g>u')
+map('i', '.', '.<c-g>u')
+map('i', '!', '!<c-g>u')
+map('i', '?', '?<c-g>u')
+
+-- -----------------------------------------------------
+-- Nvim Tree
+-- -----------------------------------------------------
+
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
 map('n', '<leader>o','<cmd>NvimTreeFindFile<cr>')
 
--- comment
+-- -----------------------------------------------------
+-- Comment
+-- -----------------------------------------------------
+
 -- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
 -- Check additional keymaps using:
 -- `:nmap <leader>e`
@@ -85,11 +101,9 @@ map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim
 -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
 -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
 
--- add undo-repo-breakpoints automatically when writing long text
-map('i', ',', ',<c-g>u')
-map('i', '.', '.<c-g>u')
-map('i', '!', '!<c-g>u')
-map('i', '?', '?<c-g>u')
+-- -----------------------------------------------------
+-- Git
+-- -----------------------------------------------------
 
 -- git
 map('n', '<leader>gs', '<cmd>Git<cr>')
@@ -103,11 +117,17 @@ map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
 -- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
 -- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
 
--- floaterm
+-- -----------------------------------------------------
+-- Floatterm
+-- -----------------------------------------------------
+
 map('n', '-', '<cmd>FloatermNew nnn<cr>')
 map('n', '<leader>t', '<cmd>FloatermNew<cr>')
 
--- fzf-lua
+-- -----------------------------------------------------
+-- Fzf Lua
+-- -----------------------------------------------------
+
 map('n', '<leader>a', '<cmd>lua require("fzf-lua").live_grep()<cr>')
 map('n', '<leader>r', '<cmd>lua require("fzf-lua").grep_project()<cr>')
 map('n', '<leader>;', '<cmd>lua require("fzf-lua").files()<cr>')
@@ -119,7 +139,9 @@ map('n', '<leader>vb', '<cmd>lua require("fzf-lua").git_branches()<cr>')
 map('n', '<leader>vc', '<cmd>lua require("fzf-lua").git_bcommits()<cr>')
 map('n', '<leader>vl', '<cmd>lua require("fzf-lua").lines()<cr>')
 
--- lsp and diagnostics
+-- -----------------------------------------------------
+-- LSP And Diagnostics
+-- -----------------------------------------------------
 
 -- Displays hover information about the symbol under the cursor in a floating window.
 -- Calling the function twice will jump into the floating window.
@@ -151,11 +173,17 @@ map('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 -- Move to the previous diagnostic in the current buffer.
 map('n', '<leader>P', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 
--- vsnip snippets expansion
+-- -----------------------------------------------------
+-- Vsnip and snippets expansion
+-- -----------------------------------------------------
+
 map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
 map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
 
--- other useful mappings
+-- -----------------------------------------------------
+-- Miscelangelo
+-- -----------------------------------------------------
+
 map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
 map('n', '<leader>j', '<cmd>lua require("hop").hint_words()<cr>')
 map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
