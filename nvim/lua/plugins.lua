@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   }
 
-  -- autocompletion
+  -- autocompletion and snippets
   use {
     'hrsh7th/nvim-cmp',
     config = get_config('cmp'),
@@ -66,6 +66,22 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-vsnip',
     },
   }
+  use {
+    'hrsh7th/vim-vsnip',
+    config = get_config('vsnip')
+  }
+  use {
+    'rafamadriz/friendly-snippets',
+    requires = {
+      'hrsh7th/vim-vsnip',
+    },
+  }
+
+  -- floating-terminal integration for nnn, lazygit etc.
+  -- use {
+  --   'voldikss/vim-floaterm',
+  --   config = get_config('floaterm')
+  -- }
 
   -- fzf integration
   use {
@@ -105,9 +121,11 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- git plugin for vim
+  -- hop for easy navigation
   use {
-    'tpope/vim-fugitive',
+    'phaazon/hop.nvim',
+    config = get_config('hop'),
+    event = 'BufReadPre',
   }
 
   -- git diff view, using lazygit for everything else
@@ -117,9 +135,15 @@ return require('packer').startup(function(use)
     config = get_config('diffview'),
   }
 
-  -- finally: the colorscheme of choice
   use {
-    'justb3a/vim-smarties',
+    'tpope/vim-fugitive',
+  }
+
+  -- finally: the colorscheme of choice
+  -- 'justb3a/vim-smarties',
+  use {
+    'ellisonleao/gruvbox.nvim',
+    requires = { 'rktjmp/lush.nvim' },
   }
 
   -- oldschool vimscript plugins that still provide a lot of value
@@ -133,4 +157,3 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
