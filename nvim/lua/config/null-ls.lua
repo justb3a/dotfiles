@@ -17,9 +17,10 @@ local sources = {
   b.diagnostics.stylelint.with({ prefer_local = 'node_modules/.bin' }),
   b.formatting.stylelint.with({ prefer_local = 'node_modules/.bin' }),
 
+  -- use prettier
   -- markdown
-  b.diagnostics.markdownlint,
-  b.formatting.markdownlint,
+  -- b.diagnostics.markdownlint,
+  -- b.formatting.markdownlint,
 
   -- other languages
   b.diagnostics.php,
