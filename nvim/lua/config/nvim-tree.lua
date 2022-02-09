@@ -27,11 +27,17 @@ local list = {
 
 nvim_tree.setup({
   view = {
+    width = 40,
     mappings = {
       custom_only = true,
       list = list
     },
     number = true,
     relativenumber = true,
+  },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
   },
 })
