@@ -12,6 +12,10 @@ local map = function(mode, lhs, rhs, opts)
   }))
 end
 
+-- -----------------------------------------------------
+-- Basic Configurations
+-- -----------------------------------------------------
+
 -- remap semi-colon to be colon in normal an visual mode
 map('n', ';', ':')
 map('v', ';', ':')
@@ -19,10 +23,6 @@ map('v', ';', ':')
 -- easieser splits
 map('n', '<leader>,', '<C-w>v<C-w>l')
 map('n', '<leader>-', '<C-w>s<C-w>j')
-
--- deactivate ex-mode and man-pages
-map('n', 'Q', '')
-map('n', 'K', '')
 
 -- opens an edit command with the path of the currently edited file filled in
 map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>', { silent = false })
@@ -37,6 +37,10 @@ map('n', '<right>', '<cmd>bn<cr>')
 map('n', '<tab>', '<C-w><C-w>')
 map('n', '<S-tab>', '<C-w>W')
 
+-- deactivate ex-mode and man-pages
+map('n', 'Q', '')
+map('n', 'K', '')
+
 -- Keeping it centered when searching and jumping to next entry
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
@@ -45,10 +49,8 @@ map('n', 'N', 'Nzzzv')
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
 
--- behave - yank just like D and C
+-- sane yanking and copying to clipboard/alfred-history
 map('n', 'Y', 'y$')
-
--- auto-yanking with clipper for selected yanking
 map('n', 'y', '"*y')
 map('n', 'Y', '"*Y')
 map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
@@ -72,11 +74,23 @@ map('v', '<S-left>', '<gv', { noremap = false })
 map('n', '<S-right>', '>>', { noremap = false })
 map('v', '<S-right>', '>gv', { noremap = false })
 
--- nvim tree
+-- add undo-repo-breakpoints automatically when writing long text
+map('i', ',', ',<c-g>u')
+map('i', '.', '.<c-g>u')
+map('i', '!', '!<c-g>u')
+map('i', '?', '?<c-g>u')
+
+-- -----------------------------------------------------
+-- Nvim Tree
+-- -----------------------------------------------------
+
 map('n', '<leader>n','<cmd>NvimTreeToggle<cr>')
 map('n', '<leader>o','<cmd>NvimTreeFindFile<cr>')
 
--- comment
+-- -----------------------------------------------------
+-- Comment
+-- -----------------------------------------------------
+
 -- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
 -- Check additional keymaps using:
 -- `:nmap <leader>e`
@@ -87,30 +101,55 @@ map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim
 -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
 -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
 
--- other useful mappings
-map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
-map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
-map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
-map('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
+-- -----------------------------------------------------
+-- Git
+-- -----------------------------------------------------
 
--- add undo-repo-breakpoints automatically when writing long text
-map('i', ',', ',<c-g>u')
-map('i', '.', '.<c-g>u')
-map('i', '!', '!<c-g>u')
-map('i', '?', '?<c-g>u')
+local function isempty(s)
+  return s == nil or s == ''
+end
 
--- git
-map('n', '<leader>gs', '<cmd>Git<cr>')
+toggle_git_status = function()
+  local window_number = nil
+
+  for winnr=1,vim.fn.winnr('$') do
+    if not isempty(vim.fn.getwinvar(winnr, 'fugitive_status')) then
+      window_number = winnr
+    end
+  end
+
+  if isempty(window_number) then
+    vim.cmd("Git")
+  else
+    vim.cmd(window_number .. "close")
+  end
+
+end
+
+map('n', '<leader>gs', '<cmd>lua toggle_git_status()<cr>')
 map('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
 map('n', '<leader>gw', '<cmd>Gwrite<cr>')
 map('n', '<leader>gp', '<cmd>Git push<cr>')
 map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
+-- map('n', '<leader>l', '<cmd>FloatermNew lazygit<cr>')
 -- map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
 -- map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
 -- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
 -- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
 
--- fzf-lua
+-- nnoremap <C-s> :call <SID>ToggleGstatus()<CR>
+
+-- -----------------------------------------------------
+-- Floatterm
+-- -----------------------------------------------------
+
+map('n', '-', '<cmd>FloatermNew nnn<cr>')
+map('n', '<leader>t', '<cmd>FloatermNew<cr>')
+
+-- -----------------------------------------------------
+-- Fzf Lua
+-- -----------------------------------------------------
+
 map('n', '<leader>a', '<cmd>lua require("fzf-lua").live_grep()<cr>')
 map('n', '<leader>r', '<cmd>lua require("fzf-lua").grep_project()<cr>')
 map('n', '<leader>;', '<cmd>lua require("fzf-lua").files()<cr>')
@@ -122,7 +161,9 @@ map('n', '<leader>vb', '<cmd>lua require("fzf-lua").git_branches()<cr>')
 map('n', '<leader>vc', '<cmd>lua require("fzf-lua").git_bcommits()<cr>')
 map('n', '<leader>vl', '<cmd>lua require("fzf-lua").lines()<cr>')
 
--- lsp and diagnostics
+-- -----------------------------------------------------
+-- LSP And Diagnostics
+-- -----------------------------------------------------
 
 -- Displays hover information about the symbol under the cursor in a floating window.
 -- Calling the function twice will jump into the floating window.
@@ -153,3 +194,21 @@ map('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 map('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 -- Move to the previous diagnostic in the current buffer.
 map('n', '<leader>P', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+
+-- -----------------------------------------------------
+-- Vsnip and snippets expansion
+-- -----------------------------------------------------
+
+map('i', '<C-j>', 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"', { expr = true, noremap = false })
+map('s', '<C-j>', 'vsnip#available(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-j>"', { expr = true, noremap = false })
+
+-- -----------------------------------------------------
+-- Miscelangelo
+-- -----------------------------------------------------
+
+map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
+map('n', '<leader>j', '<cmd>lua require("hop").hint_words()<cr>')
+map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
+map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
+map('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
+

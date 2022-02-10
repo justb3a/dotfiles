@@ -10,15 +10,17 @@ local sources = {
 
   -- prettier
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#prettier
-  b.formatting.prettier.with({ prefer_local = 'node_modules/.bin' }),
+  -- b.formatting.prettier,
+  b.formatting.prettierd.with({ prefer_local = 'node_modules/.bin' }),
 
   -- css and scss-files
   b.diagnostics.stylelint.with({ prefer_local = 'node_modules/.bin' }),
   b.formatting.stylelint.with({ prefer_local = 'node_modules/.bin' }),
 
+  -- use prettier
   -- markdown
-  b.diagnostics.markdownlint,
-  b.formatting.markdownlint,
+  -- b.diagnostics.markdownlint,
+  -- b.formatting.markdownlint,
 
   -- other languages
   b.diagnostics.php,

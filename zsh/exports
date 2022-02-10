@@ -1,47 +1,38 @@
-# language
-export LC_ALL=en_US.UTF-8
+export CLICOLOR=1
+export COPYFILE_DISABLE=true
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
+export DISABLE_AUTO_TITLE=true
+export EDITOR="/usr/local/bin/nvim"
 export LANG=en_US.UTF-8
-
-# shell
-export SHELL=/usr/local/bin/zsh
-
-# brew CASK
-# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# paths
-# export PATH=$HOME/.composer/vendor/bin:$PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=$LANG
+export LESS="-F -i -J -M -R -W -x2 -X -z-4"
 export MANPATH=/usr/local/share/man:$MANPATH
+export PAGER="less -F -i -J -M -R -W -x2 -X -z-4"
+# export PATH=/usr/local/bin:$PATH
+# export PATH=/usr/local/sbin:$PATH
+# export PATH=/usr/local/opt/curl/bin:$PATH
+# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# export PATH="$HOME/.rbenv/bin:$PATH"
+export SHELL=/usr/local/bin/zsh
+# export TERM=xterm-256color
+export VISUAL="/usr/local/bin/nvim"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+# ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/Dotfiles/ripgreprc"
+
+# brew
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# fzf colors
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
 # zsh-completions
 fpath=($HOME/Dotfiles/zsh/zsh-completions/src $fpath)
 
-# disable stupid ._ and dsstore files
-export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
-export COPYFILE_DISABLE=true
-
-# editor
-export EDITOR="/usr/local/bin/nvim"
-export VISUAL="/usr/local/bin/nvim"
-export GIT_EDITOR="/usr/local/bin/nvim"
-
-# disable auto titling fixes tmux window
-export DISABLE_AUTO_TITLE=true
-
-# grep
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
-
-# fzf
-export FZF_DEFAULT_COMMAND="rg --files --hidden --column --line-number --follow --glob '!.git'"
-export RIPGREP_CONFIG_PATH="$HOME/Dotfiles/ripgreprc"
-
-# pager
-export PAGER="less"
-export LESS="-R"
-
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin
+# n node version management
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
