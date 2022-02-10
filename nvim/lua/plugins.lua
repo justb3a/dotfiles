@@ -142,6 +142,7 @@ return require('packer').startup(function(use)
   -- markdown preview
   use {
     'davidgranstrom/nvim-markdown-preview',
+    config = get_config('markdown-preview'),
   }
 
   -- finally: the colorscheme of choice
