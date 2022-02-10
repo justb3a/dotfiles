@@ -139,6 +139,11 @@ return require('packer').startup(function(use)
     'tpope/vim-fugitive',
   }
 
+  -- markdown preview
+  use {
+    'davidgranstrom/nvim-markdown-preview',
+  }
+
   -- finally: the colorscheme of choice
   -- 'justb3a/vim-smarties',
   use {
