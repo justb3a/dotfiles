@@ -115,13 +115,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- hop for easy navigation
-  use {
-    'phaazon/hop.nvim',
-    config = get_config('hop'),
-    event = 'BufReadPre',
-  }
-
   -- git diff view, using lazygit for everything else
   use {
     'sindrets/diffview.nvim',
