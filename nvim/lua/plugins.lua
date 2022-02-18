@@ -77,12 +77,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- floating-terminal integration for nnn, lazygit etc.
-  -- use {
-  --   'voldikss/vim-floaterm',
-  --   config = get_config('floaterm')
-  -- }
-
   -- fzf integration
   use {
     'ibhagwan/fzf-lua',
