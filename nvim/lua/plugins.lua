@@ -108,13 +108,7 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- git diff view, using lazygit for everything else
-  use {
-    'sindrets/diffview.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = get_config('diffview'),
-  }
-
+  -- git diff
   use {
     'tpope/vim-fugitive',
   }
