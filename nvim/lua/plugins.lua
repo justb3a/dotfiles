@@ -34,13 +34,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
 
-  -- textobjects, surround, for stuff like cs", cib etc.
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use {
-    'blackCauldron7/surround.nvim',
-    config = get_config('surround'),
-  }
-
   -- lsp and null-ls for diagnostics and formatting (eslint_d, stylelint etc.)
   use {
     'neovim/nvim-lspconfig',
