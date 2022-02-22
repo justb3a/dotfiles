@@ -177,6 +177,7 @@ map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
 
 -- Renames all references to the symbol under the cursor.
 map('n', 'tn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+map('n', 'tf', '<cmd>:TSLspRenameFile<cr>')
 
 -- Lists all the references to the symbol under the cursor in the quickfix window.
 map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')

@@ -95,6 +95,11 @@ return require('packer').startup(function(use)
     config = get_config('colorizer'),
   }
 
+  -- graphql syntax highlighting
+  use {
+    'jparise/vim-graphql',
+  }
+
   -- commenting stuff out
   use {
     'numToStr/Comment.nvim',
