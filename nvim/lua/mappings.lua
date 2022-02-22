@@ -186,6 +186,8 @@ map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
 -- Selects a code action available at the current cursor position.
 map('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+map('n', 'ta', '<cmd>:TSLspImportAll<cr>')
+map('n', 'tc', '<cmd>:TSLspImportCurrent<cr>')
 
 -- Formats the current buffer.
 -- map('n', ' f', '<cmd>lua vim.lsp.buf.formatting()<cr>')

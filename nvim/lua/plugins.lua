@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
 
   -- lsp and null-ls for diagnostics and formatting (eslint_d, stylelint etc.)
   use {
+    'jose-elias-alvarez/nvim-lsp-ts-utils',
+  }
+  use {
     'neovim/nvim-lspconfig',
     config = get_config('lspconfig')
   }
