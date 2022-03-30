@@ -15,6 +15,7 @@ brew install jump
 brew install lazygit
 brew install mozjpeg
 brew install nnn
+brew install npkill
 brew install ripgrep
 brew install rsync
 brew install tree
@@ -31,6 +32,7 @@ ln -s ~/Dotfiles/yamllint.yml ~/.config/yamllint/config
 # node cli tools and helpers
 npm install -g diff-so-fancy
 npm install -g fkill-cli
+npm install -g npkill
 npm install -g trash-cli
 npm install -g vtop
 
