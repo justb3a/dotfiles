@@ -15,7 +15,7 @@ export PAGER="less -F -i -J -M -R -W -x2 -X -z-4"
 # export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # export PATH="$HOME/.rbenv/bin:$PATH"
 export SHELL=/usr/local/bin/zsh
-# export TERM=xterm-256color
+export TERM=xterm-256color
 export VISUAL="/usr/local/bin/nvim"
 
 # ripgrep
