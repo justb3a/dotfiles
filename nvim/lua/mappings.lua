@@ -3,6 +3,8 @@ vim.api.nvim_set_keymap('n', ',', '', {})
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
+local cmd = vim.cmd
+
 -- helper function for easier mappings
 local map = function(mode, lhs, rhs, opts)
   return vim.api.nvim_set_keymap(mode, lhs, rhs, vim.tbl_extend('keep', opts or {}, {
@@ -15,6 +17,9 @@ end
 -- -----------------------------------------------------
 -- Basic Configurations
 -- -----------------------------------------------------
+
+-- one-off bypassing of Prettier
+cmd(':command! W noautocmd w')
 
 -- remap semi-colon to be colon in normal an visual mode
 map('n', ';', ':')
