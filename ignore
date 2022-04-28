@@ -11,8 +11,10 @@
 *.png
 *.ico
 *.sql
+tsconfig.tsbuildinfo
 _srcs
 node_modules
 .sass-cache
 migration*.php
 dist-release
+.next
