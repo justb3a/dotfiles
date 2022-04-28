@@ -33,6 +33,8 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'path' },
     {
       name = 'buffer',
       option = {
@@ -41,8 +43,6 @@ cmp.setup({
         end
       },
     },
-    { name = 'nvim_lsp' },
-    { name = 'path' },
     { name = 'vsnip' },
     -- { name = 'tmux', option = { all_panes = false } },
     { name = 'calc' },
