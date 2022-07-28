@@ -8,6 +8,20 @@ function take() {
   cd $1
 }
 
+function woffify() {
+  if [ -f $1 ] ; then
+    woff2_compress $1
+    ttf2woff $1 "${1:r}.woff"
+    rm $1
+  else
+    for file in ${1}/*.ttf; do
+      woff2_compress $file
+      ttf2woff $file "${file:r}.woff"
+      rm $file
+    done
+  fi
+}
+
 # find files by name and search and replace pattern
 function findreplace() {
   echo "Number of files: $(fname $1 | wc -l)"
