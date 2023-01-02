@@ -24,6 +24,7 @@ defaults write com.apple.Finder AppleShowAllFiles -bool true
 
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo ln -s /opt/homebrew/bin /usr/local/bin
 brew doctor
 
 # Brew paths
@@ -32,6 +33,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Basics
 brew install curl
 brew install git
+brew install neovim --HEAD
 brew install openssl
 brew install zsh
 # link keg-only / pre-installed duplicates
