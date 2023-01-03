@@ -13,15 +13,10 @@ brew install --cask telegram
 brew install --cask visual-studio-code
 brew install --cask zoom
 
-brew install --cask spectacle
-# Spectacle saves its settings in a JSON file located at
-# `~/Library/Application Support/Spectacle/Shortcuts.json`.
-# To import a previously saved settings file, save it to this path and restart Spectacle.
-# @see: `spectacle/Shortcuts.json`
+brew install --cask rectangle
+# afterwards, import settings from : `RectangeConfig.json`
 
 # Quicklook-reset
-xattr -cr ~/Library/QuickLook
-xattr -d -r com.apple.quarantine ~/Library/QuickLook
 qlmanage -r
 qlmanage -r cache
 
