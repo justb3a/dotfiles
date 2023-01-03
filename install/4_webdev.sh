@@ -2,6 +2,8 @@
 
 brew install imagemagick
 brew install jq
+brew install stylelint
+brew install yamllint
 
 `jq .scripts package.json`
 

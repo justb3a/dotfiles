@@ -18,6 +18,7 @@ brew install nnn
 brew install npkill
 brew install ripgrep
 brew install rsync
+brew install the_silver_searcher
 brew install tree
 brew install unrar
 brew install wget
