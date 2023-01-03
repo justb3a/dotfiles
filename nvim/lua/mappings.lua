@@ -99,9 +99,9 @@ map('n', '<leader>o','<cmd>NvimTreeFindFile<cr>')
 -- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
 -- Check additional keymaps using:
 -- `:nmap <leader>e`
-map('n', '<leader>.', '<cmd>lua require"Comment.api".toggle_current_linewise()<cr>')
+map('n', '<leader>.', '<cmd>lua require"Comment.api".toggle.linewise.current()<cr>')
 -- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
-map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle_linewise_op(vim.fn.visualmode())<cr>')
+map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle.linewise(vim.fn.visualmode())<cr>')
 -- map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
 -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
 -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
