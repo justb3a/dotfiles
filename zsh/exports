@@ -24,6 +24,9 @@ export RIPGREP_CONFIG_PATH="$HOME/Dotfiles/ripgreprc"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
@@ -35,3 +38,7 @@ fpath=($HOME/Dotfiles/zsh/zsh-completions/src $fpath)
 
 # n node version management
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+

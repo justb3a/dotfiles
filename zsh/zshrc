@@ -61,10 +61,6 @@ source $HOME/Dotfiles/zsh/zsh-completions/zsh-completions.plugin.zsh
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 # rbenv
 eval "$(rbenv init -)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -99,10 +95,3 @@ bindkey "^R" history-incremental-search-backward
 
 # jump around
 # . $HOME/Dotfiles/zsh/z/z.sh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
