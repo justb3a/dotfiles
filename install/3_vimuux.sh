@@ -14,6 +14,7 @@ ln -s ~/Dotfiles/tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # additional language-servers for nvim-lspconfig
+npm i -g @tailwindcss/language-server
 npm i -g eslint_d
 npm i -g jsonlint
 npm i -g markdownlint-cli

@@ -38,10 +38,19 @@ return require('packer').startup(function(use)
   use {
     'jose-elias-alvarez/nvim-lsp-ts-utils',
   }
+
+  -- Additional LSP support for specific libraries like tailwindcss
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    config = get_config('mason'),
+  }
+
   use {
     'neovim/nvim-lspconfig',
     config = get_config('lspconfig')
   }
+
   use {
     'jose-elias-alvarez/null-ls.nvim',
     config = get_config('null-ls'),

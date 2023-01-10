@@ -16,5 +16,10 @@ Optional you can pass several arguments:
 
 ## TODO
 
-[] Remove trailing whitespaces -> prettier??
-[] deepl command line tool
+* [ ] deepl command line tool
+
+## Nvim Dotfile Link Collection
+
+* https://github.com/webgefrickel/dotfiles/tree/master/nvim 👋
+* https://github.com/kabouzeid/dotfiles/tree/main/config/nvim/lua
+* https://github.com/craftzdog/dotfiles-public/tree/master/.config/nvim
