@@ -71,9 +71,6 @@ alias mysqlstop='mysql.server stop'
 alias t='tmux -u -2'
 alias ta='tmux attach'
 
-# python
-alias python='/usr/local/bin/python3'
-
 # all in one homebrew, gem update commands
 alias brewup='brew update && brew upgrade && brew cu -a -f -y && brew cleanup'
 alias npmup='ncu -g && npm -g outdated && npm -g update'
