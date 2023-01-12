@@ -8,14 +8,15 @@ function take() {
   cd $1
 }
 
+# ttf to woff, usage: "woffify font.ttf" | "woffify dir"
 function woffify() {
   if [ -f $1 ] ; then
-    woff2_compress $1
+    $HOME/Dotfiles/woff2/woff2_compress $1
     ttf2woff $1 "${1:r}.woff"
     rm $1
   else
     for file in ${1}/*.ttf; do
-      woff2_compress $file
+      $HOME/Dotfiles/woff2/woff2_compress $file
       ttf2woff $file "${file:r}.woff"
       rm $file
     done
