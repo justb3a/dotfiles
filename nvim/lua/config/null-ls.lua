@@ -29,11 +29,38 @@ local sources = {
   b.formatting.fixjson,
 }
 
-null_ls.setup({
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local lsp_formatting = function(bufnr)
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name == "null-ls"
+    end,
+    bufnr = bufnr,
+  })
+end
+
+null_ls.setup {
   sources = sources,
-  on_attach = function(client)
-    if client.server_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          lsp_formatting(bufnr)
+        end,
+      })
     end
+  end
+}
+
+-- Run :DisableLspFormatting to disable formatting for the current file
+vim.api.nvim_create_user_command(
+  'DisableLspFormatting',
+  function()
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
   end,
-})
+  { nargs = 0 }
+)
