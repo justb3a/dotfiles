@@ -31,6 +31,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = get_config('treesitter'),
+    requires = {
+      "windwp/nvim-ts-autotag"
+    },
     run = ':TSUpdate',
   }
 
