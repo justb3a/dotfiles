@@ -32,6 +32,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Basics
 brew install curl
+brew install exa
 brew install git
 brew install neovim --HEAD
 brew install openssl

@@ -3,6 +3,7 @@ brew tap buo/cask-upgrade
 brew tap homebrew/cask-fonts
 brew tap homebrew/cask-versions
 
+brew install --cask docker
 brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask iterm2
@@ -23,3 +24,7 @@ qlmanage -r cache
 
 # Drivers and other software
 brew install --cask font-fira-code-nerd-font
+
+# Investment
+brew install --cask trader-workstation
+brew install --cask tradingview
