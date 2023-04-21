@@ -14,8 +14,8 @@ set.completeopt= { 'menu', 'menuone', 'noselect' }
 set.cpoptions:append('$')
 set.cursorline = true
 set.foldexpr = 'nvim_treesitter#foldexpr()'
-set.foldenable = false
-set.foldmethod = 'expr'
+-- set.foldenable = false
+set.foldmethod = 'manual'
 set.gdefault = true
 set.grepprg = 'rg'
 set.hidden = true
