@@ -21,7 +21,20 @@ lspconfig.jsonls.setup({})
 
 lspconfig.yamlls.setup({})
 
-lspconfig.tailwindcss.setup({})
+-- https://github.com/tailwindlabs/tailwindcss-intellisense#extension-settings
+lspconfig.tailwindcss.setup({
+  settings = {
+    tailwindCSS = {
+      validate = true,
+      classAttributes = {
+        'class',
+        'className',
+        '.*Classes',
+        '.*Classes: .*',
+      },
+    }
+  }
+})
 
 lspconfig.tsserver.setup({
   -- Needed for inlayHints. Merge this table with your settings or copy
