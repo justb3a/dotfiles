@@ -182,7 +182,7 @@ map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
 
 -- Renames all references to the symbol under the cursor.
 map('n', 'tn', '<cmd>lua vim.lsp.buf.rename()<cr>')
-map('n', 'tf', '<cmd>:TSLspRenameFile<cr>')
+map('n', 'tf', '<cmd>:TypescriptRenameFile<cr>')
 
 -- Lists all the references to the symbol under the cursor in the quickfix window.
 map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
@@ -192,8 +192,10 @@ map('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
 -- Selects a code action available at the current cursor position.
 map('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-map('n', 'ta', '<cmd>:TSLspImportAll<cr>')
-map('n', 'tc', '<cmd>:TSLspImportCurrent<cr>')
+map('n', 'ta', '<cmd>:TypescriptAddMissingImports<cr>')
+
+map('n', 'to', '<cmd>:TypescriptOrganizeImports<cr>')
+map('n', 'tc', '<cmd>:TypescriptRemoveUnused<cr>')
 
 -- Formats the current buffer.
 -- map('n', ' f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
