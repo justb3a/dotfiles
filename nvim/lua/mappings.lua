@@ -175,7 +175,8 @@ map('n', '<leader>vl', '<cmd>lua require("fzf-lua").lines()<cr>')
 map('n', 'tt', '<cmd>lua vim.lsp.buf.hover()<cr>')
 
 -- Jumps to the definition of the symbol under the cursor.
-map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
+map('n', 'td', '<cmd>:TypescriptGoToSourceDefinition<cr>')
+-- map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
 
 -- Jumps to the definition of the type of the symbol under the cursor.
 -- map('n', 't?', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
