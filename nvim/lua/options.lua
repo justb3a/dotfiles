@@ -29,6 +29,7 @@ set.showmode = false
 set.swapfile = false
 set.wrap = false
 set.writebackup = false
+set.number = true
 set.relativenumber = true
 set.scrolljump = 5
 set.scrolloff = 3

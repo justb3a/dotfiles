@@ -35,9 +35,9 @@ nvim_tree.setup({
   on_attach = on_attach,
   view = {
     width = 40,
-    mappings = {
-      custom_only = true,
-    },
+    -- mappings = {
+    --   custom_only = true,
+    -- },
     number = true,
     relativenumber = true,
   },

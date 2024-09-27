@@ -1,4 +1,7 @@
+-- @deprecated
+-- This repository has been archived by the owner on Aug 12, 2023. It is now read-only.
 -- https://github.com/jose-elias-alvarez/typescript.nvim
+-- You can also try typescript-tools.nvim: https://github.com/pmizio/typescript-tools.nvim
 require("typescript").setup({
   disable_commands = false, -- prevent the plugin from creating Vim commands
   debug = false, -- enable debug logging for commands

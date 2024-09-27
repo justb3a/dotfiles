@@ -137,6 +137,11 @@ return require('packer').startup(function(use)
     'tpope/vim-fugitive',
   }
 
+  -- abbreviation, substitution, coercion
+  use {
+    'tpope/vim-abolish',
+  }
+
   -- markdown preview
   use {
     'davidgranstrom/nvim-markdown-preview',
