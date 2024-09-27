@@ -1,57 +1,84 @@
-local set = vim.opt
-local cmd = vim.cmd
-local g = vim.g
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
 
--- deactivate some unneeded language providers
-g.loaded_python_provider = 0
-g.loaded_perl_provider = 0
+-- [[ Setting options ]]
+-- See `:help vim.opt`
+-- For more options, you can see `:help option-list`
 
--- general options
-set.breakindent = true
-set.clipboard = 'unnamed'
-set.cmdheight = 2
-set.completeopt= { 'menu', 'menuone', 'noselect' }
-set.cpoptions:append('$')
-set.cursorline = true
-set.foldexpr = 'nvim_treesitter#foldexpr()'
--- set.foldenable = false
-set.foldmethod = 'manual'
-set.gdefault = true
-set.grepprg = 'rg'
-set.hidden = true
-set.ignorecase = true
-set.infercase = true
-set.lazyredraw = true
-set.linebreak = true
-set.list = true
-set.listchars = 'extends:»,precedes:«,tab:· ,trail:·'
-set.showmode = false
-set.swapfile = false
-set.wrap = false
-set.writebackup = false
-set.number = true
-set.relativenumber = true
-set.scrolljump = 5
-set.scrolloff = 3
-set.shiftround = true
-set.shiftwidth = 2
-set.shortmess:append('c')
-set.showbreak = '↳ '
-set.showmatch = true
-set.sidescroll = 10
-set.sidescrolloff = 5
-set.signcolumn = 'number'
-set.smartcase = true
-set.updatetime = 300
-set.virtualedit = 'all'
-set.visualbell = true
-set.wildmode = { 'list:longest', 'list:full' }
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.showmode = false
+vim.opt.breakindent = true
+vim.opt.undofile = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+vim.opt.cursorline = true
 
--- colorscheme and default language
-set.background = 'dark'
-set.termguicolors = true
-g.gruvbox_italic = 1
+--  See `:help 'list'` and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = 'extends:»,precedes:«,tab:· ,trail:·'
 
-cmd 'colorscheme gruvbox'
--- cmd 'colorscheme smarties'
-cmd 'language en_US.UTF-8'
+vim.opt.signcolumn = 'yes'
+-- vim.opt.signcolumn = 'number'
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = 'split'
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
+-- set.scrolloff = 3
+
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
+vim.opt.clipboard = 'unnamed'
+
+-- local set = vim.opt
+-- local cmd = vim.cmd
+-- local g = vim.g
+
+-- set.cmdheight = 2
+-- set.completeopt= { 'menu', 'menuone', 'noselect' }
+-- set.cpoptions:append('$')
+-- set.foldexpr = 'nvim_treesitter#foldexpr()'
+-- -- set.foldenable = false
+-- set.foldmethod = 'manual'
+-- set.gdefault = true
+-- set.grepprg = 'rg'
+-- set.hidden = true
+-- set.infercase = true
+-- set.lazyredraw = true
+-- set.linebreak = true
+-- set.swapfile = false
+-- set.wrap = false
+-- set.writebackup = false
+-- set.scrolljump = 5
+-- set.shiftround = true
+-- set.shiftwidth = 2
+-- set.shortmess:append('c')
+-- set.showbreak = '↳ '
+-- set.showmatch = true
+-- set.sidescroll = 10
+-- set.sidescrolloff = 5
+-- set.virtualedit = 'all'
+-- set.visualbell = true
+-- set.wildmode = { 'list:longest', 'list:full' }
+--
+-- -- colorscheme and default language
+-- set.background = 'dark'
+-- set.termguicolors = true
+-- g.gruvbox_italic = 1
+--
+-- cmd 'colorscheme gruvbox'
+-- cmd 'language en_US.UTF-8'
