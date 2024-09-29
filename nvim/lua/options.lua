@@ -28,7 +28,7 @@ vim.opt.signcolumn = 'yes'
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitbelow = false
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'

@@ -19,13 +19,6 @@ vim.keymap.set('n', '<down>', '<cmd>blast<cr>')
 vim.keymap.set('n', '<left>', '<cmd>bp<cr>')
 vim.keymap.set('n', '<right>', '<cmd>bn<cr>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---  See `:help wincmd` for a list of all window commands
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- -- easieser splits
 vim.keymap.set('n', '<leader>,', '<C-w>v<C-w>l')
 vim.keymap.set('n', '<leader>-', '<C-w>s<C-w>j')
@@ -110,12 +103,9 @@ vim.keymap.set('n', '<leader>P', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 -- Comment
 -- -----------------------------------------------------
 
--- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
--- Check additional keymaps using:
--- `:nmap <leader>e`
 vim.keymap.set('n', '<leader>.', '<cmd>lua require"Comment.api".toggle.linewise.current()<cr>')
--- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
 vim.keymap.set('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle.linewise(vim.fn.visualmode())<cr>')
+-- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
 -- map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
 -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
 -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
@@ -155,50 +145,35 @@ vim.keymap.set('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
 -- map('i', '!', '!<c-g>u')
 -- map('i', '?', '?<c-g>u')
 --
--- -- -----------------------------------------------------
--- -- Git
--- -- -----------------------------------------------------
---
--- local function isempty(s)
---   return s == nil or s == ''
--- end
---
--- toggle_git_status = function()
---   local window_number = nil
---
---   for winnr=1,vim.fn.winnr('$') do
---     if not isempty(vim.fn.getwinvar(winnr, 'fugitive_status')) then
---       window_number = winnr
---     end
---   end
---
---   if isempty(window_number) then
---     vim.cmd("Git")
---   else
---     vim.cmd(window_number .. "close")
---   end
---
--- end
---
--- map('n', '<leader>gs', '<cmd>lua toggle_git_status()<cr>')
--- map('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
--- map('n', '<leader>gw', '<cmd>Gwrite<cr>')
--- map('n', '<leader>gp', '<cmd>Git push<cr>')
--- map('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
--- -- map('n', '<leader>l', '<cmd>FloatermNew lazygit<cr>')
--- -- map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
--- -- map('n', '<leader>gc', '<cmd>DiffviewClose<cr>')
--- -- map('n', '<leader>gh', '<cmd>DiffviewFileHistory<cr>')
--- -- map('n', '<leader>gf', '/\\v^[<\\|=>]{7}( .*\\|$)<cr>')
---
--- -- nnoremap <C-s> :call <SID>ToggleGstatus()<CR>
---
--- -- -----------------------------------------------------
--- -- Floatterm
--- -- -----------------------------------------------------
---
--- map('n', '-', '<cmd>FloatermNew nnn<cr>')
--- map('n', '<leader>t', '<cmd>FloatermNew<cr>')
+-- -----------------------------------------------------
+-- Git
+-- -----------------------------------------------------
+
+local function isempty(s)
+  return s == nil or s == ''
+end
+
+Toggle_git_status = function()
+  local window_number = nil
+
+  for winnr = 1, vim.fn.winnr '$' do
+    if not isempty(vim.fn.getwinvar(winnr, 'fugitive_status')) then
+      window_number = winnr
+    end
+  end
+
+  if isempty(window_number) then
+    vim.cmd 'Git'
+  else
+    vim.cmd(window_number .. 'close')
+  end
+end
+
+vim.keymap.set('n', '<leader>gs', '<cmd>lua Toggle_git_status()<cr>')
+vim.keymap.set('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
+vim.keymap.set('n', '<leader>gw', '<cmd>Gwrite<cr>')
+vim.keymap.set('n', '<leader>gp', '<cmd>Git push<cr>')
+vim.keymap.set('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
 --
 -- -- -----------------------------------------------------
 -- -- Fzf Lua
