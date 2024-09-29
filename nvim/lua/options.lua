@@ -4,7 +4,6 @@ vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- For more options, you can see `:help option-list`
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
@@ -21,7 +20,7 @@ vim.opt.shiftwidth = 2
 
 --  See `:help 'list'` and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '· ', trail = '·', nbsp = '␣', extends = '»', precedes = '«' }
+vim.opt.listchars = { tab = '· ', trail = '·', nbsp = '␣', extends = '»', precedes = '«', multispace = '· ' }
 
 vim.opt.signcolumn = 'yes'
 -- vim.opt.signcolumn = 'number'
@@ -49,34 +48,30 @@ vim.opt.clipboard = 'unnamed'
 -- local cmd = vim.cmd
 -- local g = vim.g
 
--- set.cmdheight = 2
--- set.completeopt= { 'menu', 'menuone', 'noselect' }
--- set.cpoptions:append('$')
--- set.foldexpr = 'nvim_treesitter#foldexpr()'
--- -- set.foldenable = false
--- set.foldmethod = 'manual'
--- set.gdefault = true
--- set.grepprg = 'rg'
--- set.hidden = true
--- set.infercase = true
--- set.lazyredraw = true
--- set.linebreak = true
--- set.swapfile = false
--- set.writebackup = false
--- set.scrolljump = 5
--- set.shortmess:append('c')
--- set.showbreak = '↳ '
--- set.showmatch = true
--- set.sidescroll = 10
--- set.sidescrolloff = 5
--- set.virtualedit = 'all'
--- set.visualbell = true
--- set.wildmode = { 'list:longest', 'list:full' }
---
--- -- colorscheme and default language
--- set.background = 'dark'
--- set.termguicolors = true
--- g.gruvbox_italic = 1
---
--- cmd 'colorscheme gruvbox'
--- cmd 'language en_US.UTF-8'
+-- vim.opt.cmdheight = 2
+-- vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+-- vim.opt.cpoptions:append '$'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- -- vim.opt.foldenable = false
+-- vim.opt.foldmethod = 'manual'
+-- vim.opt.gdefault = true
+-- vim.opt.grepprg = 'rg'
+-- vim.opt.hidden = true
+-- vim.opt.infercase = true
+-- vim.opt.lazyredraw = true
+-- vim.opt.linebreak = true
+-- vim.opt.swapfile = false
+-- vim.opt.writebackup = false
+-- vim.opt.scrolljump = 5
+-- vim.opt.shortmess:append 'c'
+-- vim.opt.showbreak = '↳ '
+-- vim.opt.showmatch = true
+-- vim.opt.sidescroll = 10
+-- vim.opt.sidescrolloff = 5
+-- vim.opt.virtualedit = 'all'
+-- vim.opt.visualbell = true
+-- vim.opt.wildmode = { 'list:longest', 'list:full' }
+
+vim.opt.background = 'dark'
+vim.opt.termguicolors = true
+vim.cmd 'language en_US.UTF-8'
