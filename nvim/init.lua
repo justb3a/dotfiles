@@ -9,30 +9,17 @@
     - :help lua-guide
     - (or HTML version): https://neovim.io/doc/user/lua-guide.html
 
-  TODO: The very first thing you should do is to run the command `:Tutor` in Neovim.
-    (If you already know the Neovim basics, you can skip this step.)
+  Run `:Tutor`.
 
-  Once you've completed that, you can continue working through **AND READING** the rest
-  of the kickstart init.lua.
-
-  Next, run AND READ `:help`.
+  Run AND READ `:help`.
     This will open up a help window with some basic information
     about reading, navigating and searching the builtin help documentation.
-
-    This should be the first place you go to look when you're stuck or confused
-    with something. It's one of my favorite Neovim features.
 
     MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
     which is very useful when you're not exactly sure of what you're looking for.
 
-  I have left several `:help X` comments throughout the init.lua
-    These are hints about where to find more information about the relevant settings,
-    plugins or Neovim features used in Kickstart.
+  Run `:checkhealth` for more info.
 
-   NOTE: Look for lines like this
-
-If you experience any errors , run `:checkhealth` for more info.
---
 --]]
 
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -65,9 +52,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
 --  To check the current status of your plugins, run :Lazy
 --  To update plugins you can run :Lazy update
+-- [[ Configure and install plugins ]]
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   require 'plugins.git',
@@ -75,10 +62,13 @@ require('lazy').setup({
   require 'plugins.lazydev',
   { 'Bilal2453/luvit-meta', lazy = true },
   require 'plugins.lspconfig',
+  require 'plugins.typescript',
   require 'plugins.conform',
   require 'plugins.cmd',
   require 'plugins.colorscheme',
 
+  require 'plugins.lualine',
+  require 'plugins.comment',
   require 'plugins.mini',
   require 'plugins.treesitter',
   require 'plugins.neo-tree',
@@ -91,7 +81,7 @@ require('lazy').setup({
   require 'plugins.debug',
 
   -- Highlight todo, notes, etc in comments
-  -- { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   -- require 'plugins.indent_line',
   -- require 'plugins.which-key',

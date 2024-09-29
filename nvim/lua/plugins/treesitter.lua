@@ -39,6 +39,18 @@ return { -- Highlight, edit, and navigate code
     },
     indent = { enable = true, disable = { 'ruby' } },
     autotag = { enable = true, disable = { 'ruby' } },
+    context_commentstring = {
+      config = {
+        javascript = {
+          __default = '// %s',
+          jsx_element = '{/* %s */}',
+          jsx_fragment = '{/* %s */}',
+          jsx_attribute = '// %s',
+          comment = '// %s',
+        },
+        typescript = { __default = '// %s', __multiline = '/* %s */' },
+      },
+    },
   },
   -- There are additional nvim-treesitter modules that you can use to interact
   -- with nvim-treesitter. You should go explore a few and see what interests you:

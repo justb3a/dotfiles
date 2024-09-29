@@ -1,3 +1,22 @@
+-- mapping = {
+--   ['<cr>'] = cmp.mapping.confirm({ select = true }),
+--   ["<Tab>"] = cmp.mapping(function(fallback)
+--     if cmp.visible() then
+--       cmp.select_next_item()
+--     elseif has_words_before() then
+--       cmp.complete()
+--     else
+--       fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+--     end
+--   end, { "i", "s" }),
+
+--   ["<S-Tab>"] = cmp.mapping(function()
+--     if cmp.visible() then
+--       cmp.select_prev_item()
+--     end
+--   end, { "i", "s" }),
+-- },
+
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -50,8 +69,6 @@ return { -- Autocompletion
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
-      --
-      -- No, but seriously. Please read `:help ins-completion`, it is really good!
       mapping = cmp.mapping.preset.insert {
         -- Select the [n]ext item
         ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -69,9 +86,9 @@ return { -- Autocompletion
 
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
-        --['<CR>'] = cmp.mapping.confirm { select = true },
-        --['<Tab>'] = cmp.mapping.select_next_item(),
-        --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display

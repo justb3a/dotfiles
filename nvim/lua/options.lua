@@ -15,11 +15,13 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.cursorline = true
+vim.opt.wrap = false
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
 
 --  See `:help 'list'` and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
--- vim.opt.listchars = 'extends:»,precedes:«,tab:· ,trail:·'
+vim.opt.listchars = { tab = '· ', trail = '·', nbsp = '␣', extends = '»', precedes = '«' }
 
 vim.opt.signcolumn = 'yes'
 -- vim.opt.signcolumn = 'number'
@@ -32,8 +34,7 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
--- set.scrolloff = 3
+vim.opt.scrolloff = 5
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -61,11 +62,8 @@ vim.opt.clipboard = 'unnamed'
 -- set.lazyredraw = true
 -- set.linebreak = true
 -- set.swapfile = false
--- set.wrap = false
 -- set.writebackup = false
 -- set.scrolljump = 5
--- set.shiftround = true
--- set.shiftwidth = 2
 -- set.shortmess:append('c')
 -- set.showbreak = '↳ '
 -- set.showmatch = true

@@ -22,10 +22,10 @@ vim.keymap.set('n', '<right>', '<cmd>bn<cr>')
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- -- easieser splits
 vim.keymap.set('n', '<leader>,', '<C-w>v<C-w>l')
 vim.keymap.set('n', '<leader>-', '<C-w>s<C-w>j')
@@ -65,6 +65,67 @@ vim.keymap.set('n', '<S-tab>', '<C-w>W')
 vim.keymap.set('n', '<leader>n', '<cmd>Neotree toggle<cr>')
 vim.keymap.set('n', '<leader>o', '<cmd>Neotree reveal<cr>')
 
+-- -----------------------------------------------------
+-- LSP And Diagnostics
+-- -----------------------------------------------------
+
+-- Displays hover information about the symbol under the cursor in a floating window.
+-- Calling the function twice will jump into the floating window.
+vim.keymap.set('n', 'tt', '<cmd>lua vim.lsp.buf.hover()<cr>')
+
+-- Jumps to the definition of the symbol under the cursor.
+vim.keymap.set('n', 'td', '<cmd>:TSToolsGoToSourceDefinition<cr>')
+-- map('n', 'td', '<cmd>lua vim.lsp.buf.definition()<cr>')
+
+-- Jumps to the definition of the type of the symbol under the cursor.
+-- map('n', 't?', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+
+-- Renames all references to the symbol under the cursor.
+vim.keymap.set('n', 'tn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+vim.keymap.set('n', 'tf', '<cmd>:TSToolsRenameFile<cr>')
+
+-- Lists all the references to the symbol under the cursor in the quickfix window.
+-- vim.keymap.set('n', 'tr', '<cmd>lua vim.lsp.buf.references()<cr>')
+vim.keymap.set('n', 'tr', '<cmd>:TSToolsFileReferences<cr>')
+
+-- Lists all the implementations for the symbol under the cursor in the quickfix window.
+-- map('n', 't?', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+
+-- Selects a code action available at the current cursor position.
+vim.keymap.set('n', 'ti', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+vim.keymap.set('n', 'ta', '<cmd>:TSToolsAddMissingImports<cr>')
+
+vim.keymap.set('n', 'to', '<cmd>:TSToolsOrganizeImports<cr>')
+vim.keymap.set('n', 'tc', '<cmd>:TSToolsRemoveUnused<cr>')
+
+-- Formats the current buffer.
+-- map('n', ' f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+
+-- Move to the next diagnostic.
+vim.keymap.set('n', '<leader>N', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+-- Move to the previous diagnostic in the current buffer.
+vim.keymap.set('n', '<leader>P', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+
+-- -----------------------------------------------------
+-- Comment
+-- -----------------------------------------------------
+
+-- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
+-- Check additional keymaps using:
+-- `:nmap <leader>e`
+vim.keymap.set('n', '<leader>.', '<cmd>lua require"Comment.api".toggle.linewise.current()<cr>')
+-- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
+vim.keymap.set('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle.linewise(vim.fn.visualmode())<cr>')
+-- map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
+-- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
+-- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
+
+-- -----------------------------------------------------
+-- Miscelangelo
+-- -----------------------------------------------------
+
+vim.keymap.set('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
+
 -- -- opens an edit command with the path of the currently edited file filled in
 -- map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>', { silent = false })
 --
@@ -93,20 +154,6 @@ vim.keymap.set('n', '<leader>o', '<cmd>Neotree reveal<cr>')
 -- map('i', '.', '.<c-g>u')
 -- map('i', '!', '!<c-g>u')
 -- map('i', '?', '?<c-g>u')
---
--- -- -----------------------------------------------------
--- -- Comment
--- -- -----------------------------------------------------
---
--- -- Do not use additional keymaps after a certain one, othervise nvim will wait for more input
--- -- Check additional keymaps using:
--- -- `:nmap <leader>e`
--- map('n', '<leader>.', '<cmd>lua require"Comment.api".toggle.linewise.current()<cr>')
--- -- map('n', '<leader>.b', '<cmd>lua require"Comment.api".toggle_current_blockwise()<cr>')
--- map('v', '<leader>.', '<esc><cmd>lua require"Comment.api".toggle.linewise(vim.fn.visualmode())<cr>')
--- -- map('v', '<leader>.b', '<esc><cmd>lua require"Comment.api".toggle_blockwise_op(vim.fn.visualmode())<cr>')
--- -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
--- -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
 --
 -- -- -----------------------------------------------------
 -- -- Git
