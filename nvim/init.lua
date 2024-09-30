@@ -53,38 +53,11 @@ vim.opt.rtp:prepend(lazypath)
 --  To check the current status of your plugins, run :Lazy
 --  To update plugins you can run :Lazy update
 -- [[ Configure and install plugins ]]
-require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  require 'plugins.git',
-  require 'plugins.fzf',
-  require 'plugins.lazydev',
-  { 'Bilal2453/luvit-meta', lazy = true },
-  require 'plugins.lspconfig',
-  require 'plugins.typescript',
-  require 'plugins.conform',
-  require 'plugins.cmd',
-  require 'plugins.colorscheme',
-
-  require 'plugins.lualine',
-  require 'plugins.comment',
-  require 'plugins.treesitter',
-  require 'plugins.neo-tree',
-  require 'plugins.markdown',
-
-  require 'plugins.tmux-navigator',
-  { 'wincent/terminus' },
-
-  require 'plugins.mini',
-  require 'plugins.autopairs',
-  require 'plugins.lint',
-  require 'plugins.debug',
-
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
-  -- require 'plugins.indent_line',
-  -- require 'plugins.which-key',
-}, {
+-- TODO check:
+-- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+-- Highlight todo, notes, etc in comments
+-- { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+require('lazy').setup('plugins', {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

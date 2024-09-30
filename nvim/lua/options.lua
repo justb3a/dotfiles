@@ -15,8 +15,12 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.cursorline = true
 vim.opt.wrap = false
+
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
 
 --  See `:help 'list'` and `:help 'listchars'`
 vim.opt.list = true

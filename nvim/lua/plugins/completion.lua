@@ -1,22 +1,3 @@
--- mapping = {
---   ['<cr>'] = cmp.mapping.confirm({ select = true }),
---   ["<Tab>"] = cmp.mapping(function(fallback)
---     if cmp.visible() then
---       cmp.select_next_item()
---     elseif has_words_before() then
---       cmp.complete()
---     else
---       fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
---     end
---   end, { "i", "s" }),
-
---   ["<S-Tab>"] = cmp.mapping(function()
---     if cmp.visible() then
---       cmp.select_prev_item()
---     end
---   end, { "i", "s" }),
--- },
-
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
