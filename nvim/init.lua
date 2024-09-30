@@ -67,13 +67,14 @@ require('lazy').setup({
 
   require 'plugins.lualine',
   require 'plugins.comment',
-  require 'plugins.mini',
   require 'plugins.treesitter',
   require 'plugins.neo-tree',
+  require 'plugins.markdown',
 
   require 'plugins.tmux-navigator',
   { 'wincent/terminus' },
 
+  require 'plugins.mini',
   require 'plugins.autopairs',
   require 'plugins.lint',
   require 'plugins.debug',
