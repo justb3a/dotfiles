@@ -8,6 +8,33 @@
 
 return {
   'tpope/vim-fugitive',
+  config = function()
+    local function isempty(s)
+      return s == nil or s == ''
+    end
+
+    Toggle_git_status = function()
+      local window_number = nil
+
+      for winnr = 1, vim.fn.winnr '$' do
+        if not isempty(vim.fn.getwinvar(winnr, 'fugitive_status')) then
+          window_number = winnr
+        end
+      end
+
+      if isempty(window_number) then
+        vim.cmd 'Git'
+      else
+        vim.cmd(window_number .. 'close')
+      end
+    end
+
+    vim.keymap.set('n', '<leader>gs', '<cmd>lua Toggle_git_status()<cr>')
+    vim.keymap.set('n', '<leader>gd', '<cmd>Gdiff<cr><C-w>20+')
+    vim.keymap.set('n', '<leader>gw', '<cmd>Gwrite<cr>')
+    vim.keymap.set('n', '<leader>gp', '<cmd>Git push<cr>')
+    vim.keymap.set('n', '<leader>gpf', '<cmd>Git push --force-with-lease<cr>')
+  end,
 }
 
 -- See `:help gitsigns` to understand what the configuration keys do
