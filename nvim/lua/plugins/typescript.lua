@@ -10,6 +10,17 @@ return {
         vim.keymap.set('n', 'ta', '<cmd>:TSToolsAddMissingImports<cr>')
         vim.keymap.set('n', 'to', '<cmd>:TSToolsOrganizeImports<cr>')
         vim.keymap.set('n', 'tc', '<cmd>:TSToolsRemoveUnused<cr>')
+
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          pattern = '*.ts,*.tsx,*.jsx,*.js',
+          callback = function()
+            -- vim.cmd 'TSToolsAddMissingImports sync'
+            vim.cmd 'TSToolsOrganizeImports sync'
+            -- if package.loaded['conform'] then
+            --   require('conform').format { bufnr = args.buf }
+            -- end
+          end,
+        })
       end,
       settings = {
         tsserver_file_preferences = {

@@ -3,6 +3,7 @@
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
+  -- event = { 'BufReadPre', 'BufNewFile' },
   cmd = { 'ConformInfo' },
   keys = {
     {
@@ -32,14 +33,31 @@ return { -- Autoformat
         lsp_format = lsp_format_opt,
       }
     end,
+    -- log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      -- go = { 'goimports', 'gofmt' },
+
+      ['*'] = { 'codespell' },
+      -- Use the "_" filetype to run formatters on filetypes that don't
+      -- have other formatters configured.
+      ['_'] = { 'trim_whitespace' },
     },
   },
+  -- config = function()
+  --   vim.api.nvim_create_autocmd('BufWritePre', {
+  --     pattern = '*',
+  --     callback = function(args)
+  --       require('conform').format { bufnr = args.buf, lsp_fallback = true }
+  --     end,
+  --   })
+  -- end,
 }
