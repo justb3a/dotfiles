@@ -15,6 +15,7 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.cursorline = true
 vim.opt.wrap = false
+vim.opt.virtualedit = 'all'
 
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
@@ -37,20 +38,17 @@ vim.opt.splitbelow = false
 vim.opt.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.sidescroll = 10
 vim.opt.scrolloff = 5
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
--- vim.schedule(function()
---   vim.opt.clipboard = 'unnamedplus'
--- end)
-vim.opt.clipboard = 'unnamed'
-
--- local set = vim.opt
--- local cmd = vim.cmd
--- local g = vim.g
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
+-- vim.opt.clipboard = 'unnamed'
 
 -- vim.opt.cmdheight = 2
 -- vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -70,9 +68,6 @@ vim.opt.clipboard = 'unnamed'
 -- vim.opt.shortmess:append 'c'
 -- vim.opt.showbreak = '↳ '
 -- vim.opt.showmatch = true
--- vim.opt.sidescroll = 10
--- vim.opt.sidescrolloff = 5
--- vim.opt.virtualedit = 'all'
 -- vim.opt.visualbell = true
 -- vim.opt.wildmode = { 'list:longest', 'list:full' }
 
