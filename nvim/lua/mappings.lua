@@ -1,9 +1,7 @@
 -- set the leader key to comma
--- vim.api.nvim_set_keymap('n', ',', '', {})
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
--- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 --  See `:help hlsearch`
@@ -57,35 +55,9 @@ vim.keymap.set('n', '<leader>w', '<cmd>set wrap! wrap?<cr>')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- -----------------------------------------------------
--- Miscelangelo
--- -----------------------------------------------------
--- -- opens an edit command with the path of the currently edited file filled in
--- map('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>', { silent = false })
---
--- -- deactivate ex-mode and man-pages
--- map('n', 'Q', '')
--- map('n', 'K', '')
---
--- -- j and k for wrapped lines
--- map('n', 'j', 'gj')
--- map('n', 'k', 'gk')
---
--- -- sane yanking and copying to clipboard/alfred-history
--- map('n', 'Y', 'y$')
--- map('n', 'y', '"*y')
--- map('n', 'Y', '"*Y')
--- map('n', 'yy', 'yy <cmd>call system("nc localhost 8377", @0)<cr>')
--- map('v', 'y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
--- map('v', 'Y', 'y <cmd>call system("nc localhost 8377", @0)<cr>')
---
--- -- add undo-repo-breakpoints automatically when writing long text
--- map('i', ',', ',<c-g>u')
--- map('i', '.', '.<c-g>u')
--- map('i', '!', '!<c-g>u')
--- map('i', '?', '?<c-g>u')
---
--- map('n', '<F5>', '<cmd>checktime<cr><cmd>redraw!<cr>');
--- map('n', '<leader>j', '<cmd>lua require("hop").hint_words()<cr>')
--- map('n', '<leader>ve', '<cmd>e $MYVIMRC<cr>')
--- map('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>')
+-- opens an edit command with the path of the currently edited file filled in
+vim.keymap.set('n', '<leader>e', ':e <C-R>=expand("%:p:h") . "/"<cr>', { silent = false })
+
+-- j and k for wrapped lines
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
