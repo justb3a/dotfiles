@@ -1,3 +1,5 @@
+-- consider BufWritePre for prettier in confirm
+
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
