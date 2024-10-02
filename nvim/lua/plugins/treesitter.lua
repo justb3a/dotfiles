@@ -1,12 +1,15 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  -- event = { "BufReadPre", "BufNewFile" },
+  event = 'VeryLazy',
   dependencies = { 'windwp/nvim-ts-autotag' },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+  config = function()
+    require('nvim-ts-autotag').setup()
+  end,
   opts = {
-    require('nvim-ts-autotag').setup(),
-
     ensure_installed = {
       'bash',
       'c',
