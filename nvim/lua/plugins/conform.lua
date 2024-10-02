@@ -33,7 +33,7 @@ return { -- Autoformat
         lsp_format = lsp_format_opt,
       }
     end,
-    -- log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
