@@ -31,8 +31,12 @@ return { -- Autocompletion
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
+    'andersevenrud/cmp-tmux',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-calc',
   },
   config = function()
     -- See `:help cmp`
@@ -107,6 +111,15 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        {
+          name = 'buffer',
+          option = {
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end,
+          },
+        },
+        { name = 'calc' },
       },
     }
   end,
