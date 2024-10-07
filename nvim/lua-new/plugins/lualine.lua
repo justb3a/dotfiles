@@ -1,14 +1,11 @@
--- nice status line
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = {
-    { 'kyazdani42/nvim-web-devicons', opt = true },
-  },
-  event = 'VimEnter',
   config = function()
     require('lualine').setup {
       options = {
-        theme = 'gruvbox',
+        -- see themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+        theme = 'papercolor_dark',
+        --theme = 'codedark',
       },
       sections = {
         lualine_a = { 'mode' },
