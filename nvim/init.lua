@@ -114,9 +114,10 @@ require('lazy').setup('plugins', {
 -- https://github.com/ecosse3/nvim
 -- https://github.com/Allaman/nvim/blob/main/lua/core/plugins/treesitter.lua
 -- https://github.com/kevinfengcs88/dotfiles/blob/master/.config/nvim/lua/plugins/treesitter.lua
--- http://www.lazyvim.org/
 -- https://github.com/jellydn/my-nvim-ide
 -- https://github.com/MariaSolOs/dotfiles/tree/main/.config/nvim
 -- https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/init.lua
+-- http://www.lazyvim.org/
+-- https://www.lunarvim.org/docs/configuration/plugins/example-configurations#troublenvim
 --
 -- Learn Lua: https://learnxinyminutes.com/docs/lua/

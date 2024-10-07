@@ -34,7 +34,7 @@ return {
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
-      autotag = { enable = true },
+      autotag = { enable = false },
       context_commentstring = {
         config = {
           javascript = {
@@ -51,15 +51,8 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
-    event = 'BufReadPre',
     config = function()
-      require('nvim-ts-autotag').setup {
-        opts = {
-          enable_close = true, -- Auto close tags
-          enable_rename = true, -- Auto rename pairs of tags
-          enable_close_on_slash = true, -- Auto close on trailing </
-        },
-      }
+      require('nvim-ts-autotag').setup()
     end,
   },
 }
