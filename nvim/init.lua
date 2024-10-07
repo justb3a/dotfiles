@@ -87,6 +87,7 @@ require('lazy').setup('plugins', {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    -- See https://www.nerdfonts.com/font-downloads
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
@@ -107,3 +108,15 @@ require('lazy').setup('plugins', {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- Other configs:
+-- https://github.com/rafi/vim-config
+-- https://github.com/ecosse3/nvim
+-- https://github.com/Allaman/nvim/blob/main/lua/core/plugins/treesitter.lua
+-- https://github.com/kevinfengcs88/dotfiles/blob/master/.config/nvim/lua/plugins/treesitter.lua
+-- http://www.lazyvim.org/
+-- https://github.com/jellydn/my-nvim-ide
+-- https://github.com/MariaSolOs/dotfiles/tree/main/.config/nvim
+-- https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/init.lua
+--
+-- Learn Lua: https://learnxinyminutes.com/docs/lua/
