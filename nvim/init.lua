@@ -21,8 +21,25 @@
 --]]
 
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 require 'mappings'
 require 'options'
+
+local cmd = vim.cmd
+
+cmd [[
+  augroup init
+    autocmd!
+
+    " Remember last location/cursor in file
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+    " Autoresize windows/splits when vim resizes
+    autocmd VimResized * wincmd =
+  augroup END
+]]
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -35,6 +52,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_set_keymap('n', '<leader>x', '', {
+  noremap = true,
+  callback = function()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      require('workspace-diagnostics').populate_workspace_diagnostics(client, 0)
+    end
   end,
 })
 

@@ -15,6 +15,10 @@ return {
     { '<leader>o', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    sources = { 'filesystem', 'buffers', 'git_status' },
+    enable_git_status = true,
+    git_status_async = true,
+    enable_diagnostics = true,
     filesystem = {
       filtered_items = {
         visible = true,
