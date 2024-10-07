@@ -2,6 +2,21 @@ local servers = {
   -- Enable the following language servers
   -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
   --
+  ts_ls = {
+    settings = {
+      typescript = {
+        format = {
+          enable = false,
+        },
+      },
+      javascript = {
+        format = {
+          enable = false,
+        },
+      },
+    },
+  },
+  graphql = {},
   -- npm install -g @tailwindcss/language-server
   tailwindcss = {
     classAttributes = { 'class', 'className', '.*Classes', 'classList', '.*Classes: .*' },
@@ -54,6 +69,13 @@ return {
   config = function()
     -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
     -- and elegantly composed help section, `:help lsp-vs-treesitter`
+
+    require('lspconfig').ts_ls.setup {
+      on_attach = function(client, bufnr)
+        -- require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
+        require('workspace-diagnostics').trigger_workspace_diagnostics(client, bufnr)
+      end,
+    }
 
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with
@@ -183,12 +205,5 @@ return {
         end,
       },
     }
-
-    -- require('lspconfig').ts_ls.setup {
-    --   on_attach = function(client, bufnr)
-    --     -- require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
-    --     require('workspace-diagnostics').trigger_workspace_diagnostics(client, bufnr)
-    --   end,
-    -- }
   end,
 }

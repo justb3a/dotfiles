@@ -27,7 +27,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require 'mappings'
 require 'options'
-require 'autocommands'
+-- require 'autocommands'
 
 local cmd = vim.cmd
 
@@ -54,15 +54,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_set_keymap('n', '<leader>x', '', {
-  noremap = true,
-  callback = function()
-    for _, client in ipairs(vim.lsp.get_clients()) do
-      require('workspace-diagnostics').populate_workspace_diagnostics(client, 0)
-    end
   end,
 })
 
@@ -108,6 +99,16 @@ require('lazy').setup('plugins', {
   },
 })
 
+vim.api.nvim_set_keymap('n', '<leader>x', '', {
+  noremap = true,
+  callback = function()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      require('workspace-diagnostics').populate_workspace_diagnostics(client, 0)
+    end
+  end,
+})
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
@@ -119,6 +120,7 @@ require('lazy').setup('plugins', {
 -- https://github.com/jellydn/my-nvim-ide
 -- https://github.com/MariaSolOs/dotfiles/tree/main/.config/nvim
 -- https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/init.lua
+-- https://codeberg.org/MarkCodesTheWeb/nvim/src/branch/main/init.lua
 -- http://www.lazyvim.org/
 -- https://www.lunarvim.org/docs/configuration/plugins/example-configurations#troublenvim
 --
