@@ -28,6 +28,7 @@ local servers = {
     },
   },
   marksman = {},
+  -- ts_ls = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -47,7 +48,6 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSP.
     'hrsh7th/cmp-nvim-lsp', -- Allows extra capabilities provided by nvim-cmp
-    'artemave/workspace-diagnostics.nvim',
   },
   event = { 'BufReadPre', 'BufNewFile' },
   -- event = 'LazyFile',
@@ -183,12 +183,5 @@ return {
         end,
       },
     }
-
-    -- require('lspconfig').ts_ls.setup {
-    --   on_attach = function(client, bufnr)
-    --     -- require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
-    --     require('workspace-diagnostics').trigger_workspace_diagnostics(client, bufnr)
-    --   end,
-    -- }
   end,
 }

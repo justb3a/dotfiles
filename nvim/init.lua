@@ -27,7 +27,6 @@ vim.g.loaded_netrwPlugin = 1
 
 require 'mappings'
 require 'options'
-require 'autocommands'
 
 local cmd = vim.cmd
 
@@ -54,15 +53,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_set_keymap('n', '<leader>x', '', {
-  noremap = true,
-  callback = function()
-    for _, client in ipairs(vim.lsp.get_clients()) do
-      require('workspace-diagnostics').populate_workspace_diagnostics(client, 0)
-    end
   end,
 })
 
