@@ -38,7 +38,6 @@ return {
       { 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSP.
       'hrsh7th/cmp-nvim-lsp', -- Allows extra capabilities provided by nvim-cmp
     },
-    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       Lsp.on_attach(function(client, bufnr)
         if client.name == 'eslint' then

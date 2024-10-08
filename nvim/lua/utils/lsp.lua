@@ -123,6 +123,10 @@ function M.on_attach(on_attach, name)
           end,
         })
       end
+
+      if client and (not name or client.name == name) then
+        return on_attach(client, event.buf)
+      end
     end,
   })
 end
