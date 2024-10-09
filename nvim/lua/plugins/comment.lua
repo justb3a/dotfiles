@@ -1,15 +1,20 @@
 -- https://github.com/numToStr/Comment.nvim
 return {
   'numToStr/Comment.nvim',
+  dependencies = {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'nvim-treesitter/nvim-treesitter',
+  },
+  lazy = false,
   config = function()
     require('Comment').setup {
+      pre_hook = function()
+        return vim.bo.commentstring
+      end,
       mappings = {
         basic = false,
         extra = false,
       },
-      pre_hook = function()
-        return vim.bo.commentstring
-      end,
     }
 
     vim.keymap.set('n', '<leader>.', '<cmd>lua require"Comment.api".toggle.linewise.current()<cr>')
@@ -19,9 +24,4 @@ return {
     -- map('n', '<leader>.o', '<cmd>lua require"Comment.api".insert_linewise_above()<cr>')
     -- map('n', '<leader>.a', '<cmd>lua require"Comment.api".insert_linewise_eol()<cr>')
   end,
-  lazy = false,
-  dependencies = {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    'nvim-treesitter/nvim-treesitter',
-  },
 }
