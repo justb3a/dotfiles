@@ -1,4 +1,5 @@
 -- "Native" TSServer client.
+-- Consider also https://github.com/yioneko/vtsls
 return {
   'pmizio/typescript-tools.nvim',
   event = { 'BufReadPost *.ts,*.tsx,*.js,*.jsx', 'BufNewFile *.ts,*.tsx,*.js,*.jsx' },
