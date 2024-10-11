@@ -1,5 +1,6 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
+local NeoTree = require 'utils.neo-tree'
 
 return {
   {
@@ -17,17 +18,11 @@ return {
     },
     config = function()
       vim.diagnostic.config {
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '✘',
-            [vim.diagnostic.severity.WARN] = '▲',
-            [vim.diagnostic.severity.HINT] = '⚑',
-            [vim.diagnostic.severity.INFO] = '»',
-          },
-        },
+        signs = { text = NeoTree.diagnostic_signs },
       }
 
       require('neo-tree').setup {
+        commands = { copy_selector = NeoTree.copy_selector },
         sources = { 'filesystem', 'buffers', 'git_status' },
         enable_git_status = true,
         git_status_async = true,
@@ -37,11 +32,7 @@ return {
             visible = true,
             hide_dotfiles = true,
             hide_gitignored = false,
-            hide_by_name = {
-              -- '.git',
-              '.DS_Store',
-              -- 'thumbs.db',
-            },
+            hide_by_name = { '.DS_Store' },
           },
           window = {
             mappings = {
@@ -54,6 +45,7 @@ return {
             ['z'] = '',
             ['c'] = { 'copy_to_clipboard' },
             ['<space>'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
+            ['Y'] = 'copy_selector',
           },
         },
         default_component_configs = {
@@ -61,19 +53,7 @@ return {
             symbol = '[+]',
             highlight = 'NeoTreeModified',
           },
-          git_status = {
-            symbols = {
-              added = '✚', -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified = '', -- or "" or "󰚰", but this is redundant info if you use git_status_colors on the name
-              deleted = '✖', -- or "󱘄" this can only be used in the git_status source
-              renamed = '󰁕', -- this can only be used in the git_status source
-              untracked = '', -- or ''
-              ignored = '',
-              unstaged = '', -- or ""
-              staged = '', -- or ""
-              conflict = '',
-            },
-          },
+          git_status = NeoTree.git_status,
         },
       }
     end,
