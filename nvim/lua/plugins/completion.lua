@@ -5,7 +5,7 @@ return { -- Autocompletion
     {
       'L3MON4D3/LuaSnip',
       dependencies = {
-        'rafamadriz/friendly-snippets', -- a bunch of snippets to use
+        'rafamadriz/friendly-snippets',
         config = function()
           require('luasnip.loaders.from_vscode').lazy_load()
         end,
@@ -20,7 +20,6 @@ return { -- Autocompletion
     'hrsh7th/cmp-calc',
   },
   config = function()
-    -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}

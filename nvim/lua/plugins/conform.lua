@@ -1,9 +1,9 @@
+-- Autoformat
 -- consider BufWritePre for prettier in confirm
 
-return { -- Autoformat
+return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
-  -- event = { 'BufReadPre', 'BufNewFile' },
   cmd = { 'ConformInfo' },
   keys = {
     {
@@ -36,9 +36,6 @@ return { -- Autoformat
     log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
       lua = { 'stylua' },
-      -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
-      --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
@@ -47,8 +44,7 @@ return { -- Autoformat
       -- go = { 'goimports', 'gofmt' },
 
       ['*'] = { 'codespell' },
-      -- Use the "_" filetype to run formatters on filetypes that don't
-      -- have other formatters configured.
+      -- Use the "_" filetype to run formatters on filetypes that don't have other formatters configured.
       ['_'] = { 'trim_whitespace' },
     },
   },
