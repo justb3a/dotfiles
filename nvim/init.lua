@@ -18,10 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup('plugins', { ui = { icons = {} } })
 
 --[[
+  Plugins are stored in: ~/.local/share/nvim/lazy
 
-    Lua guide: https://learnxinyminutes.com/docs/lua/
-    - :help lua-guide
-    - (or HTML version): https://neovim.io/doc/user/lua-guide.html
+  Lua guide: https://learnxinyminutes.com/docs/lua/
+  - :help lua-guide
+  - (or HTML version): https://neovim.io/doc/user/lua-guide.html
 
   Run AND READ `:help`.
     This will open up a help window with some basic information

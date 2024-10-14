@@ -3,9 +3,6 @@
 
 return {
   'vim-test/vim-test',
-  dependencies = {
-    'preservim/vimux',
-  },
   config = function()
     vim.keymap.set('n', '<leader>t', ':TestNearest<CR>', {})
     vim.keymap.set('n', '<leader>T', ':TestFile<CR>', {})
@@ -13,8 +10,7 @@ return {
     vim.keymap.set('n', '<leader>l', ':TestLast<CR>', {})
     vim.keymap.set('n', '<leader>g', ':TestVisit<CR>', {})
 
-    -- 'vimterminal'
-    vim.g['test#strategy'] = 'vimux'
+    vim.g['test#strategy'] = 'neovim'
     vim.g['test#javascript#runner'] = 'vitest'
     vim.g['test#typescript#runner'] = 'vitest'
   end,
