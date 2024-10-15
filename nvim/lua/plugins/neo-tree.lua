@@ -46,6 +46,8 @@ return {
             ['c'] = { 'copy_to_clipboard' },
             ['<space>'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
             ['Y'] = 'copy_selector',
+            ['/'] = '/',
+            ['//'] = 'fuzzy_finder',
           },
         },
         default_component_configs = {
