@@ -35,12 +35,14 @@ return {
     end,
     log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
-      lua = { 'stylua' },
       -- You can use 'stop_after_first' to run the first available formatter from the list
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+
+      lua = { 'stylua' },
+      graphql = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'fixjson' },
       -- go = { 'goimports', 'gofmt' },
 
