@@ -43,6 +43,7 @@ require('lazy').setup('plugins', { ui = { icons = {} } })
     https://github.com/s1n7ax/dotnvim/tree/main/lua/nvim
     https://github.com/nicknisi/dotfiles/tree/main/config/nvim/lua/nisi
     https://github.com/ViViDboarder/vim-settings/blob/master/neovim/lua/init.lua
+    https://github.com/Demianeen/neovim
     https://codeberg.org/MarkCodesTheWeb/nvim/src/branch/main/init.lua
     http://www.lazyvim.org/
     https://www.lunarvim.org/docs/configuration/plugins/example-configurations#troublenvim

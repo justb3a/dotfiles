@@ -30,23 +30,64 @@ local servers = {
     },
     validate = true,
   },
-  ts_ls = {
-    single_file_support = false,
+  -- ts_ls = {
+  --   single_file_support = false,
+  --   settings = {
+  --     typescript = {
+  --       inlayHints = {
+  --         includeInlayParameterNameHints = 'all',
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayVariableTypeHints = true,
+  --         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayEnumMemberValueHints = true,
+  --       },
+  --     },
+  --     completions = {
+  --       completeFunctionCalls = true,
+  --     },
+  --   },
+  -- },
+  vtsls = {
+    on_attach = function(client, bufnr)
+      require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
+    end,
     settings = {
       typescript = {
+        suggest = { completeFunctionCalls = true },
         inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = 'literals' },
+          variableTypes = { enabled = true },
+        },
+        -- tsserver = {
+        --   experimental = {
+        --     Unfortunately this does weird things
+        --     enableProjectDiagnostics = true,
+        --   },
+        -- },
+      },
+      javascript = {
+        suggest = { completeFunctionCalls = true },
+        inlayHints = {
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = 'literals' },
+          variableTypes = { enabled = true },
         },
       },
-      completions = {
-        completeFunctionCalls = true,
+      vtsls = {
+        -- Automatically use workspace version of TypeScript lib on startup.
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          -- Inlay hint truncation.
+          -- maxInlayHintLength = 30,
+          -- For completion performance.
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
       },
     },
   },
@@ -70,7 +111,11 @@ function M.on_attach(on_attach, name)
       vim.keymap.set('n', 'tt', vim.lsp.buf.hover, { buffer = event.buf, desc = 'LSP: Display hover information about the symbol' })
       vim.keymap.set('n', 'tn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename the variable under your cursor' })
       vim.keymap.set('n', 'ti', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'LSP: Execute a code action' })
-      vim.keymap.set({ 'n', 'x' }, 'td', vim.lsp.buf.definition, { buffer = event.buf, desc = 'LSP: Jump to the definition' })
+
+      vim.keymap.set('n', 'ta', require('vtsls').commands.add_missing_imports, { buffer = event.buf, desc = 'LSP: Import all' })
+      vim.keymap.set('n', 'tc', require('vtsls').commands.remove_unused_imports, { buffer = event.buf, desc = 'LSP: Remove unused imports' })
+      vim.keymap.set('n', 'tf', require('vtsls').commands.fix_all, { buffer = event.buf, desc = 'LSP: Fix all' })
+      vim.keymap.set('n', 'ts', require('vtsls').commands.organize_imports, { buffer = event.buf, desc = 'LSP: Organize imports' })
 
       vim.keymap.set({ 'n', 'x' }, 'td', vim.lsp.buf.definition, { buffer = event.buf, desc = 'LSP: Jump to the definition' })
       -- vim.keymap.set({ 'n', 'x' }, 'td', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
@@ -125,6 +170,14 @@ function M.on_attach(on_attach, name)
       end
 
       if client and (not name or client.name == name) then
+        -- if client.name == 'vtsls' then
+        --   vim.api.nvim_create_autocmd('BufWritePre', {
+        --     buffer = event.buf,
+        --     command = 'VtsExec organize_imports',
+        --     command = "lua vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })",
+        --   })
+        -- end
+
         return on_attach(client, event.buf)
       end
     end,

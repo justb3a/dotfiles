@@ -6,6 +6,16 @@
 local Lsp = require 'utils.lsp'
 
 return {
+  { 'artemave/workspace-diagnostics.nvim' },
+  {
+    'yioneko/nvim-vtsls',
+    event = { 'BufReadPre', 'BufNewFile' },
+    ft = { 'typescript', 'typescriptreact' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig',
+    },
+  },
   {
     -- NOTE: Must be loaded before dependants
     'williamboman/mason.nvim',
@@ -39,6 +49,8 @@ return {
       'hrsh7th/cmp-nvim-lsp', -- Allows extra capabilities provided by nvim-cmp
     },
     config = function()
+      require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+
       Lsp.on_attach(function(client, bufnr)
         if client.name == 'eslint' then
           vim.api.nvim_create_autocmd('BufWritePre', {
@@ -64,6 +76,10 @@ return {
             local server = Lsp.servers[server_name] or {}
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
+          end,
+
+          ['ts_ls'] = function()
+            -- Skip since we use vtsls
           end,
         },
       }
