@@ -23,6 +23,15 @@ return {
 
       require('neo-tree').setup {
         commands = { copy_selector = NeoTree.copy_selector },
+        -- event_handlers = {
+        --   {
+        --     -- buggy atm, see
+        --     event = 'neo_tree_buffer_enter',
+        --     handler = function()
+        --       vim.opt_local.relativenumber = true
+        --     end,
+        --   },
+        -- },
         sources = { 'filesystem', 'buffers', 'git_status' },
         enable_git_status = true,
         git_status_async = true,
@@ -30,9 +39,8 @@ return {
         filesystem = {
           filtered_items = {
             visible = true,
-            hide_dotfiles = true,
+            hide_dotfiles = false,
             hide_gitignored = false,
-            hide_by_name = { '.DS_Store' },
           },
           window = {
             mappings = {
