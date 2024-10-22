@@ -41,9 +41,12 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
 
+      css = { 'prettierd', 'prettier', stop_after_first = true },
+
       lua = { 'stylua' },
       graphql = { 'prettierd', 'prettier', stop_after_first = true },
-      json = { 'fixjson' },
+      json = { 'prettierd', 'prettier', 'fixjson' },
+      jsonc = { 'prettierd', 'prettier', 'fixjson', stop_after_first = true },
       -- go = { 'goimports', 'gofmt' },
 
       ['*'] = { 'codespell' },
