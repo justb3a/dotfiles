@@ -28,25 +28,28 @@ return {
       else
         lsp_format_opt = 'fallback'
       end
+
       return {
-        timeout_ms = 500,
+        timeout_ms = 2500,
         lsp_format = lsp_format_opt,
       }
     end,
     log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      -- Prever prettier because of https://github.com/fsouza/prettierd/issues/352
+      typescript = { 'prettier', 'prettierd', stop_after_first = true },
+      typescriptreact = { 'prettier', 'prettierd', stop_after_first = true },
+      javascript = { 'prettier', 'prettierd', stop_after_first = true },
+      javascriptreact = { 'prettier', 'prettierd', stop_after_first = true },
 
-      css = { 'prettierd', 'prettier', stop_after_first = true },
+      css = { 'prettier', 'prettierd', stop_after_first = true },
 
       lua = { 'stylua' },
       graphql = { 'prettierd', 'prettier', stop_after_first = true },
-      json = { 'prettierd', 'prettier', 'fixjson' },
-      jsonc = { 'prettierd', 'prettier', 'fixjson', stop_after_first = true },
+      -- order is important here, prettier need to be run after fixjson
+      json = { 'fixjson', 'prettier', 'prettierd' },
+      jsonc = { 'fixjson', 'prettier', 'prettierd' },
       -- go = { 'goimports', 'gofmt' },
 
       ['*'] = { 'codespell' },
