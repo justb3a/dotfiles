@@ -39,8 +39,8 @@ alias desktopshow='defaults write com.apple.finder CreateDesktop -bool true;kill
 alias r='bundle exec ruby'
 
 # listing
-alias ls='exa -lF'
-alias l='exa -lF'
+alias ls='eza -lF'
+alias l='eza -lF'
 
 # Gitty gitgit
 alias g="git"
