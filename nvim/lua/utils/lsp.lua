@@ -18,17 +18,17 @@ local servers = {
   },
   marksman = {},
   tailwindcss = {
-    classAttributes = { 'class', 'className', '.*Classes', 'classList', '.*Classes: .*' },
-    lint = {
-      cssConflict = 'warning',
-      invalidApply = 'error',
-      invalidConfigPath = 'error',
-      invalidScreen = 'error',
-      invalidTailwindDirective = 'error',
-      invalidVariant = 'error',
-      recommendedVariantOrder = 'warning',
-    },
-    validate = true,
+    -- classAttributes = { 'class', 'className', '.*Classes', 'classList', '.*Classes: .*' },
+    -- lint = {
+    --   cssConflict = 'warning',
+    --   invalidApply = 'error',
+    --   invalidConfigPath = 'error',
+    --   invalidScreen = 'error',
+    --   invalidTailwindDirective = 'error',
+    --   invalidVariant = 'error',
+    --   recommendedVariantOrder = 'warning',
+    -- },
+    -- validate = true,
   },
   -- ts_ls = {
   --   single_file_support = false,
@@ -63,8 +63,9 @@ local servers = {
           variableTypes = { enabled = true },
         },
         -- tsserver = {
+        --   useSeparateSyntaxServer = true,
         --   experimental = {
-        --     Unfortunately this does weird things
+        --     -- Unfortunately this does weird things
         --     enableProjectDiagnostics = true,
         --   },
         -- },
@@ -79,6 +80,7 @@ local servers = {
       },
       vtsls = {
         -- Automatically use workspace version of TypeScript lib on startup.
+        -- enableMoveToFileCodeAction = true,
         autoUseWorkspaceTsdk = true,
         experimental = {
           -- Inlay hint truncation.
