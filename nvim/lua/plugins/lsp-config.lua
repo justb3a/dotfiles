@@ -55,7 +55,6 @@ return {
         if client.name == 'eslint' then
           vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
-            -- command = 'EslintFixAll',
             command = 'lua vim.lsp.buf.format()',
           })
         end
