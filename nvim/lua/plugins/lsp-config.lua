@@ -19,14 +19,32 @@ return {
   },
   {
     'williamboman/mason.nvim',
-    --     config = function()
-    --       require('mason').setup()
-    --     end,
-    opts = {
-      ensure_installed = {
-        'vtsls', -- Vanilla TypeScript Language Server
-      },
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+      'neovim/nvim-lspconfig',
     },
+    config = function()
+      require('mason').setup {
+        ensure_installed = { 'stylua', 'prettier' },
+      }
+      require('mason-lspconfig').setup {
+        ensure_installed = {
+          -- 'ts_ls',
+          'vtsls',
+          'tailwindcss',
+          'html',
+          'cssls',
+          'jsonls',
+          'lua_ls',
+          'eslint_d',
+        },
+        automatic_enable = {
+          exclude = {
+            'ts_ls',
+          },
+        },
+      }
+    end,
   },
   --   {
   --     -- Install or upgrade all of your third-party tools.
@@ -98,7 +116,6 @@ return {
       }
       lspconfig.marksman.setup {}
       lspconfig.tailwindcss.setup {}
-      -- require('lspconfig').ts_ls.setup {}
 
       lspconfig.vtsls.setup {
         on_attach = function(client, bufnr)
