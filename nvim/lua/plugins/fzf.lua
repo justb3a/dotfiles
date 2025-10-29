@@ -61,7 +61,33 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>a', builtin.live_grep, { desc = 'Like [a]g, search by grep' })
+
+    vim.keymap.set('n', '<leader>a', function()
+      builtin.live_grep {
+        additional_args = function(opts)
+          return {
+            '--glob',
+            '!*.test.*',
+            '--glob',
+            '!*.stories.*',
+          }
+        end,
+      }
+    end, { desc = 'Like [a]g, search by grep excluding .test. and .stories.' })
+    vim.keymap.set('n', '<leader>at', function()
+      builtin.live_grep {
+        additional_args = function(opts)
+          return {
+            '--glob',
+            '*.test.*',
+            '--glob',
+            '*.stories.*',
+          }
+        end,
+      }
+    end, { desc = 'Like [a]g, search by grep including only .test. and .stories.' })
+    vim.keymap.set('n', '<leader>aa', builtin.live_grep, { desc = 'Like [a]g, search by grep' })
+
     vim.keymap.set('n', '<leader>;', builtin.find_files, { desc = 'Search Files' })
     vim.keymap.set('n', '<leader>r', builtin.resume, { desc = 'Search [r]esume' })
     vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing [b]uffers' })
