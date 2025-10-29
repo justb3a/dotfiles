@@ -48,4 +48,21 @@ require('lazy').setup('plugins', { ui = { icons = {} } })
     http://www.lazyvim.org/
     https://www.lunarvim.org/docs/configuration/plugins/example-configurations#troublenvim
 
+  About LSP setup:
+    https://devpad.net/blog/upgrading-nvim-v010-to-v011
+    https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/
+    https://github.com/nikolovlazar/dotfiles/blob/main/.config/nvim/lua/plugins/languages/typescript.lua
+    https://github.com/Jack-Gitter/dotfiles/blob/main/nvim/lua/plugins/lspmanager.lua
+    https://github.com/gpanders/dotfiles/tree/master/.config/nvim/lsp
+    https://github.com/nicknisi/dotfiles/blob/main/config/nvim/lua/nisi/plugins/lsp/config.lua
+    https://github.com/rockyzhang24/dotfiles/tree/master/.config/nvim/lsp
+    https://www.lazyvim.org/extras/lang/typescript
+    https://gitlab.com/gomezantoine/dotfiles/-/blob/vtsls_debug/.config/nvim/lua/antoine/lsp/init.lua?ref_type=heads
+    https://github.com/craftzdog/dotfiles-public/blob/master/.config/nvim/lua/plugins/lsp.lua
+    https://github.com/rafi/vim-config/blob/master/lua/rafi/plugins/lsp.lua
+    https://github.com/ecosse3/nvim/blob/master/lua/plugins/lsp.lua
+    https://github.com/kevinfengcs88/dotfiles/blob/master/.config/nvim/lua/plugins/lsp.lua
+    https://github.com/MariaSolOs/dotfiles/blob/main/.config/nvim/lua/lsp.lua
+    https://github.com/kikedose/dotfiles/blob/main/.config/nvim/lua/nconf/lazy/lsp.lua
+    https://github.com/tjdevries/advent-of-nvim/blob/master/nvim/lua/config/plugins/lsp.lua
 --]]
