@@ -36,6 +36,15 @@ function M.on_attach(on_attach, name)
       -- vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { buffer = event.buf, desc = 'LSP: Fuzzy find all symbols in your current document' })
       -- vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = 'LSP: Fuzzy find all symbols in your current workspace' })
 
+      -- vim.api.nvim_set_keymap('n', '<space>x', '', {
+      --   noremap = true,
+      --   callback = function()
+      --     for _, client in ipairs(vim.lsp.get_clients()) do
+      --       require('workspace-diagnostics').populate_workspace_diagnostics(client, 0)
+      --     end
+      --   end,
+      -- })
+
       local client = vim.lsp.get_client_by_id(event.data.client_id)
 
       -- Toggle inlay hints in your code, if the language server you are using supports them

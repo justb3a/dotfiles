@@ -36,7 +36,6 @@ return {
           'cssls',
           'jsonls',
           'lua_ls',
-          'eslint_d',
         },
         automatic_enable = {
           exclude = {
@@ -95,15 +94,6 @@ return {
         settings = { css = { validate = false }, scss = { validate = false }, sass = { validate = false } },
       }
 
-      lspconfig.eslint.setup {
-        -- on_attach = function(client, bufnr)
-        --   vim.api.nvim_create_autocmd('BufWritePre', {
-        --     buffer = bufnr,
-        --     command = 'EslintFixAll',
-        --   })
-        -- end,
-      }
-
       lspconfig.html.setup {}
       lspconfig.jsonls.setup {}
       lspconfig.lua_ls.setup {
@@ -115,16 +105,32 @@ return {
         },
       }
       lspconfig.marksman.setup {}
-      lspconfig.tailwindcss.setup {}
+
+      -- lspconfig.tailwindcss.setup {}
+      -- https://github.com/tailwindlabs/tailwindcss-intellisense#extension-settings
+      lspconfig.tailwindcss.setup {
+        settings = {
+          tailwindCSS = {
+            validate = true,
+            classAttributes = {
+              'class',
+              'className',
+              '.*Classes',
+              '.*Classes: .*',
+            },
+          },
+        },
+      }
 
       lspconfig.vtsls.setup {
         on_attach = function(client, bufnr)
+          -- NOTE check performance
           require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
 
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'lua vim.lsp.buf.format()',
-          })
+          -- vim.api.nvim_create_autocmd('BufWritePre', {
+          --   buffer = bufnr,
+          --   command = 'lua vim.lsp.buf.format()',
+          -- })
         end,
 
         settings = {
@@ -141,6 +147,11 @@ return {
             },
           },
           typescript = {
+            references = {
+              includeCompletionsForModuleExports = true,
+              includeCompletionsWithInsertText = true,
+              importModuleSpecifierPreference = 'non-relative', -- optional
+            },
             inlayHints = {
               parameterNames = { enabled = 'all' },
               parameterTypes = { enabled = true },
@@ -159,6 +170,11 @@ return {
           --   },
           -- },
           javascript = {
+            references = {
+              includeCompletionsForModuleExports = true,
+              includeCompletionsWithInsertText = true,
+              importModuleSpecifierPreference = 'non-relative', -- optional
+            },
             inlayHints = {
               parameterNames = { enabled = 'all' },
               parameterTypes = { enabled = true },
@@ -167,6 +183,16 @@ return {
         },
 
         root_dir = lspconfig.util.root_pattern('tsconfig.json', 'package.json', '.git'),
+      }
+
+      -- Attach eslint AFTER vtsls to get code actions from eslint after vtsls
+      lspconfig.eslint.setup {
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = bufnr,
+            command = 'EslintFixAll',
+          })
+        end,
       }
 
       lspconfig.yamlls.setup {}
