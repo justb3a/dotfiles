@@ -1,38 +1,93 @@
--- see also: https://github.com/marilari88/neotest-vitest
--- see also: neotest http://www.lazyvim.org/extras/test/core
-
 return {
-  'vim-test/vim-test',
-  dependencies = { 'preservim/vimux' },
+  'nvim-neotest/neotest',
+  dependencies = {
+    'nvim-neotest/nvim-nio',
+    'nvim-lua/plenary.nvim',
+    'antoinemadec/FixCursorHold.nvim',
+    'nvim-treesitter/nvim-treesitter',
+    -- Choose the adapter for your test framework
+    'marilari88/neotest-vitest', -- for Vitest
+  },
+  keys = {
+    {
+      '<leader>t',
+      function()
+        local neotest = require 'neotest'
+        neotest.run.run(vim.fn.expand '%')
+        neotest.summary.open()
+      end,
+      desc = 'Run tests in current file',
+    },
+    {
+      '<leader>tw',
+      function()
+        local neotest = require 'neotest'
+        neotest.summary.open()
+        neotest.watch.watch(vim.fn.expand '%') -- Watch the whole file
+        -- neotest.watch.toggle(vim.fn.expand '%')
+      end,
+      desc = 'Watch current file',
+    },
+    {
+      '<leader>tq',
+      function()
+        local neotest = require 'neotest'
+        neotest.watch.stop(vim.fn.expand '%')
+        neotest.summary.close()
+      end,
+      desc = 'Stop watch file',
+    },
+    {
+      '<leader>to',
+      function()
+        -- require('neotest').output.open { enter = true }
+        require('neotest').output_panel.toggle()
+      end,
+      desc = 'Open test output',
+    },
+    {
+      '<leader>ts',
+      function()
+        require('neotest').summary.toggle()
+      end,
+      desc = 'Toggle test summary',
+    },
+  },
   config = function()
-    vim.keymap.set('n', '<leader>t', ':TestFile<CR>', {})
-    vim.keymap.set('n', '<leader>T', ':TestNearest<CR>', {})
-    vim.keymap.set('n', '<leader>a', ':TestSuite<CR>', {})
-    vim.keymap.set('n', '<leader>l', ':TestLast<CR>', {})
-    vim.keymap.set('n', '<leader>g', ':TestVisit<CR>', {})
+    local neotest = require 'neotest'
 
-    vim.g['test#javascript#runner'] = 'vitest'
-    vim.g['test#typescript#runner'] = 'vitest'
-
-    -- vim.g['test#strategy'] = 'vimux'
-    -- vim.g['test#strategy'] = 'neovim'
-    vim.g['test#strategy'] = 'neovim_sticky'
-
-    -- Reopen split if not visible
-    vim.g['test#neovim_sticky#reopen_window'] = 1
-
-    -- Try to abort previous run
-    vim.g['test#neovim_sticky#kill_previous'] = 1
-
-    -- Have the terminal open in normal mode, so it does not close on key press
-    vim.g['test#neovim_sticky#start_normal'] = 1
-
-    -- clear screen from previous run
-    vim.g['test#preserve_screen'] = 0
-    -- vim.cmd 'let g:test#preserve_screen = 0'
-
-    -- do not output test command
-    vim.g['test#echo_command'] = 0
-    -- vim.cmd 'let g:test#echo_command = 0'
+    neotest.setup {
+      adapters = {
+        require 'neotest-vitest' {
+          -- You can customize how it finds your Vitest config here
+          vitestCommand = './node_modules/.bin/vitest',
+          -- vitestCommand = 'npx vitest',
+          filter_dir = function(name, rel_path, root)
+            return name ~= 'node_modules'
+          end,
+        },
+      },
+      -- See all config options with :h neotest.Config
+      -- output = {
+      --   open_on_run = true,
+      -- },
+      discovery = {
+        -- Drastically improve performance in ginormous projects by
+        -- only AST-parsing the currently opened buffer.
+        enabled = false,
+        -- Number of workers to parse files concurrently.
+        -- A value of 0 automatically assigns number based on CPU.
+        -- Set to 1 if experiencing lag.
+        concurrent = 1,
+      },
+      running = {
+        -- Run tests concurrently when an adapter provides multiple commands to run.
+        concurrent = true,
+      },
+      summary = {
+        -- Enable/disable animation of icons.
+        animated = false,
+      },
+    }
   end,
 }
